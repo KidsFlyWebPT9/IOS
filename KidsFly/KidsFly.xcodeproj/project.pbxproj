@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9282E61B2408C58100FCC978 /* TravelerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282E61A2408C58100FCC978 /* TravelerController.swift */; };
 		D65ABFE41958DFB15C2D1E0F /* Pods_KidsFly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 447F16C060742B2B03488C8B /* Pods_KidsFly.framework */; };
 		E60B164C2408AFCA002193AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B164B2408AFCA002193AD /* AppDelegate.swift */; };
 		E60B164E2408AFCA002193AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B164D2408AFCA002193AD /* SceneDelegate.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		447F16C060742B2B03488C8B /* Pods_KidsFly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KidsFly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A548DB826006A11BFA8B2AB /* Pods-KidsFly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KidsFly.release.xcconfig"; path = "Target Support Files/Pods-KidsFly/Pods-KidsFly.release.xcconfig"; sourceTree = "<group>"; };
+		9282E61A2408C58100FCC978 /* TravelerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelerController.swift; sourceTree = "<group>"; };
 		A57DBEF0962E3C76FDCA991F /* Pods-KidsFly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KidsFly.debug.xcconfig"; path = "Target Support Files/Pods-KidsFly/Pods-KidsFly.debug.xcconfig"; sourceTree = "<group>"; };
 		E60B16482408AFCA002193AD /* KidsFly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KidsFly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E60B164B2408AFCA002193AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				E60B16742408B5EC002193AD /* APIController.swift */,
+				9282E61A2408C58100FCC978 /* TravelerController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				E60B16662408B18E002193AD /* Utilities.swift in Sources */,
 				E60B16732408B4DC002193AD /* KFBodyLabel.swift in Sources */,
 				E60B167C2408C190002193AD /* SignUpViewController.swift in Sources */,
+				9282E61B2408C58100FCC978 /* TravelerController.swift in Sources */,
 				E60B164E2408AFCA002193AD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
