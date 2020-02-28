@@ -1,0 +1,6 @@
+framework module Pods_KidsFly {
+  umbrella header "Pods-KidsFly-umbrella.h"
+
+  export *
+  module * { export * }
+}

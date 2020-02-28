@@ -21,7 +21,6 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
 //        self.viewWillAppear(animated)
         self.presentKFAlertOnMainThread(title: "Alert", message: KFError.emptyEmailAndPasswordSignUp.rawValue, buttonTitle: "Ok")
-        
         setupViews()
     }
     
