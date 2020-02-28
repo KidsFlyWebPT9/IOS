@@ -22,7 +22,7 @@ class TravelerController {
         
         let newUser = NewUser(email: email, password: password)
         
-        let registerNewUserURL = baseURL.appendingPathComponent("localhost:5000/api/auth/register")
+        let registerNewUserURL = baseURL.appendingPathComponent("localhost:5000/api/auth/register") // Straight from Joshua will need to be changed
         
         var request = URLRequest(url: registerNewUserURL)
         request.httpMethod = HTTPMethod.post
