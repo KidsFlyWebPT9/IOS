@@ -1,0 +1,505 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D65ABFE41958DFB15C2D1E0F /* Pods_KidsFly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 447F16C060742B2B03488C8B /* Pods_KidsFly.framework */; };
+		E60B164C2408AFCA002193AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B164B2408AFCA002193AD /* AppDelegate.swift */; };
+		E60B164E2408AFCA002193AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B164D2408AFCA002193AD /* SceneDelegate.swift */; };
+		E60B16502408AFCA002193AD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B164F2408AFCA002193AD /* HomeViewController.swift */; };
+		E60B16532408AFCA002193AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E60B16512408AFCA002193AD /* Main.storyboard */; };
+		E60B16552408AFCB002193AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E60B16542408AFCB002193AD /* Assets.xcassets */; };
+		E60B16582408AFCB002193AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E60B16562408AFCB002193AD /* LaunchScreen.storyboard */; };
+		E60B16662408B18E002193AD /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B16652408B18E002193AD /* Utilities.swift */; };
+		E60B16682408B1AA002193AD /* NetworkDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B16672408B1AA002193AD /* NetworkDataLoader.swift */; };
+		E60B166A2408B1C6002193AD /* KFErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B16692408B1C6002193AD /* KFErrorMessage.swift */; };
+		E60B166D2408B4AA002193AD /* KFAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B166C2408B4AA002193AD /* KFAlertVC.swift */; };
+		E60B166F2408B4B9002193AD /* KFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B166E2408B4B9002193AD /* KFButton.swift */; };
+		E60B16712408B4C9002193AD /* KFTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B16702408B4C9002193AD /* KFTitleLabel.swift */; };
+		E60B16732408B4DC002193AD /* KFBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B16722408B4DC002193AD /* KFBodyLabel.swift */; };
+		E60B16752408B5EC002193AD /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B16742408B5EC002193AD /* APIController.swift */; };
+		E60B16782408B6D1002193AD /* UIViewControllerExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B16772408B6D1002193AD /* UIViewControllerExtention.swift */; };
+		E60B167A2408BD68002193AD /* photo-1497581170673-3d7d98e9a075.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E60B16792408BD68002193AD /* photo-1497581170673-3d7d98e9a075.jpeg */; };
+		E60B167C2408C190002193AD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B167B2408C190002193AD /* SignUpViewController.swift */; };
+		E60B167E2408C1B0002193AD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B167D2408C1B0002193AD /* SignInViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		447F16C060742B2B03488C8B /* Pods_KidsFly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KidsFly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A548DB826006A11BFA8B2AB /* Pods-KidsFly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KidsFly.release.xcconfig"; path = "Target Support Files/Pods-KidsFly/Pods-KidsFly.release.xcconfig"; sourceTree = "<group>"; };
+		A57DBEF0962E3C76FDCA991F /* Pods-KidsFly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KidsFly.debug.xcconfig"; path = "Target Support Files/Pods-KidsFly/Pods-KidsFly.debug.xcconfig"; sourceTree = "<group>"; };
+		E60B16482408AFCA002193AD /* KidsFly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KidsFly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E60B164B2408AFCA002193AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E60B164D2408AFCA002193AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E60B164F2408AFCA002193AD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E60B16522408AFCA002193AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E60B16542408AFCB002193AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E60B16572408AFCB002193AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E60B16592408AFCB002193AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E60B16652408B18E002193AD /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		E60B16672408B1AA002193AD /* NetworkDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataLoader.swift; sourceTree = "<group>"; };
+		E60B16692408B1C6002193AD /* KFErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFErrorMessage.swift; sourceTree = "<group>"; };
+		E60B166C2408B4AA002193AD /* KFAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFAlertVC.swift; sourceTree = "<group>"; };
+		E60B166E2408B4B9002193AD /* KFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFButton.swift; sourceTree = "<group>"; };
+		E60B16702408B4C9002193AD /* KFTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFTitleLabel.swift; sourceTree = "<group>"; };
+		E60B16722408B4DC002193AD /* KFBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFBodyLabel.swift; sourceTree = "<group>"; };
+		E60B16742408B5EC002193AD /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		E60B16772408B6D1002193AD /* UIViewControllerExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtention.swift; sourceTree = "<group>"; };
+		E60B16792408BD68002193AD /* photo-1497581170673-3d7d98e9a075.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "photo-1497581170673-3d7d98e9a075.jpeg"; path = "../../../../../../../../Documents/photo-1497581170673-3d7d98e9a075.jpeg"; sourceTree = "<group>"; };
+		E60B167B2408C190002193AD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		E60B167D2408C1B0002193AD /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E60B16452408AFCA002193AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D65ABFE41958DFB15C2D1E0F /* Pods_KidsFly.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1D08F98D11D9CAC8564668B9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A57DBEF0962E3C76FDCA991F /* Pods-KidsFly.debug.xcconfig */,
+				8A548DB826006A11BFA8B2AB /* Pods-KidsFly.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		90A85D436D5BFCF9184FC8B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				447F16C060742B2B03488C8B /* Pods_KidsFly.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E60B163F2408AFCA002193AD = {
+			isa = PBXGroup;
+			children = (
+				E60B164A2408AFCA002193AD /* KidsFly */,
+				E60B16492408AFCA002193AD /* Products */,
+				1D08F98D11D9CAC8564668B9 /* Pods */,
+				90A85D436D5BFCF9184FC8B7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E60B16492408AFCA002193AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E60B16482408AFCA002193AD /* KidsFly.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E60B164A2408AFCA002193AD /* KidsFly */ = {
+			isa = PBXGroup;
+			children = (
+				E60B165F2408B04E002193AD /* Model */,
+				E60B16762408B690002193AD /* Extentions */,
+				E60B16602408B055002193AD /* Model Controllers */,
+				E60B16612408B068002193AD /* View Controllers */,
+				E60B16642408B177002193AD /* Helper */,
+				E60B166B2408B47D002193AD /* CustomViews */,
+				E60B16622408B072002193AD /* Storyboards */,
+				E60B16632408B07E002193AD /* Resources */,
+				E60B16592408AFCB002193AD /* Info.plist */,
+			);
+			path = KidsFly;
+			sourceTree = "<group>";
+		};
+		E60B165F2408B04E002193AD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E60B16602408B055002193AD /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E60B16742408B5EC002193AD /* APIController.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		E60B16612408B068002193AD /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E60B164F2408AFCA002193AD /* HomeViewController.swift */,
+				E60B167B2408C190002193AD /* SignUpViewController.swift */,
+				E60B167D2408C1B0002193AD /* SignInViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		E60B16622408B072002193AD /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E60B16512408AFCA002193AD /* Main.storyboard */,
+				E60B16562408AFCB002193AD /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E60B16632408B07E002193AD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E60B16792408BD68002193AD /* photo-1497581170673-3d7d98e9a075.jpeg */,
+				E60B164B2408AFCA002193AD /* AppDelegate.swift */,
+				E60B164D2408AFCA002193AD /* SceneDelegate.swift */,
+				E60B16542408AFCB002193AD /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E60B16642408B177002193AD /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E60B16652408B18E002193AD /* Utilities.swift */,
+				E60B16672408B1AA002193AD /* NetworkDataLoader.swift */,
+				E60B16692408B1C6002193AD /* KFErrorMessage.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		E60B166B2408B47D002193AD /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				E60B166C2408B4AA002193AD /* KFAlertVC.swift */,
+				E60B166E2408B4B9002193AD /* KFButton.swift */,
+				E60B16702408B4C9002193AD /* KFTitleLabel.swift */,
+				E60B16722408B4DC002193AD /* KFBodyLabel.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		E60B16762408B690002193AD /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				E60B16772408B6D1002193AD /* UIViewControllerExtention.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E60B16472408AFCA002193AD /* KidsFly */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E60B165C2408AFCB002193AD /* Build configuration list for PBXNativeTarget "KidsFly" */;
+			buildPhases = (
+				000E776D54FC75A20A643ED6 /* [CP] Check Pods Manifest.lock */,
+				E60B16442408AFCA002193AD /* Sources */,
+				E60B16452408AFCA002193AD /* Frameworks */,
+				E60B16462408AFCA002193AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KidsFly;
+			productName = KidsFly;
+			productReference = E60B16482408AFCA002193AD /* KidsFly.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E60B16402408AFCA002193AD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Enayatullah Naseri";
+				TargetAttributes = {
+					E60B16472408AFCA002193AD = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = E60B16432408AFCA002193AD /* Build configuration list for PBXProject "KidsFly" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E60B163F2408AFCA002193AD;
+			productRefGroup = E60B16492408AFCA002193AD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E60B16472408AFCA002193AD /* KidsFly */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E60B16462408AFCA002193AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E60B16582408AFCB002193AD /* LaunchScreen.storyboard in Resources */,
+				E60B16552408AFCB002193AD /* Assets.xcassets in Resources */,
+				E60B167A2408BD68002193AD /* photo-1497581170673-3d7d98e9a075.jpeg in Resources */,
+				E60B16532408AFCA002193AD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		000E776D54FC75A20A643ED6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KidsFly-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E60B16442408AFCA002193AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E60B167E2408C1B0002193AD /* SignInViewController.swift in Sources */,
+				E60B16752408B5EC002193AD /* APIController.swift in Sources */,
+				E60B16682408B1AA002193AD /* NetworkDataLoader.swift in Sources */,
+				E60B16502408AFCA002193AD /* HomeViewController.swift in Sources */,
+				E60B166A2408B1C6002193AD /* KFErrorMessage.swift in Sources */,
+				E60B166F2408B4B9002193AD /* KFButton.swift in Sources */,
+				E60B16782408B6D1002193AD /* UIViewControllerExtention.swift in Sources */,
+				E60B164C2408AFCA002193AD /* AppDelegate.swift in Sources */,
+				E60B166D2408B4AA002193AD /* KFAlertVC.swift in Sources */,
+				E60B16712408B4C9002193AD /* KFTitleLabel.swift in Sources */,
+				E60B16662408B18E002193AD /* Utilities.swift in Sources */,
+				E60B16732408B4DC002193AD /* KFBodyLabel.swift in Sources */,
+				E60B167C2408C190002193AD /* SignUpViewController.swift in Sources */,
+				E60B164E2408AFCA002193AD /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E60B16512408AFCA002193AD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E60B16522408AFCA002193AD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E60B16562408AFCB002193AD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E60B16572408AFCB002193AD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E60B165A2408AFCB002193AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E60B165B2408AFCB002193AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E60B165D2408AFCB002193AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A57DBEF0962E3C76FDCA991F /* Pods-KidsFly.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = KidsFly/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = enayatullah.KidsFly;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E60B165E2408AFCB002193AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A548DB826006A11BFA8B2AB /* Pods-KidsFly.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = KidsFly/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = enayatullah.KidsFly;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E60B16432408AFCA002193AD /* Build configuration list for PBXProject "KidsFly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E60B165A2408AFCB002193AD /* Debug */,
+				E60B165B2408AFCB002193AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E60B165C2408AFCB002193AD /* Build configuration list for PBXNativeTarget "KidsFly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E60B165D2408AFCB002193AD /* Debug */,
+				E60B165E2408AFCB002193AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E60B16402408AFCA002193AD /* Project object */;
+}

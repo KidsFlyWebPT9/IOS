@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BgW-Ax-Ogn">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="KidsFly" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KidsFly" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQR-TF-3qc">
+                                <rect key="frame" x="40" y="128" width="334" height="51"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="50"/>
+                                <color key="textColor" red="0.18823529410000001" green="0.69411764710000001" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BPs-d6-IRV">
+                                <rect key="frame" x="40" y="666" width="334" height="116"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="74y-me-bIh">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="54"/>
+                                        <state key="normal" title="Sign Up"/>
+                                        <connections>
+                                            <segue destination="BWU-49-7r9" kind="show" id="9zd-qc-HwN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgr-0b-c2d">
+                                        <rect key="frame" x="0.0" y="62" width="334" height="54"/>
+                                        <state key="normal" title="Sign In"/>
+                                        <connections>
+                                            <segue destination="Kg5-mu-PQo" kind="show" id="y8K-dv-Nf2"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="116" id="Cqb-fI-JjF"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="nQR-TF-3qc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="BdZ-YN-qFP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BPs-d6-IRV" secondAttribute="trailing" constant="40" id="HRo-IU-Ubw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nQR-TF-3qc" secondAttribute="trailing" constant="40" id="LW8-7W-ZHE"/>
+                            <constraint firstItem="BPs-d6-IRV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="Zld-if-z20"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BPs-d6-IRV" secondAttribute="bottom" constant="80" id="gfr-wO-rMl"/>
+                            <constraint firstItem="nQR-TF-3qc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="mtb-Za-yH2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="30p-U3-gqK"/>
+                    <connections>
+                        <outlet property="signInButton" destination="vgr-0b-c2d" id="RFZ-qt-SSa"/>
+                        <outlet property="signUpButton" destination="74y-me-bIh" id="FdW-Yo-n0t"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
+        </scene>
+        <!--Sign In View Controller-->
+        <scene sceneID="E8g-mN-6dn">
+            <objects>
+                <viewController id="Kg5-mu-PQo" customClass="SignInViewController" customModule="KidsFly" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qbX-ga-cRB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fa-j6-N8s">
+                                <rect key="frame" x="40" y="128" width="334" height="42"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="41"/>
+                                <color key="textColor" red="0.18823529410000001" green="0.69411764710000001" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="JzX-KQ-pg8" firstAttribute="trailing" secondItem="4fa-j6-N8s" secondAttribute="trailing" constant="40" id="0Rn-sL-aKb"/>
+                            <constraint firstItem="4fa-j6-N8s" firstAttribute="leading" secondItem="JzX-KQ-pg8" secondAttribute="leading" constant="40" id="QFQ-mE-mAq"/>
+                            <constraint firstItem="4fa-j6-N8s" firstAttribute="top" secondItem="JzX-KQ-pg8" secondAttribute="top" constant="40" id="RcG-Jc-dFX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JzX-KQ-pg8"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="EAW-J1-byX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9MI-7p-VmC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1829" y="494"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="rZE-5q-SI4">
+            <objects>
+                <viewController id="BWU-49-7r9" customClass="SignUpViewController" customModule="KidsFly" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ktx-b4-rJf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZL-IP-7zi">
+                                <rect key="frame" x="40" y="128" width="334" height="37"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="36"/>
+                                <color key="textColor" red="0.18823529410000001" green="0.69411764710000001" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Bsz-MS-fHQ" firstAttribute="trailing" secondItem="VZL-IP-7zi" secondAttribute="trailing" constant="40" id="3ma-KZ-IIZ"/>
+                            <constraint firstItem="VZL-IP-7zi" firstAttribute="leading" secondItem="Bsz-MS-fHQ" secondAttribute="leading" constant="40" id="Iec-eX-uku"/>
+                            <constraint firstItem="VZL-IP-7zi" firstAttribute="top" secondItem="Bsz-MS-fHQ" secondAttribute="top" constant="40" id="rRF-C8-Tsi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Bsz-MS-fHQ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bUU-lK-n5I"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wzV-Ao-mBn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1829" y="-221"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jmn-VE-wrq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BgW-Ax-Ogn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KNu-kq-Thg">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="DHA-ex-Gej"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="INM-Ff-UX9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+</document>
