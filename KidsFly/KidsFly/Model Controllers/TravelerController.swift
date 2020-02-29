@@ -18,11 +18,11 @@ class TravelerController {
     private let baseURL = URL(string: "https://kidsfly-lambda2.herokuapp.com/")!
     
     
-    func registerNewUser(for email: String, with password: String, completion: @escaping (Error?) -> Void) {
+    func registerNewUser(email: String, password: String, completion: @escaping (Error?) -> Void) {
         
         let newUser = NewUser(email: email, password: password)
         
-        let registerNewUserURL = baseURL.appendingPathComponent("localhost:5000/api/auth/register") // Straight from Joshua will need to be changed
+        let registerNewUserURL = baseURL.appendingPathComponent("api/auth/register") // Straight from Joshua will need to be changed
         
         var request = URLRequest(url: registerNewUserURL)
         request.httpMethod = HTTPMethod.post
@@ -48,6 +48,4 @@ class TravelerController {
             
         }.resume()
     }
-    
-    
 }
