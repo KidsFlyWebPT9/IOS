@@ -9,23 +9,24 @@
 import Foundation
 
 struct User: Codable {
-    let email: String
+    let username: String
     let password: String
 }
 
 class TravelerController {
     
-    private let baseURL = URL(string: "https://kidsfly-lambda2.herokuapp.com/")!
+    var token: String?
+    
+    private let baseURL = URL(string: "https://kidsfly-lambda2.herokuapp.com")!
     
     
-    func registerNewUser(email: String, password: String, completion: @escaping (Error?) -> Void) {
+    func registerNewUser(username: String, password: String, completion: @escaping (Error?) -> Void) {
         
-        let newUser = User(email: email, password: password)
-        
+        let newUser = User(username: username, password: password)
         let registerNewUserURL = baseURL.appendingPathComponent("api/auth/register")
-        
         var request = URLRequest(url: registerNewUserURL)
         request.httpMethod = HTTPMethod.post
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let encoder = JSONEncoder()
         
@@ -37,26 +38,31 @@ class TravelerController {
             return
         }
         
-        URLSession.shared.dataTask(with: request) { _, _, error in
+        URLSession.shared.dataTask(with: request) { _, response, error in
             if let error = error {
                 print("Error registering new user: \(error)")
                 completion(error)
                 return
             }
+            if let response = response as? HTTPURLResponse,
+            response.statusCode != 201 {
+                print("Error signing up user")
+                completion(NSError())
+            }
             
+            print("Successfully created user")
             completion(nil)
-            
         }.resume()
     }
     
-    func signIn(email: String, password: String, completion: @escaping (Error?) -> Void) {
+    
+    func signIn(username: String, password: String, completion: @escaping (Error?) -> Void) {
         
-        let user = User(email: email, password: password)
-        
+        let user = User(username: username, password: password)
         let signInURL = baseURL.appendingPathComponent("api/auth/login")
-        
         var request = URLRequest(url: signInURL)
         request.httpMethod = HTTPMethod.post
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let encoder = JSONEncoder()
         
@@ -68,7 +74,12 @@ class TravelerController {
             return
         }
         
-        URLSession.shared.dataTask(with: request) { (_, _, error) in
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let response = response as? HTTPURLResponse,
+                response.statusCode != 200 {
+                completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
+                return
+            }
             
             if let error = error {
                 print("Error logging in: \(error)")
@@ -76,8 +87,25 @@ class TravelerController {
                 return
             }
             
+            guard let data = data else {
+                completion(NetworkError.badData)
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            
+            do {
+                let bearer = try decoder.decode(Bearer.self, from: data)
+                self.token = bearer.token
+            } catch {
+                print("Error decoding bearer object: \(error)")
+                completion(error)
+                return
+            }
+            
+            completion(nil)
+            
         }.resume()
-        
         
     }
 }

@@ -8,20 +8,6 @@
 
 import Foundation
 
-enum NetworkError: Error {
-    case noAuth
-    case badAuth
-    case otherError
-    case badData
-    case noDecode
-}
-
-struct HTTPMethod {
-    static let get = "GET"
-    static let put = "PUT"
-    static let post = "POST"
-    static let delete = "DELETE"
-}
 
 class APIController {
     

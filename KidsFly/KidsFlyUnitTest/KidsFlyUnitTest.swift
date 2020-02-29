@@ -17,34 +17,26 @@ class KidsFlyUnitTest: XCTestCase {
         
         let expectation = self.expectation(description: "Waiting to create user")
         
-        travelerController.registerNewUser(email: "testemail@gmail.com", password: "PASSWORD123") { (error) in
+        travelerController.registerNewUser(username: "testemail3@gmail.com", password: "PASSWORD123") { (error) in
             
             XCTAssertNil(error)
             expectation.fulfill()
-            
         }
         
-        waitForExpectations(timeout: 10, handler: nil)
+        waitForExpectations(timeout: 3, handler: nil)
         
     }
     
     
     func testLogIn() {
         
-        let expectation = self.expectation(description: "Waiting to create user")
-        let expectation2 = self.expectation(description: "Attempting to Sign In With User")
+        let expectation = self.expectation(description: "Attempting to Sign In With User")
         
-        travelerController.registerNewUser(email: "testemail@gmail.com", password: "PASSWORD123") { (error) in
+        
+        travelerController.signIn(username: "testemail3@gmail.com", password: "PASSWORD123") { (error) in
             
             XCTAssertNil(error)
             expectation.fulfill()
-        }
-        
-        travelerController.signIn(email: "testemail@gmail.com", password: "PASSWORD123") { (error) in
-            
-            print(error)
-            XCTAssertNil(error)
-            expectation2.fulfill()
         }
         
         waitForExpectations(timeout: 3, handler: nil)
