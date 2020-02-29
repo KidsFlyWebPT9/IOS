@@ -6,5 +6,6 @@ target 'KidsFly' do
   use_frameworks!
 
   # Pods for KidsFly
+pod 'SwiftJWT'
 
 end

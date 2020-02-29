@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9282E61B2408C58100FCC978 /* TravelerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282E61A2408C58100FCC978 /* TravelerController.swift */; };
+		9282E623240A058900FCC978 /* KidsFlyUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282E622240A058900FCC978 /* KidsFlyUnitTest.swift */; };
+		9282E62B240A1A0300FCC978 /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282E62A240A1A0300FCC978 /* Bearer.swift */; };
+		9282E62D240B127C00FCC978 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282E62C240B127C00FCC978 /* NetworkError.swift */; };
+		9282E62F240B129F00FCC978 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282E62E240B129F00FCC978 /* HTTPMethod.swift */; };
 		D65ABFE41958DFB15C2D1E0F /* Pods_KidsFly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 447F16C060742B2B03488C8B /* Pods_KidsFly.framework */; };
 		E60B164C2408AFCA002193AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B164B2408AFCA002193AD /* AppDelegate.swift */; };
 		E60B164E2408AFCA002193AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B164D2408AFCA002193AD /* SceneDelegate.swift */; };
@@ -23,14 +28,30 @@
 		E60B16732408B4DC002193AD /* KFBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B16722408B4DC002193AD /* KFBodyLabel.swift */; };
 		E60B16752408B5EC002193AD /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B16742408B5EC002193AD /* APIController.swift */; };
 		E60B16782408B6D1002193AD /* UIViewControllerExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B16772408B6D1002193AD /* UIViewControllerExtention.swift */; };
-		E60B167A2408BD68002193AD /* photo-1497581170673-3d7d98e9a075.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E60B16792408BD68002193AD /* photo-1497581170673-3d7d98e9a075.jpeg */; };
 		E60B167C2408C190002193AD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B167B2408C190002193AD /* SignUpViewController.swift */; };
 		E60B167E2408C1B0002193AD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B167D2408C1B0002193AD /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9282E625240A058900FCC978 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E60B16402408AFCA002193AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E60B16472408AFCA002193AD;
+			remoteInfo = KidsFly;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		447F16C060742B2B03488C8B /* Pods_KidsFly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KidsFly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A548DB826006A11BFA8B2AB /* Pods-KidsFly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KidsFly.release.xcconfig"; path = "Target Support Files/Pods-KidsFly/Pods-KidsFly.release.xcconfig"; sourceTree = "<group>"; };
+		9282E61A2408C58100FCC978 /* TravelerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelerController.swift; sourceTree = "<group>"; };
+		9282E620240A058900FCC978 /* KidsFlyUnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KidsFlyUnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9282E622240A058900FCC978 /* KidsFlyUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidsFlyUnitTest.swift; sourceTree = "<group>"; };
+		9282E624240A058900FCC978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9282E62A240A1A0300FCC978 /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Bearer.swift; path = "KidsFly/Model Controllers/Bearer.swift"; sourceTree = SOURCE_ROOT; };
+		9282E62C240B127C00FCC978 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkError.swift; path = "KidsFly/Model Controllers/NetworkError.swift"; sourceTree = SOURCE_ROOT; };
+		9282E62E240B129F00FCC978 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HTTPMethod.swift; path = "KidsFly/Model Controllers/HTTPMethod.swift"; sourceTree = SOURCE_ROOT; };
 		A57DBEF0962E3C76FDCA991F /* Pods-KidsFly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KidsFly.debug.xcconfig"; path = "Target Support Files/Pods-KidsFly/Pods-KidsFly.debug.xcconfig"; sourceTree = "<group>"; };
 		E60B16482408AFCA002193AD /* KidsFly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KidsFly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E60B164B2408AFCA002193AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,12 +70,18 @@
 		E60B16722408B4DC002193AD /* KFBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFBodyLabel.swift; sourceTree = "<group>"; };
 		E60B16742408B5EC002193AD /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		E60B16772408B6D1002193AD /* UIViewControllerExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtention.swift; sourceTree = "<group>"; };
-		E60B16792408BD68002193AD /* photo-1497581170673-3d7d98e9a075.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "photo-1497581170673-3d7d98e9a075.jpeg"; path = "../../../../../../../../Documents/photo-1497581170673-3d7d98e9a075.jpeg"; sourceTree = "<group>"; };
 		E60B167B2408C190002193AD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E60B167D2408C1B0002193AD /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9282E61D240A058900FCC978 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E60B16452408AFCA002193AD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -83,10 +110,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9282E621240A058900FCC978 /* KidsFlyUnitTest */ = {
+			isa = PBXGroup;
+			children = (
+				9282E622240A058900FCC978 /* KidsFlyUnitTest.swift */,
+				9282E624240A058900FCC978 /* Info.plist */,
+			);
+			path = KidsFlyUnitTest;
+			sourceTree = "<group>";
+		};
 		E60B163F2408AFCA002193AD = {
 			isa = PBXGroup;
 			children = (
 				E60B164A2408AFCA002193AD /* KidsFly */,
+				9282E621240A058900FCC978 /* KidsFlyUnitTest */,
 				E60B16492408AFCA002193AD /* Products */,
 				1D08F98D11D9CAC8564668B9 /* Pods */,
 				90A85D436D5BFCF9184FC8B7 /* Frameworks */,
@@ -97,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				E60B16482408AFCA002193AD /* KidsFly.app */,
+				9282E620240A058900FCC978 /* KidsFlyUnitTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,6 +158,9 @@
 		E60B165F2408B04E002193AD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9282E62A240A1A0300FCC978 /* Bearer.swift */,
+				9282E62C240B127C00FCC978 /* NetworkError.swift */,
+				9282E62E240B129F00FCC978 /* HTTPMethod.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -128,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				E60B16742408B5EC002193AD /* APIController.swift */,
+				9282E61A2408C58100FCC978 /* TravelerController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -154,7 +196,6 @@
 		E60B16632408B07E002193AD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E60B16792408BD68002193AD /* photo-1497581170673-3d7d98e9a075.jpeg */,
 				E60B164B2408AFCA002193AD /* AppDelegate.swift */,
 				E60B164D2408AFCA002193AD /* SceneDelegate.swift */,
 				E60B16542408AFCB002193AD /* Assets.xcassets */,
@@ -194,6 +235,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9282E61F240A058900FCC978 /* KidsFlyUnitTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9282E629240A058900FCC978 /* Build configuration list for PBXNativeTarget "KidsFlyUnitTest" */;
+			buildPhases = (
+				9282E61C240A058900FCC978 /* Sources */,
+				9282E61D240A058900FCC978 /* Frameworks */,
+				9282E61E240A058900FCC978 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9282E626240A058900FCC978 /* PBXTargetDependency */,
+			);
+			name = KidsFlyUnitTest;
+			productName = KidsFlyUnitTest;
+			productReference = 9282E620240A058900FCC978 /* KidsFlyUnitTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		E60B16472408AFCA002193AD /* KidsFly */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E60B165C2408AFCB002193AD /* Build configuration list for PBXNativeTarget "KidsFly" */;
@@ -222,6 +281,10 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Enayatullah Naseri";
 				TargetAttributes = {
+					9282E61F240A058900FCC978 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = E60B16472408AFCA002193AD;
+					};
 					E60B16472408AFCA002193AD = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -241,18 +304,25 @@
 			projectRoot = "";
 			targets = (
 				E60B16472408AFCA002193AD /* KidsFly */,
+				9282E61F240A058900FCC978 /* KidsFlyUnitTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9282E61E240A058900FCC978 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E60B16462408AFCA002193AD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E60B16582408AFCB002193AD /* LaunchScreen.storyboard in Resources */,
 				E60B16552408AFCB002193AD /* Assets.xcassets in Resources */,
-				E60B167A2408BD68002193AD /* photo-1497581170673-3d7d98e9a075.jpeg in Resources */,
 				E60B16532408AFCA002193AD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,10 +355,19 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9282E61C240A058900FCC978 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9282E623240A058900FCC978 /* KidsFlyUnitTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E60B16442408AFCA002193AD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9282E62D240B127C00FCC978 /* NetworkError.swift in Sources */,
 				E60B167E2408C1B0002193AD /* SignInViewController.swift in Sources */,
 				E60B16752408B5EC002193AD /* APIController.swift in Sources */,
 				E60B16682408B1AA002193AD /* NetworkDataLoader.swift in Sources */,
@@ -297,16 +376,27 @@
 				E60B166F2408B4B9002193AD /* KFButton.swift in Sources */,
 				E60B16782408B6D1002193AD /* UIViewControllerExtention.swift in Sources */,
 				E60B164C2408AFCA002193AD /* AppDelegate.swift in Sources */,
+				9282E62B240A1A0300FCC978 /* Bearer.swift in Sources */,
 				E60B166D2408B4AA002193AD /* KFAlertVC.swift in Sources */,
 				E60B16712408B4C9002193AD /* KFTitleLabel.swift in Sources */,
 				E60B16662408B18E002193AD /* Utilities.swift in Sources */,
 				E60B16732408B4DC002193AD /* KFBodyLabel.swift in Sources */,
+				9282E62F240B129F00FCC978 /* HTTPMethod.swift in Sources */,
 				E60B167C2408C190002193AD /* SignUpViewController.swift in Sources */,
+				9282E61B2408C58100FCC978 /* TravelerController.swift in Sources */,
 				E60B164E2408AFCA002193AD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9282E626240A058900FCC978 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E60B16472408AFCA002193AD /* KidsFly */;
+			targetProxy = 9282E625240A058900FCC978 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E60B16512408AFCA002193AD /* Main.storyboard */ = {
@@ -328,6 +418,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		9282E627240A058900FCC978 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B22A9UYX67;
+				INFOPLIST_FILE = KidsFlyUnitTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lambda.iospt2.KidsFlyUnitTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KidsFly.app/KidsFly";
+			};
+			name = Debug;
+		};
+		9282E628240A058900FCC978 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B22A9UYX67;
+				INFOPLIST_FILE = KidsFlyUnitTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lambda.iospt2.KidsFlyUnitTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KidsFly.app/KidsFly";
+			};
+			name = Release;
+		};
 		E60B165A2408AFCB002193AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -481,6 +611,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9282E629240A058900FCC978 /* Build configuration list for PBXNativeTarget "KidsFlyUnitTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9282E627240A058900FCC978 /* Debug */,
+				9282E628240A058900FCC978 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E60B16432408AFCA002193AD /* Build configuration list for PBXProject "KidsFly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
