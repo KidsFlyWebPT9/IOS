@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct NewUser: Codable {
+struct User: Codable {
     let email: String
     let password: String
 }
@@ -20,9 +20,9 @@ class TravelerController {
     
     func registerNewUser(email: String, password: String, completion: @escaping (Error?) -> Void) {
         
-        let newUser = NewUser(email: email, password: password)
+        let newUser = User(email: email, password: password)
         
-        let registerNewUserURL = baseURL.appendingPathComponent("api/auth/register") // Straight from Joshua will need to be changed
+        let registerNewUserURL = baseURL.appendingPathComponent("api/auth/register")
         
         var request = URLRequest(url: registerNewUserURL)
         request.httpMethod = HTTPMethod.post
@@ -47,5 +47,37 @@ class TravelerController {
             completion(nil)
             
         }.resume()
+    }
+    
+    func signIn(email: String, password: String, completion: @escaping (Error?) -> Void) {
+        
+        let user = User(email: email, password: password)
+        
+        let signInURL = baseURL.appendingPathComponent("api/auth/login")
+        
+        var request = URLRequest(url: signInURL)
+        request.httpMethod = HTTPMethod.post
+        
+        let encoder = JSONEncoder()
+        
+        do {
+            let data = try encoder.encode(user)
+            request.httpBody = data
+        } catch {
+            print("Error encoding data: \(error)")
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { (_, _, error) in
+            
+            if let error = error {
+                print("Error logging in: \(error)")
+                completion(error)
+                return
+            }
+            
+        }.resume()
+        
+        
     }
 }

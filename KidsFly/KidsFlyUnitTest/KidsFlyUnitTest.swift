@@ -10,10 +10,10 @@ import XCTest
 @testable import KidsFly
 
 class KidsFlyUnitTest: XCTestCase {
+    
+    let travelerController = TravelerController()
 
     func testCreateNewUser() {
-            
-        let travelerController = TravelerController()
         
         let expectation = self.expectation(description: "Waiting to create user")
         
@@ -27,4 +27,28 @@ class KidsFlyUnitTest: XCTestCase {
         waitForExpectations(timeout: 10, handler: nil)
         
     }
+    
+    
+    func testLogIn() {
+        
+        let expectation = self.expectation(description: "Waiting to create user")
+        let expectation2 = self.expectation(description: "Attempting to Sign In With User")
+        
+        travelerController.registerNewUser(email: "testemail@gmail.com", password: "PASSWORD123") { (error) in
+            
+            XCTAssertNil(error)
+            expectation.fulfill()
+        }
+        
+        travelerController.signIn(email: "testemail@gmail.com", password: "PASSWORD123") { (error) in
+            
+            print(error)
+            XCTAssertNil(error)
+            expectation2.fulfill()
+        }
+        
+        waitForExpectations(timeout: 3, handler: nil)
+        
+    }
+    
 }
