@@ -12,3 +12,11 @@ struct Bearer: Codable {
     let token: String
     let message: String
 }
+
+struct Saved: Codable {
+    let id: UInt
+}
+
+struct Message: Codable {
+    let message: String
+}
