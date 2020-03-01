@@ -14,49 +14,56 @@ class KidsFlyUnitTest: XCTestCase {
     let travelerController = TravelerController()
 
     func testCreateNewUser() {
-        
         let expectation = self.expectation(description: "Waiting to create user")
         
-        travelerController.registerNewUser(username: "testemail19@gmail.com", password: "PASSWORD123") { (error) in
-            
+        travelerController.registerNewUser(username: "testemail20@gmail.com", password: "PASSWORD123") { (error) in
             XCTAssertNil(error)
             expectation.fulfill()
         }
-        
         waitForExpectations(timeout: 10, handler: nil)
-        
     }
     
     
     func testLogIn() {
-        
         let expectation = self.expectation(description: "Attempting to Sign In With User")
         
-        
-        travelerController.signIn(username: "testemail19@gmail.com", password: "PASSWORD123") { (error) in
-            
+        travelerController.signIn(username: "testemail20@gmail.com", password: "PASSWORD123") { (error) in
             XCTAssertNil(error)
             expectation.fulfill()
         }
-        
-        waitForExpectations(timeout: 10, handler: nil)
-        
+        self.waitForExpectations(timeout: 10, handler: nil)
     }
 
     
-    func testWelcomeMessage() {
+//    func testWelcomeMessage() {
+//        let expectation = self.expectation(description: "Getting welcome message")
+//
+//        travelerController.getUserWelcomeNotification(uId: 4, uToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoidGhpc3VzZXIiLCJpZCI6NCwidXNlcm5hbWUiOiJ0ZXN0ZW1haWwyMEBnbWFpbC5jb20iLCJpYXQiOjE1ODMwOTI1MjUsImV4cCI6MTU4MzA5NjEyNX0.gItmXXwKqYBlM504seIjIgVT0lABcKUv8momoV68ZSk") { (error) in
+//            XCTAssertNil(error)
+//            expectation.fulfill()
+//        }
+//        waitForExpectations(timeout: 30, handler: nil)
+//    }
     
-        let expectation = self.expectation(description: "Getting welcome message")
+    func testGetAllUsers() {
+        let expectation = self.expectation(description: "Attempting to Sign In With User")
+        let expectation2 = self.expectation(description: "Attempting to get all users")
         
-        travelerController.getUserWelcomeNotification(uId: 5, uToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoidGhpc3VzZXIiLCJpZCI6NSwidXNlcm5hbWUiOiJ0ZXN0ZW1haWwxOUBnbWFpbC5jb20iLCJpYXQiOjE1ODMwMjEwODcsImV4cCI6MTU4MzAyNDY4N30.JSumb0j_aUgriIZFkxxJiKRPydLXiKlarjojYLM48hk") { (error) in
-            
+        travelerController.signIn(username: "testemail20@gmail.com", password: "PASSWORD123") { (error) in
             XCTAssertNil(error)
             expectation.fulfill()
+            
+            if let token = self.travelerController.token {
+                print(token)
+                self.travelerController.getListOfAllTravellers(token: "\(token)") { (error) in
+                XCTAssertNil(error)
+                expectation2.fulfill()
+            }
         }
-        
-        waitForExpectations(timeout: 30, handler: nil)
-        
-        
     }
-    
+    self.waitForExpectations(timeout: 10, handler: nil)
+}
+
+
+
 }
