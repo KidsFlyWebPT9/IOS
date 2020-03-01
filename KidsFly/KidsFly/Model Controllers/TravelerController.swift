@@ -7,18 +7,20 @@
 //
 
 import Foundation
+import KeychainAccess
 
 
 class TravelerController {
     
-    var token: String?
-    var id: UInt?
+    let keychain = Keychain(service: "com.kidsfly.app")
+    
     var welcomeMessage: String?
     private let baseURL = URL(string: "https://kidsfly-lambda2.herokuapp.com")!
     
     func registerNewUser(username: String, password: String, completion: @escaping (Error?) -> Void) {
         let newUser = User(username: username, password: password)
         let registerNewUserURL = baseURL.appendingPathComponent("api/auth/register")
+        
         var request = URLRequest(url: registerNewUserURL)
         request.httpMethod = HTTPMethod.post
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -40,22 +42,25 @@ class TravelerController {
             }
             if let response = response as? HTTPURLResponse,
             response.statusCode != 201 {
-                print("Error signing up user")
+                print("HTTP Response error when attempting to register new user: \(response.statusCode)")
                 completion(NetworkError.otherError)
                 return
             }
             guard let data = data else {
+                print("Error with returned data for user registration")
                 completion(NetworkError.badData)
                 return
             }
             let decoder = JSONDecoder()
             do {
-                let saved = try decoder.decode(Saved.self, from: data)
-                self.id = saved.id
-                print("Successfully created user with ID: \(String(describing: self.id))")
+                let user = try decoder.decode(User.self, from: data)
+                if let userID = user.id {
+                    self.keychain["user_id"] = "\(userID)"
+                    print("Successfully created user with ID: \(userID)")
+                }
             } catch {
                 completion(NetworkError.noDecode)
-                print("Error decoding user ID")
+                print("Error decoding user information")
             }
             completion(nil)
         }.resume()
@@ -65,6 +70,7 @@ class TravelerController {
     func signIn(username: String, password: String, completion: @escaping (Error?) -> Void) {
         let user = User(username: username, password: password)
         let signInURL = baseURL.appendingPathComponent("api/auth/login")
+        
         var request = URLRequest(url: signInURL)
         request.httpMethod = HTTPMethod.post
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -81,6 +87,7 @@ class TravelerController {
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let response = response as? HTTPURLResponse,
                 response.statusCode != 200 {
+                print("HTML Response code returned: \(response.statusCode)")
                 completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
                 return
             }
@@ -90,14 +97,16 @@ class TravelerController {
                 return
             }
             guard let data = data else {
+                print("Error with returned data")
                 completion(NetworkError.badData)
                 return
             }
             let decoder = JSONDecoder()
             do {
                 let bearer = try decoder.decode(Bearer.self, from: data)
-                self.token = bearer.token
-                print("Token is: \(String(describing: self.token))")
+                let token = bearer.token
+                self.keychain["user_token"] = "\(token)"
+                print(token)
             } catch {
                 print("Error decoding bearer object: \(error)")
                 completion(error)
@@ -108,48 +117,53 @@ class TravelerController {
     }
     
     
-    func getUserWelcomeNotification(uId: Int, uToken: String, completion: @escaping (Error?) -> Void) {
+    func getUserWelcomeNotification(completion: @escaping (Error?) -> Void) {
+        guard let userID = keychain["user_id"], let token = keychain["user_token"] else { return }
+        let welcomeMessageURL = self.baseURL.appendingPathComponent("api/users/\(userID)")
         
-            let welcomeMessageURL = self.baseURL.appendingPathComponent("api/users/\(uId)")
-            var request = URLRequest(url: welcomeMessageURL)
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.httpMethod = HTTPMethod.get
-            
-            URLSession.shared.dataTask(with: request) { (data, response, error) in
-                if let error = error {
-                    print(error)
-                    completion(error)
-                    return
-                }
-                if let response = response as? HTTPURLResponse,
-                    response.statusCode != 200 {
-                    print("HTML Response code returned: \(response.statusCode)")
-                    completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
-                    return
-                }
-                guard let data = data else {
-                    completion(NetworkError.badData)
-                    return
-                }
-                let decoder = JSONDecoder()
-                print(data)
-                do {
-                    let returnedMessage = try decoder.decode(String.self, from: data)
-                    self.welcomeMessage = returnedMessage
-                    print(self.welcomeMessage ?? "welcome user!")
-                } catch {
-                    print("Error decoding welcome message")
-                    completion(NetworkError.noDecode)
-                    return
-                }
-                completion(nil)
-            }.resume()
+        var request = URLRequest(url: welcomeMessageURL)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("\(token)", forHTTPHeaderField: "Authorization")
+        request.httpMethod = HTTPMethod.get
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print(error)
+                completion(error)
+                return
+            }
+            if let response = response as? HTTPURLResponse,
+                response.statusCode != 200 {
+                print("HTML Response code returned: \(response.statusCode)")
+                completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
+                return
+            }
+            guard let data = data else {
+                print("Error with returned data")
+                completion(NetworkError.badData)
+                return
+            }
+            let decoder = JSONDecoder()
+            print(data)
+            do {
+                let returnedMessage = try decoder.decode(String.self, from: data)
+                self.welcomeMessage = returnedMessage
+                print(self.welcomeMessage ?? "welcome user!")
+            } catch {
+                print("Error decoding welcome message")
+                completion(NetworkError.noDecode)
+                return
+            }
+            completion(nil)
+        }.resume()
     }
     
     
-    func getListOfAllTravellers(token: String, completion: @escaping (Error?) -> Void) {
+    func getListOfAllTravellers(completion: @escaping (Error?) -> Void) {
         
+        guard let token = keychain["user_token"] else { return }
         let usersURL = baseURL.appendingPathComponent("api/users")
+        
         var request = URLRequest(url: usersURL)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("\(token)", forHTTPHeaderField: "Authorization")
@@ -175,7 +189,7 @@ class TravelerController {
             let decoder = JSONDecoder()
             
             do {
-                let users = try decoder.decode([Users].self, from: data)
+                let users = try decoder.decode([User].self, from: data)
                 print(users)
             } catch {
                 print("Error decoding all users data: \(NetworkError.noDecode)")

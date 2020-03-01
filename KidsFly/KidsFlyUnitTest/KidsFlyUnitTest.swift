@@ -16,7 +16,7 @@ class KidsFlyUnitTest: XCTestCase {
     func testCreateNewUser() {
         let expectation = self.expectation(description: "Waiting to create user")
         
-        travelerController.registerNewUser(username: "testemail20@gmail.com", password: "PASSWORD123") { (error) in
+        travelerController.registerNewUser(username: "testemail25@gmail.com", password: "PASSWORD123") { (error) in
             XCTAssertNil(error)
             expectation.fulfill()
         }
@@ -27,14 +27,13 @@ class KidsFlyUnitTest: XCTestCase {
     func testLogIn() {
         let expectation = self.expectation(description: "Attempting to Sign In With User")
         
-        travelerController.signIn(username: "testemail20@gmail.com", password: "PASSWORD123") { (error) in
+        travelerController.signIn(username: "testemail25@gmail.com", password: "PASSWORD123") { (error) in
             XCTAssertNil(error)
             expectation.fulfill()
         }
         self.waitForExpectations(timeout: 10, handler: nil)
     }
 
-    
 //    func testWelcomeMessage() {
 //        let expectation = self.expectation(description: "Getting welcome message")
 //
@@ -46,24 +45,20 @@ class KidsFlyUnitTest: XCTestCase {
 //    }
     
     func testGetAllUsers() {
-        let expectation = self.expectation(description: "Attempting to Sign In With User")
+        let expectation = self.expectation(description: "Attempting to sign in with user")
         let expectation2 = self.expectation(description: "Attempting to get all users")
         
-        travelerController.signIn(username: "testemail20@gmail.com", password: "PASSWORD123") { (error) in
+        travelerController.signIn(username: "testemail25@gmail.com", password: "PASSWORD123") { (error) in
             XCTAssertNil(error)
             expectation.fulfill()
             
-            if let token = self.travelerController.token {
-                print(token)
-                self.travelerController.getListOfAllTravellers(token: "\(token)") { (error) in
+            self.travelerController.getListOfAllTravellers() { (error) in
                 XCTAssertNil(error)
                 expectation2.fulfill()
             }
         }
+        self.waitForExpectations(timeout: 10, handler: nil)
     }
-    self.waitForExpectations(timeout: 10, handler: nil)
-}
-
-
-
+    
+    
 }

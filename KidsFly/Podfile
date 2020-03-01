@@ -7,5 +7,6 @@ target 'KidsFly' do
 
   # Pods for KidsFly
 pod 'SwiftJWT'
+pod 'KeychainAccess'
 
 end
