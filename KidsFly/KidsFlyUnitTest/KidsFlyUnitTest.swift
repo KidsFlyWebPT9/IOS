@@ -12,6 +12,7 @@ import XCTest
 class KidsFlyUnitTest: XCTestCase {
     
     let travelerController = TravelerController()
+    let flightController = FlightController()
 
     func testCreateNewUser() {
         let expectation = self.expectation(description: "Waiting to create user")
@@ -60,5 +61,14 @@ class KidsFlyUnitTest: XCTestCase {
         self.waitForExpectations(timeout: 10, handler: nil)
     }
     
+    func testAmadeusAPIAuth() {
+        let expectation = self.expectation(description: "Getting Amadeus API Access Token")
+        
+        flightController.getAccessToken { (error) in
+            XCTAssertNil(error)
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 15, handler: nil)
+    }
     
 }
