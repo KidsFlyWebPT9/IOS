@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import KeychainAccess
 // Networking Controller to access the Amadeus API with all airport, airline and flight details
 
 class FlightController {
@@ -16,29 +16,39 @@ class FlightController {
     private let apiAuthURL = URL(string: "https://test.api.amadeus.com/v1/security/oauth2/token")!
     private let clientId = "09pengtH6hfWAafoF4nOsQCt05V0At3i"
     private let clientKey = "oYeCs1KpGFJ8YYFm"
-    var accessToken: String?
+    let keychain = Keychain()
     
     
-    func searchForAirport(named: String, completion: @escaping (Error?) -> Void) {
+    func searchForAirport(completion: @escaping (Error?) -> Void) {
         
-        let getAccessOp = BlockOperation {
-            self.getAccessToken { (error) in
-                if let error = error {
-                    print("Error getting Access Key: \(error)")
-                    completion(error)
-                    return
-                }
+        guard let accessToken = keychain["airport_access_token"] else {
+            completion(nil)
+            return
+        }
+        
+        let airportURLString = "https://test.api.amadeus.com/v1/reference-data/locations?subType=AIRPORT,CITY&keyword=san%20fran"
+        let requestURL = URL(string: airportURLString)!
+        
+        var request = URLRequest(url: requestURL)
+        //            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+        request.httpMethod = HTTPMethod.get
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                print("Error occured while fetching aiport info: \(error)")
+                completion(error)
+                return
             }
-        }
-        
-        let searchOp = BlockOperation {
-            let airportURLString = "https://test.api.amadeus.com/v1/reference-data/locations?subType=AIRPORT,CITY&keyword="
-            let urlWithSearchQuery = airportURL.absoluteString + "\(named)"
-        }
-        
-        searchOp.addDependency(getAccessOp)
-        let operations = OperationQueue()
-        operations.addOperations([getAccessOp, searchOp], waitUntilFinished: false)
+            guard let data = data else {
+                print("No data returned from request")
+                completion(NetworkError.badData)
+                return
+            }
+            // TO-DO: Intermediate codable with coding keys for the returned json data
+            print(data)
+            completion(nil)
+        }.resume()
     }
     
     
@@ -64,7 +74,7 @@ class FlightController {
             let decoder = JSONDecoder()
             do {
                 let authResponse = try decoder.decode(AirportAuthResponse.self, from: data)
-                self.accessToken = authResponse.access_token
+                self.keychain["airport_access_token"] = authResponse.access_token
                 print(authResponse)
             } catch {
                 print("Error decoding Airport Auth Data: \(error)")

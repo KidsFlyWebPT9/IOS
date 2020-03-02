@@ -71,4 +71,14 @@ class KidsFlyUnitTest: XCTestCase {
         waitForExpectations(timeout: 15, handler: nil)
     }
     
+    func testAirportAPISearch() {
+        let expectation = self.expectation(description: "Searching API for Airport")
+        
+        flightController.searchForAirport() { (error) in
+            XCTAssertNil(error)
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 20, handler: nil)
+    }
+    
 }
