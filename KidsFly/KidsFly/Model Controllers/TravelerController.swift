@@ -14,7 +14,7 @@ class TravelerController {
     
     let keychain = Keychain(service: "com.kidsfly.app")
     
-    var welcomeMessage: String?
+    var welcomeMessage: [String: String]?
     private let baseURL = URL(string: "https://kidsfly-lambda2.herokuapp.com")!
     
     func registerNewUser(username: String, password: String, completion: @escaping (Error?) -> Void) {
@@ -146,7 +146,7 @@ class TravelerController {
             let decoder = JSONDecoder()
             print(data)
             do {
-                let returnedMessage = try decoder.decode(String.self, from: data)
+                let returnedMessage = try decoder.decode([String: String].self, from: data)
                 self.welcomeMessage = returnedMessage
                 print(self.welcomeMessage ?? "welcome user!")
             } catch {
