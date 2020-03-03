@@ -12,6 +12,8 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var gifView: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +22,7 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
 //        self.viewWillAppear(animated)
-        self.presentKFAlertOnMainThread(title: "Alert", message: KFError.emptyEmailAndPasswordSignUp.rawValue, buttonTitle: "Ok")
+        gifView.loadGif(name: "giphy")
         setupViews()
     }
     

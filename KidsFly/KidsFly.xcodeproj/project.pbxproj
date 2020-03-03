@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -31,6 +31,9 @@
 		E60B16782408B6D1002193AD /* UIViewControllerExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B16772408B6D1002193AD /* UIViewControllerExtention.swift */; };
 		E60B167C2408C190002193AD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B167B2408C190002193AD /* SignUpViewController.swift */; };
 		E60B167E2408C1B0002193AD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B167D2408C1B0002193AD /* SignInViewController.swift */; };
+		E678B7F0240E009800C43394 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = E678B7EF240E009800C43394 /* UIImage+Gif.swift */; };
+		E678B7F2240E023000C43394 /* giphy.gif in Resources */ = {isa = PBXBuildFile; fileRef = E678B7F1240E023000C43394 /* giphy.gif */; };
+		E678B7F4240E072300C43394 /* PrivateKidsFlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E678B7F3240E072300C43394 /* PrivateKidsFlyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +77,9 @@
 		E60B16772408B6D1002193AD /* UIViewControllerExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtention.swift; sourceTree = "<group>"; };
 		E60B167B2408C190002193AD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E60B167D2408C1B0002193AD /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		E678B7EF240E009800C43394 /* UIImage+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
+		E678B7F1240E023000C43394 /* giphy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giphy.gif; sourceTree = "<group>"; };
+		E678B7F3240E072300C43394 /* PrivateKidsFlyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKidsFlyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +189,7 @@
 				E60B164F2408AFCA002193AD /* HomeViewController.swift */,
 				E60B167B2408C190002193AD /* SignUpViewController.swift */,
 				E60B167D2408C1B0002193AD /* SignInViewController.swift */,
+				E678B7F3240E072300C43394 /* PrivateKidsFlyViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -199,6 +206,7 @@
 		E60B16632408B07E002193AD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E678B7F1240E023000C43394 /* giphy.gif */,
 				E60B164B2408AFCA002193AD /* AppDelegate.swift */,
 				E60B164D2408AFCA002193AD /* SceneDelegate.swift */,
 				E60B16542408AFCB002193AD /* Assets.xcassets */,
@@ -223,6 +231,7 @@
 				E60B166E2408B4B9002193AD /* KFButton.swift */,
 				E60B16702408B4C9002193AD /* KFTitleLabel.swift */,
 				E60B16722408B4DC002193AD /* KFBodyLabel.swift */,
+				E678B7EF240E009800C43394 /* UIImage+Gif.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -327,6 +336,7 @@
 			files = (
 				E60B16582408AFCB002193AD /* LaunchScreen.storyboard in Resources */,
 				E60B16552408AFCB002193AD /* Assets.xcassets in Resources */,
+				E678B7F2240E023000C43394 /* giphy.gif in Resources */,
 				E60B16532408AFCA002193AD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,6 +416,8 @@
 				E60B167C2408C190002193AD /* SignUpViewController.swift in Sources */,
 				9282E61B2408C58100FCC978 /* TravelerController.swift in Sources */,
 				E60B164E2408AFCA002193AD /* SceneDelegate.swift in Sources */,
+				E678B7F4240E072300C43394 /* PrivateKidsFlyViewController.swift in Sources */,
+				E678B7F0240E009800C43394 /* UIImage+Gif.swift in Sources */,
 				9282E633240C4D2200FCC978 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
