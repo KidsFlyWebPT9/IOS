@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9243C17F240CACE400EC3D10 /* FlightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9243C17E240CACE400EC3D10 /* FlightController.swift */; };
+		9243C181240CBE5400EC3D10 /* AirportAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9243C180240CBE5400EC3D10 /* AirportAPIResponse.swift */; };
 		9282E61B2408C58100FCC978 /* TravelerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282E61A2408C58100FCC978 /* TravelerController.swift */; };
 		9282E623240A058900FCC978 /* KidsFlyUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282E622240A058900FCC978 /* KidsFlyUnitTest.swift */; };
 		9282E62B240A1A0300FCC978 /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282E62A240A1A0300FCC978 /* Bearer.swift */; };
@@ -49,6 +51,8 @@
 /* Begin PBXFileReference section */
 		447F16C060742B2B03488C8B /* Pods_KidsFly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KidsFly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A548DB826006A11BFA8B2AB /* Pods-KidsFly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KidsFly.release.xcconfig"; path = "Target Support Files/Pods-KidsFly/Pods-KidsFly.release.xcconfig"; sourceTree = "<group>"; };
+		9243C17E240CACE400EC3D10 /* FlightController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightController.swift; sourceTree = "<group>"; };
+		9243C180240CBE5400EC3D10 /* AirportAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AirportAPIResponse.swift; path = "KidsFly/Model Controllers/AirportAPIResponse.swift"; sourceTree = SOURCE_ROOT; };
 		9282E61A2408C58100FCC978 /* TravelerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelerController.swift; sourceTree = "<group>"; };
 		9282E620240A058900FCC978 /* KidsFlyUnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KidsFlyUnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9282E622240A058900FCC978 /* KidsFlyUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidsFlyUnitTest.swift; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 				9282E62C240B127C00FCC978 /* NetworkError.swift */,
 				9282E62E240B129F00FCC978 /* HTTPMethod.swift */,
 				9282E632240C4D2200FCC978 /* User.swift */,
+				9243C180240CBE5400EC3D10 /* AirportAPIResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 			children = (
 				E60B16742408B5EC002193AD /* APIController.swift */,
 				9282E61A2408C58100FCC978 /* TravelerController.swift */,
+				9243C17E240CACE400EC3D10 /* FlightController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -400,6 +406,7 @@
 			files = (
 				9282E62D240B127C00FCC978 /* NetworkError.swift in Sources */,
 				E60B167E2408C1B0002193AD /* SignInViewController.swift in Sources */,
+				9243C17F240CACE400EC3D10 /* FlightController.swift in Sources */,
 				E60B16752408B5EC002193AD /* APIController.swift in Sources */,
 				E60B16682408B1AA002193AD /* NetworkDataLoader.swift in Sources */,
 				E60B16502408AFCA002193AD /* HomeViewController.swift in Sources */,
@@ -411,6 +418,7 @@
 				E60B166D2408B4AA002193AD /* KFAlertVC.swift in Sources */,
 				E60B16712408B4C9002193AD /* KFTitleLabel.swift in Sources */,
 				E60B16662408B18E002193AD /* Utilities.swift in Sources */,
+				9243C181240CBE5400EC3D10 /* AirportAPIResponse.swift in Sources */,
 				E60B16732408B4DC002193AD /* KFBodyLabel.swift in Sources */,
 				9282E62F240B129F00FCC978 /* HTTPMethod.swift in Sources */,
 				E60B167C2408C190002193AD /* SignUpViewController.swift in Sources */,
