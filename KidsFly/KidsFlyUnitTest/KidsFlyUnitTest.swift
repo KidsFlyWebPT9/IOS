@@ -28,7 +28,7 @@ class KidsFlyUnitTest: XCTestCase {
     func testLogIn() {
         let expectation = self.expectation(description: "Attempting to Sign In With User")
         
-        travelerController.signIn(username: "testemail26@gmail.com", password: "PASSWORD123") { (error) in
+        travelerController.signIn(username: "testemail27@gmail.com", password: "PASSWORD123") { (error) in
             XCTAssertNil(error)
             expectation.fulfill()
         }

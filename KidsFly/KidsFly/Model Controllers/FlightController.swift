@@ -18,6 +18,7 @@ class FlightController {
     private let clientKey = "oYeCs1KpGFJ8YYFm"
     let keychain = Keychain()
     
+    var airport: AirportData?
     
     func searchForAirport(completion: @escaping (Error?) -> Void) {
         
@@ -26,7 +27,7 @@ class FlightController {
             return
         }
         
-        let airportURLString = "https://test.api.amadeus.com/v1/reference-data/locations?subType=AIRPORT,CITY&keyword=san%20fran"
+        let airportURLString = "https://test.api.amadeus.com/v1/reference-data/locations?subType=AIRPORT,CITY&keyword=san%20fran&view=LIGHT&page[limit]=1"
         let requestURL = URL(string: airportURLString)!
         
         var request = URLRequest(url: requestURL)
@@ -47,6 +48,20 @@ class FlightController {
             }
             // TO-DO: Intermediate codable with coding keys for the returned json data
             print(data)
+            
+            let decoder = JSONDecoder()
+            
+            do {
+                let airports = try decoder.decode(AirportSearchResponse.self, from: data)
+                let airport = airports.data[0]
+                print(airport)
+                self.airport = airport
+            } catch {
+                print("Error decoding Airport data: \(error)")
+                completion(error)
+                return
+            }
+            
             completion(nil)
         }.resume()
     }
