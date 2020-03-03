@@ -1,24 +1,18 @@
 //
-//  SignInViewController.swift
+//  PrivateKidsFlyViewController.swift
 //  KidsFly
 //
-//  Created by Enayatullah Naseri on 2/27/20.
+//  Created by Enayatullah Naseri on 3/2/20.
 //  Copyright © 2020 Enayatullah Naseri. All rights reserved.
 //
 
 import UIKit
 
-class SignInViewController: UIViewController {
+class PrivateKidsFlyViewController: UIViewController {
 
-    // Outlets
-    @IBOutlet weak var emailSItext: UITextField!
-    @IBOutlet weak var paswordSItext: UITextField!
-    @IBOutlet weak var signInButton: UIButton!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
+
         // Do any additional setup after loading the view.
     }
     
@@ -32,17 +26,8 @@ class SignInViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    func setupViews() {
-        Utilities.styleHollowButton(signInButton)
-        Utilities.styleTextField(emailSItext)
-        Utilities.styleTextField(paswordSItext)
-        
-    }
-    
-    
-    @IBAction func signInButtonTapped(_ sender: Any) {
-        
+    @IBAction func signOutButtonTapped(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
 }
