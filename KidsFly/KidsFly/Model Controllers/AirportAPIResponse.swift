@@ -19,10 +19,4 @@ struct AirportSearchResponse: Codable {
 struct AirportData: Codable {
     var name: String
     var iataCode: String
-    var address: Address
-}
-
-struct Address: Codable {
-    var cityName: String
-    var countryName: String
 }
