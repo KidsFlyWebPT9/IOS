@@ -40,7 +40,15 @@ class TripController {
     }
     
     
+    func userIsArriving(forUser: User, completion: @escaping (Error?) -> Void) {
+        
+    }
     
+    
+    func userHasArrived(for User: User, completion: @escaping (Error?) -> Void) {
+        
+        
+    }
     
     
     
