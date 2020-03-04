@@ -18,5 +18,7 @@ enum KFError: String, Error {
     case emailAlreadyInUse = "The email you entered is already in use. Please use a different email address."
     case generalSignUpError = "There was an issue trying to sign up. Please try again."
     case errorSigningOut = "There was an error signing out. Please try again."
+    case signUpWasSuccessful = "You have signed up successfully"
+    case doneTraveling = "We look forward to helping you soon! Safe Travels"
     
 }

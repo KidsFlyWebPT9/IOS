@@ -10,6 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    // Outlets
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var gifView: UIImageView!
@@ -20,12 +21,14 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
 //        self.viewWillAppear(animated)
         gifView.loadGif(name: "giphy")
-        setupViews()
+        setupViews() // load custom design
     }
     
+    // custom design - sign in and sign up
     func setupViews() {
         Utilities.styleFilledButton(signUpButton)
         Utilities.styleHollowButton(signInButton)

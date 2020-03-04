@@ -10,22 +10,41 @@ import UIKit
 
 class PrivateKidsFlyViewController: UIViewController {
 
+    // Outlets
+    @IBOutlet weak var accountButton: UIButton!
+    @IBOutlet weak var upcomingTripButton: UIButton!
+    @IBOutlet weak var newTripButton: UIButton!
+    @IBOutlet weak var kidsButton: UIButton!
+    @IBOutlet weak var quickCheckInButton: UIButton!
+    
+    // 🚙 Suv
+    // 🚗 Sedan
+    // 🚐 Van
+    // 🚖 Taxi
+    // 🚘 Wagon
+    // 🔴 Red
+    // ⚫️ Black
+    // ⚪️ White
+    // 🔵 Blue
+    // 🟡 Yellow
+    // 🌈 Other
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupViews()
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupViews() {
+        Utilities.styleFilledButton(accountButton)
+        Utilities.styleFilledButton(upcomingTripButton)
+        Utilities.styleFilledButton(newTripButton)
+        Utilities.styleFilledButton(kidsButton)
+        Utilities.styleFilledButton(quickCheckInButton)
     }
-    */
+    
+// Sign out button 
     @IBAction func signOutButtonTapped(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
     }

@@ -14,7 +14,7 @@ class KFAlertVC: UIViewController {
     let containerView = UIView()
     let titleLabel = KFTitleLabel(textAlignment: .center, fontSize: 20)
     let messageLabel = KFBodyLabel(textAlignment: .center)
-    let actionButton = KFButton(backgroundColor: .systemBlue, title: "Ok")
+    let actionButton = KFButton(backgroundColor: #colorLiteral(red: 0.2143087685, green: 0.7430130243, blue: 0.7950620055, alpha: 1), title: "Ok")
     
     var alertTitle: String?
     var message: String?
