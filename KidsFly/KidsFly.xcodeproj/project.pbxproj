@@ -15,6 +15,7 @@
 		9282E62D240B127C00FCC978 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282E62C240B127C00FCC978 /* NetworkError.swift */; };
 		9282E62F240B129F00FCC978 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282E62E240B129F00FCC978 /* HTTPMethod.swift */; };
 		9282E633240C4D2200FCC978 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282E632240C4D2200FCC978 /* User.swift */; };
+		92D588FC240F5AFA003E69A9 /* TripController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D588FB240F5AFA003E69A9 /* TripController.swift */; };
 		B78BC00B240F178D0080E765 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78BC00A240F178D0080E765 /* CoreDataStack.swift */; };
 		B78BC00E240F17A80080E765 /* KidsFly.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B78BC00C240F17A80080E765 /* KidsFly.xcdatamodeld */; };
 		B78BC010240F1E070080E765 /* Parent+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78BC00F240F1E070080E765 /* Parent+Convenience.swift */; };
@@ -67,6 +68,7 @@
 		9282E62C240B127C00FCC978 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkError.swift; path = "KidsFly/Model Controllers/NetworkError.swift"; sourceTree = SOURCE_ROOT; };
 		9282E62E240B129F00FCC978 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HTTPMethod.swift; path = "KidsFly/Model Controllers/HTTPMethod.swift"; sourceTree = SOURCE_ROOT; };
 		9282E632240C4D2200FCC978 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = "KidsFly/Model Controllers/User.swift"; sourceTree = SOURCE_ROOT; };
+		92D588FB240F5AFA003E69A9 /* TripController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripController.swift; sourceTree = "<group>"; };
 		A57DBEF0962E3C76FDCA991F /* Pods-KidsFly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KidsFly.debug.xcconfig"; path = "Target Support Files/Pods-KidsFly/Pods-KidsFly.debug.xcconfig"; sourceTree = "<group>"; };
 		B78BC00A240F178D0080E765 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B78BC00D240F17A80080E765 /* KidsFly.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KidsFly.xcdatamodel; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				E60B16742408B5EC002193AD /* APIController.swift */,
 				9282E61A2408C58100FCC978 /* TravelerController.swift */,
 				9243C17E240CACE400EC3D10 /* FlightController.swift */,
+				92D588FB240F5AFA003E69A9 /* TripController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				E60B166D2408B4AA002193AD /* KFAlertVC.swift in Sources */,
 				E60B16712408B4C9002193AD /* KFTitleLabel.swift in Sources */,
 				E60B16662408B18E002193AD /* Utilities.swift in Sources */,
+				92D588FC240F5AFA003E69A9 /* TripController.swift in Sources */,
 				B78BC012240F1E2B0080E765 /* Connection+Convenience.swift in Sources */,
 				9243C181240CBE5400EC3D10 /* AirportAPIResponse.swift in Sources */,
 				B78BC00B240F178D0080E765 /* CoreDataStack.swift in Sources */,
