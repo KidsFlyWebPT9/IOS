@@ -28,6 +28,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="74y-me-bIh">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="54"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                         <state key="normal" title="Sign Up"/>
                                         <connections>
                                             <segue destination="BWU-49-7r9" kind="show" id="9zd-qc-HwN"/>
@@ -35,6 +36,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgr-0b-c2d">
                                         <rect key="frame" x="0.0" y="62" width="334" height="54"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                         <state key="normal" title="Sign In"/>
                                         <connections>
                                             <segue destination="Kg5-mu-PQo" kind="show" id="y8K-dv-Nf2"/>
@@ -102,7 +104,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Azk-mV-yss">
                                         <rect key="frame" x="0.0" y="64" width="334" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -111,6 +113,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Kt9-W3-mvE"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                 <state key="normal" title="Sing In"/>
                                 <connections>
                                     <action selector="signInButtonTapped:" destination="Kg5-mu-PQo" eventType="touchUpInside" id="UJz-vV-1Hp"/>
@@ -164,13 +167,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VHr-PI-XuO">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UdC-1m-6s2">
-                                                <rect key="frame" x="0.0" y="0.0" width="162" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FBQ-Mm-pBS">
-                                                <rect key="frame" x="172" y="0.0" width="162" height="34"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UdC-1m-6s2">
+                                                <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -184,7 +182,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7OG-Re-IWk">
                                         <rect key="frame" x="0.0" y="128" width="334" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -193,6 +191,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="a6m-eE-s13"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
                                     <action selector="signUpButtonTapped:" destination="BWU-49-7r9" eventType="touchUpInside" id="FxS-gR-cnv"/>
@@ -217,7 +216,6 @@
                     <connections>
                         <outlet property="emailText" destination="eEA-Uv-rt8" id="R4Q-yf-TBg"/>
                         <outlet property="firstNameText" destination="UdC-1m-6s2" id="fZg-Ez-fOj"/>
-                        <outlet property="lastNameText" destination="FBQ-Mm-pBS" id="tfY-dL-8UP"/>
                         <outlet property="passwordText" destination="7OG-Re-IWk" id="fj3-RJ-nJw"/>
                         <outlet property="signUpButton" destination="5le-Xj-Kok" id="Myw-5P-kC7"/>
                     </connections>
@@ -233,7 +231,83 @@
                     <view key="view" contentMode="scaleToFill" id="q06-8m-W6X">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KidsFly" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VxL-PQ-ThE">
+                                <rect key="frame" x="40" y="128" width="334" height="51"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="50"/>
+                                <color key="textColor" red="0.18823529410000001" green="0.69411764710000001" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnd-Bv-hmI">
+                                <rect key="frame" x="40" y="189" width="334" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UpN-ZL-5jZ">
+                                <rect key="frame" x="50" y="274.5" width="314" height="300"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIa-dd-NGv">
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="60"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                        <state key="normal" title="Account"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8h3-nK-s6p">
+                                        <rect key="frame" x="0.0" y="80" width="314" height="60"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                        <state key="normal" title="Upcoming Trip"/>
+                                        <connections>
+                                            <segue destination="j0f-zI-xQq" kind="show" id="X6D-UC-b1B"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78m-kr-PcA">
+                                        <rect key="frame" x="0.0" y="160" width="314" height="60"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                        <state key="normal" title="New Trip"/>
+                                        <connections>
+                                            <segue destination="W8d-FZ-Q5H" kind="show" id="n8b-o1-alc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KjY-v2-EaP">
+                                        <rect key="frame" x="0.0" y="240" width="314" height="60"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                        <state key="normal" title="Kids"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="E6t-yf-oCr"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqm-6S-8zz">
+                                <rect key="frame" x="60" y="762" width="294" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="OCG-X7-hPh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                <state key="normal" title="Quick Check In"/>
+                                <connections>
+                                    <segue destination="3Vr-11-0eV" kind="show" id="LGJ-bW-H7Y"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="UpN-ZL-5jZ" firstAttribute="top" secondItem="cnd-Bv-hmI" secondAttribute="bottom" constant="60" id="0Jw-wl-rYy"/>
+                            <constraint firstItem="UpN-ZL-5jZ" firstAttribute="leading" secondItem="P8V-YI-atB" secondAttribute="leading" constant="50" id="Aud-U8-l5b"/>
+                            <constraint firstItem="VxL-PQ-ThE" firstAttribute="leading" secondItem="P8V-YI-atB" secondAttribute="leading" constant="40" id="Bd3-8G-8lU"/>
+                            <constraint firstItem="VxL-PQ-ThE" firstAttribute="centerX" secondItem="q06-8m-W6X" secondAttribute="centerX" id="LbR-cc-siy"/>
+                            <constraint firstItem="P8V-YI-atB" firstAttribute="trailing" secondItem="UpN-ZL-5jZ" secondAttribute="trailing" constant="50" id="Rt3-9K-6Rs"/>
+                            <constraint firstItem="P8V-YI-atB" firstAttribute="trailing" secondItem="cnd-Bv-hmI" secondAttribute="trailing" constant="40" id="TcA-Jw-s3u"/>
+                            <constraint firstItem="P8V-YI-atB" firstAttribute="bottom" secondItem="eqm-6S-8zz" secondAttribute="bottom" constant="40" id="XFb-oG-931"/>
+                            <constraint firstItem="P8V-YI-atB" firstAttribute="trailing" secondItem="eqm-6S-8zz" secondAttribute="trailing" constant="60" id="a36-Jc-Z0r"/>
+                            <constraint firstItem="VxL-PQ-ThE" firstAttribute="top" secondItem="P8V-YI-atB" secondAttribute="top" constant="40" id="ahD-U1-WpN"/>
+                            <constraint firstItem="P8V-YI-atB" firstAttribute="trailing" secondItem="VxL-PQ-ThE" secondAttribute="trailing" constant="40" id="dUa-qY-d5S"/>
+                            <constraint firstItem="eqm-6S-8zz" firstAttribute="leading" secondItem="P8V-YI-atB" secondAttribute="leading" constant="60" id="tuI-UR-rQk"/>
+                            <constraint firstItem="cnd-Bv-hmI" firstAttribute="leading" secondItem="P8V-YI-atB" secondAttribute="leading" constant="40" id="xza-7T-Lp5"/>
+                            <constraint firstItem="cnd-Bv-hmI" firstAttribute="top" secondItem="VxL-PQ-ThE" secondAttribute="bottom" constant="10" id="zVR-Qf-3Ze"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="P8V-YI-atB"/>
                     </view>
                     <navigationItem key="navigationItem" id="K8y-w7-yak">
@@ -243,10 +317,152 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="accountButton" destination="BIa-dd-NGv" id="m0w-Io-gox"/>
+                        <outlet property="kidsButton" destination="KjY-v2-EaP" id="1yi-0F-HSg"/>
+                        <outlet property="newTripButton" destination="78m-kr-PcA" id="HXf-oO-Q7x"/>
+                        <outlet property="quickCheckInButton" destination="eqm-6S-8zz" id="Eof-Ck-Qte"/>
+                        <outlet property="upcomingTripButton" destination="8h3-nK-s6p" id="VHY-7X-wzR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3v1-Q5-jdu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3867" y="38"/>
+        </scene>
+        <!--Quick Check In View Controller-->
+        <scene sceneID="psZ-Xh-dX1">
+            <objects>
+                <viewController id="3Vr-11-0eV" customClass="QuickCheckInViewController" customModule="KidsFly" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9jJ-JD-Ku1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What are you driving?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rCO-sH-7ft">
+                                <rect key="frame" x="30" y="168" width="354" height="30"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="30"/>
+                                <color key="textColor" red="0.18823529410000001" green="0.69411764710000001" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" red="0.18823529410000001" green="0.69411764710000001" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="z7K-HJ-Fal">
+                                <rect key="frame" x="10" y="223" width="394" height="32"/>
+                                <segments>
+                                    <segment title="🚙 Suv"/>
+                                    <segment title="🚗 Sedan"/>
+                                    <segment title="🚐 Van"/>
+                                    <segment title="🚘 Wagon"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Color?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsz-uc-QtY">
+                                <rect key="frame" x="30" y="334" width="354" height="30"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="30"/>
+                                <color key="textColor" red="0.18823529410000001" green="0.69411764710000001" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="UIL-WZ-DzE">
+                                <rect key="frame" x="10" y="389" width="394" height="32"/>
+                                <segments>
+                                    <segment title="🔴 Red"/>
+                                    <segment title="⚫️ Black"/>
+                                    <segment title="⚪️ White"/>
+                                    <segment title="🔵 Blue"/>
+                                    <segment title="🟡 Yellow"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QfF-SM-SAs">
+                                <rect key="frame" x="40" y="570" width="334" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Ay3-rD-E6P"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneButtonTapped:" destination="3Vr-11-0eV" eventType="touchUpInside" id="iAX-m4-Wxg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="QfF-SM-SAs" firstAttribute="top" secondItem="UIL-WZ-DzE" secondAttribute="bottom" constant="150" id="6EM-2E-86K"/>
+                            <constraint firstItem="QfF-SM-SAs" firstAttribute="leading" secondItem="G0i-Vu-xMm" secondAttribute="leading" constant="40" id="6wS-PF-J7e"/>
+                            <constraint firstItem="G0i-Vu-xMm" firstAttribute="trailing" secondItem="rCO-sH-7ft" secondAttribute="trailing" constant="30" id="7HM-OJ-dKd"/>
+                            <constraint firstItem="z7K-HJ-Fal" firstAttribute="leading" secondItem="G0i-Vu-xMm" secondAttribute="leading" constant="10" id="HuN-xF-j0K"/>
+                            <constraint firstItem="z7K-HJ-Fal" firstAttribute="top" secondItem="rCO-sH-7ft" secondAttribute="bottom" constant="25" id="KCa-XU-PFN"/>
+                            <constraint firstItem="zsz-uc-QtY" firstAttribute="top" secondItem="z7K-HJ-Fal" secondAttribute="bottom" constant="80" id="Kfp-Si-lys"/>
+                            <constraint firstItem="G0i-Vu-xMm" firstAttribute="trailing" secondItem="z7K-HJ-Fal" secondAttribute="trailing" constant="10" id="XIT-J5-pBo"/>
+                            <constraint firstItem="UIL-WZ-DzE" firstAttribute="leading" secondItem="G0i-Vu-xMm" secondAttribute="leading" constant="10" id="ZNe-yJ-eRh"/>
+                            <constraint firstItem="rCO-sH-7ft" firstAttribute="leading" secondItem="G0i-Vu-xMm" secondAttribute="leading" constant="30" id="glx-NG-AgO"/>
+                            <constraint firstItem="rCO-sH-7ft" firstAttribute="top" secondItem="G0i-Vu-xMm" secondAttribute="top" constant="80" id="kxR-86-Y1R"/>
+                            <constraint firstItem="G0i-Vu-xMm" firstAttribute="trailing" secondItem="zsz-uc-QtY" secondAttribute="trailing" constant="30" id="p7x-5Q-Qgb"/>
+                            <constraint firstItem="G0i-Vu-xMm" firstAttribute="trailing" secondItem="UIL-WZ-DzE" secondAttribute="trailing" constant="10" id="prh-ih-dDe"/>
+                            <constraint firstItem="UIL-WZ-DzE" firstAttribute="top" secondItem="zsz-uc-QtY" secondAttribute="bottom" constant="25" id="qDR-6n-2wf"/>
+                            <constraint firstItem="G0i-Vu-xMm" firstAttribute="trailing" secondItem="QfF-SM-SAs" secondAttribute="trailing" constant="40" id="qWE-0V-Er3"/>
+                            <constraint firstItem="zsz-uc-QtY" firstAttribute="leading" secondItem="G0i-Vu-xMm" secondAttribute="leading" constant="30" id="xXg-ZS-tvc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="G0i-Vu-xMm"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wKQ-ue-4HK"/>
+                    <connections>
+                        <outlet property="carSegment" destination="z7K-HJ-Fal" id="TCX-Vy-wjI"/>
+                        <outlet property="colorSegment" destination="UIL-WZ-DzE" id="2od-NR-0aU"/>
+                        <outlet property="doneButton" destination="QfF-SM-SAs" id="OvS-Tn-qh2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TBV-Ld-mnN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4808.695652173913" y="580.58035714285711"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="f6d-Tg-Srl">
+            <objects>
+                <tableViewController id="j0f-zI-xQq" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ch1-HY-ieH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="zmi-sH-0qI">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zmi-sH-0qI" id="OEW-mI-XEy">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="j0f-zI-xQq" id="MM0-Py-BIj"/>
+                            <outlet property="delegate" destination="j0f-zI-xQq" id="ZWm-1f-MTS"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="zPo-h2-Nad">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="yvr-4f-3Rt">
+                            <connections>
+                                <segue destination="W8d-FZ-Q5H" kind="show" id="kBD-XD-rcT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wG1-vg-K7d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4610" y="-138"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="aKS-eh-1Tw">
+            <objects>
+                <viewController id="W8d-FZ-Q5H" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hkw-vI-VL4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="gQl-YS-Nlm"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vEe-6d-7ez">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="4Gk-gy-ihF"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qRp-n8-d2t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5332" y="-139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jmn-VE-wrq">
@@ -271,8 +487,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CIT-iQ-Isy" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="b90-wx-zdj">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b90-wx-zdj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -285,4 +501,7 @@
             <point key="canvasLocation" x="3092.753623188406" y="37.5"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="n8b-o1-alc"/>
+    </inferredMetricsTieBreakers>
 </document>

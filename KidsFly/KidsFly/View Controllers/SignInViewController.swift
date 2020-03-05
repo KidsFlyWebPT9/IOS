@@ -22,16 +22,6 @@ class SignInViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     func setupViews() {
         Utilities.styleHollowButton(signInButton)
@@ -43,6 +33,11 @@ class SignInViewController: UIViewController {
     
     @IBAction func signInButtonTapped(_ sender: Any) {
         
+        //temp navigate
+        guard let privateKidsFlyVC = self.storyboard?.instantiateViewController(withIdentifier: "PrivateKidsFlyVC") as? PrivateKidsFlyViewController else { return }
+        self.navigationController?.pushViewController(privateKidsFlyVC, animated: true)
+        self.view.window?.makeKeyAndVisible()
+
     }
     
 }

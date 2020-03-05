@@ -1,24 +1,20 @@
 //
-//  SignUpViewController.swift
+//  QuickCheckInViewController.swift
 //  KidsFly
 //
-//  Created by Enayatullah Naseri on 2/27/20.
+//  Created by Enayatullah Naseri on 3/4/20.
 //  Copyright © 2020 Enayatullah Naseri. All rights reserved.
 //
 
 import UIKit
-//import SwiftUI
 
-class SignUpViewController: UIViewController {
+class QuickCheckInViewController: UIViewController {
 
     // Outlets
-    @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var firstNameText: UITextField!
-//    @IBOutlet weak var lastNameText: UITextField!
-    @IBOutlet weak var emailText: UITextField!
-    @IBOutlet weak var passwordText: UITextField!
+    @IBOutlet weak var carSegment: UISegmentedControl!
+    @IBOutlet weak var colorSegment: UISegmentedControl!
+    @IBOutlet weak var doneButton: UIButton!
     
-    var travelerController: TravelerController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,29 +32,20 @@ class SignUpViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
     func setupViews() {
-        Utilities.styleFilledButton(signUpButton)
-        Utilities.styleTextField(firstNameText)
-//        Utilities.styleTextField(lastNameText)
-        Utilities.styleTextField(emailText)
-        Utilities.styleTextField(passwordText)
+        Utilities.styleHollowButton(doneButton)
         
     }
     
-    
-    @IBAction func signUpButtonTapped(_ sender: Any) {
+    @IBAction func doneButtonTapped(_ sender: Any) {
+        
+        self.presentKFAlertOnMainThread(title: "Thank you!", message: KFError.doneTraveling.rawValue, buttonTitle: "Ok")
         
         //temp navigate
         guard let privateKidsFlyVC = self.storyboard?.instantiateViewController(withIdentifier: "PrivateKidsFlyVC") as? PrivateKidsFlyViewController else { return }
         self.navigationController?.pushViewController(privateKidsFlyVC, animated: true)
         self.view.window?.makeKeyAndVisible()
     }
-        
-        
-        // temp
-        
-        
     
-    
+
 }
