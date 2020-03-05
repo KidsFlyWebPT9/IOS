@@ -13,6 +13,7 @@ class KidsFlyUnitTest: XCTestCase {
     
     let travelerController = TravelerController()
     let flightController = FlightController()
+    let tripController = TripController()
 
     func testCreateNewUser() {
         let expectation = self.expectation(description: "Waiting to create user")
@@ -82,5 +83,28 @@ class KidsFlyUnitTest: XCTestCase {
         }
         waitForExpectations(timeout: 10, handler: nil)
     }
+    
+    func testCreateNewTrip() {
+        let expectation = self.expectation(description: "Attempting to create a trip")
+        
+        let trip = TripRepresentation(userId: 3, airportId: "SFO", departureTime: Date())
+
+        tripController.createNewTrip(trip) { (error) in
+            XCTAssertNil(error)
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
+    func testGetAllTrips() {
+        let expectation = self.expectation(description: "Attempting to get all trips")
+        
+        tripController.getAllTrips { (error) in
+            XCTAssertNil(error)
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
     
 }
