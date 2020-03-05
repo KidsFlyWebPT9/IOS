@@ -35,31 +35,33 @@ class KidsFlyUnitTest: XCTestCase {
         self.waitForExpectations(timeout: 10, handler: nil)
     }
 
-    func testWelcomeMessage() {
+    func testGetUser() {
         let expectation = self.expectation(description: "Getting welcome message")
 
-        travelerController.getUserWelcomeNotification() { (error) in
+        travelerController.getUserInfo() { (error) in
             XCTAssertNil(error)
             expectation.fulfill()
         }
         waitForExpectations(timeout: 30, handler: nil)
     }
     
-    func testGetAllUsers() {
-        let expectation = self.expectation(description: "Attempting to sign in with user")
-        let expectation2 = self.expectation(description: "Attempting to get all users")
-        
-        travelerController.signIn(username: "testemail26@gmail.com", password: "PASSWORD123") { (error) in
-            XCTAssertNil(error)
-            expectation.fulfill()
-            
-            self.travelerController.getListOfAllTravellers() { (error) in
-                XCTAssertNil(error)
-                expectation2.fulfill()
-            }
-        }
-        self.waitForExpectations(timeout: 10, handler: nil)
-    }
+    
+    // This test only worked on the original API that was abonded due to BackEnd not coming through
+//    func testGetAllUsers() {
+//        let expectation = self.expectation(description: "Attempting to sign in with user")
+//        let expectation2 = self.expectation(description: "Attempting to get all users")
+//
+//        travelerController.signIn(username: "testemail26@gmail.com", password: "PASSWORD123") { (error) in
+//            XCTAssertNil(error)
+//            expectation.fulfill()
+//
+//            self.travelerController.getListOfAllTravellers() { (error) in
+//                XCTAssertNil(error)
+//                expectation2.fulfill()
+//            }
+//        }
+//        self.waitForExpectations(timeout: 10, handler: nil)
+//    }
     
     func testAmadeusAPIAuth() {
         let expectation = self.expectation(description: "Getting Amadeus API Access Token")

@@ -10,13 +10,6 @@
 import Foundation
 import CoreData
 
-struct TripRepresentation: Codable {
-    var airport: String
-    var airline: String
-    var departureTime: Date
-    var numberOfChildren: Int
-    var isArriving: Int = 0
-}
 
 class TripController {
     
@@ -51,35 +44,35 @@ class TripController {
         
     }
     
-    func getAllTrips(forUser: User?, withToken: String?, completion: @escaping (Error?) -> Void) {
-        // A "GET" method to retreive all trips for a specific user.
-    }
-    
-    
-    func getSingleTrip(trip: TripRepresentation, forUser: User, completion: @escaping (Error?) -> Void) {
-        
-    }
-    
-    
-    func updateTrip(withTrip: TripRepresentation, forUser: User, completion: @escaping (Error?) -> Void) {
-        
-    }
-    
-    
-    func deleteTrip(trip: TripRepresentation, forUser: User, completion: @escaping (Error?) -> Void) {
-        
-    }
-    
-    
-    func userIsArriving(forTrip: TripRepresentation, completion: @escaping (Error?) -> Void) {
-        // A "PUT" method for a specific trip that only changes the "is_arriving" attribute from 0 -> 1
-    }
-    
-    
-    func userHasArrived(forTrip: TripRepresentation, completion: @escaping (Error?) -> Void) {
-        // A "PUT" method for a specific trip that only changes the "is_arriving" attribute from 1 -> 0
-        
-    }
+//    func getAllTrips(forUser: User?, withToken: String?, completion: @escaping (Error?) -> Void) {
+//        // A "GET" method to retreive all trips for a specific user.
+//    }
+//
+//    
+//    func getSingleTrip(trip: TripRepresentation, forUser: User, completion: @escaping (Error?) -> Void) {
+//
+//    }
+//
+//
+//    func updateTrip(withTrip: TripRepresentation, forUser: User, completion: @escaping (Error?) -> Void) {
+//
+//    }
+//
+//
+//    func deleteTrip(trip: TripRepresentation, forUser: User, completion: @escaping (Error?) -> Void) {
+//
+//    }
+//
+//
+//    func userIsArriving(forTrip: TripRepresentation, completion: @escaping (Error?) -> Void) {
+//        // A "PUT" method for a specific trip that only changes the "is_arriving" attribute from 0 -> 1
+//    }
+//
+//
+//    func userHasArrived(forTrip: TripRepresentation, completion: @escaping (Error?) -> Void) {
+//        // A "PUT" method for a specific trip that only changes the "is_arriving" attribute from 1 -> 0
+//
+//    }
     
     
     
