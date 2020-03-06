@@ -40,14 +40,23 @@
 		E60B16782408B6D1002193AD /* UIViewControllerExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B16772408B6D1002193AD /* UIViewControllerExtention.swift */; };
 		E60B167C2408C190002193AD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B167B2408C190002193AD /* SignUpViewController.swift */; };
 		E60B167E2408C1B0002193AD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B167D2408C1B0002193AD /* SignInViewController.swift */; };
+		E62E7D4C2411CF53002F0F56 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62E7D4B2411CF53002F0F56 /* AccountViewController.swift */; };
 		E678B7F0240E009800C43394 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = E678B7EF240E009800C43394 /* UIImage+Gif.swift */; };
 		E678B7F2240E023000C43394 /* giphy.gif in Resources */ = {isa = PBXBuildFile; fileRef = E678B7F1240E023000C43394 /* giphy.gif */; };
 		E678B7F4240E072300C43394 /* PrivateKidsFlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E678B7F3240E072300C43394 /* PrivateKidsFlyViewController.swift */; };
 		E6B1A9042410528700EC3BDD /* QuickCheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1A9032410528700EC3BDD /* QuickCheckInViewController.swift */; };
+		E6B1A90C2410E16B00EC3BDD /* KidsFlyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1A90B2410E16B00EC3BDD /* KidsFlyUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		9282E625240A058900FCC978 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E60B16402408AFCA002193AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E60B16472408AFCA002193AD;
+			remoteInfo = KidsFly;
+		};
+		E6B1A90E2410E16B00EC3BDD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E60B16402408AFCA002193AD /* Project object */;
 			proxyType = 1;
@@ -96,10 +105,14 @@
 		E60B16772408B6D1002193AD /* UIViewControllerExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtention.swift; sourceTree = "<group>"; };
 		E60B167B2408C190002193AD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E60B167D2408C1B0002193AD /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		E62E7D4B2411CF53002F0F56 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		E678B7EF240E009800C43394 /* UIImage+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		E678B7F1240E023000C43394 /* giphy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giphy.gif; sourceTree = "<group>"; };
 		E678B7F3240E072300C43394 /* PrivateKidsFlyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKidsFlyViewController.swift; sourceTree = "<group>"; };
 		E6B1A9032410528700EC3BDD /* QuickCheckInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickCheckInViewController.swift; sourceTree = "<group>"; };
+		E6B1A9092410E16B00EC3BDD /* KidsFlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KidsFlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6B1A90B2410E16B00EC3BDD /* KidsFlyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidsFlyUITests.swift; sourceTree = "<group>"; };
+		E6B1A90D2410E16B00EC3BDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +128,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D65ABFE41958DFB15C2D1E0F /* Pods_KidsFly.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6B1A9062410E16B00EC3BDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +185,7 @@
 			children = (
 				E60B164A2408AFCA002193AD /* KidsFly */,
 				9282E621240A058900FCC978 /* KidsFlyUnitTest */,
+				E6B1A90A2410E16B00EC3BDD /* KidsFlyUITests */,
 				E60B16492408AFCA002193AD /* Products */,
 				1D08F98D11D9CAC8564668B9 /* Pods */,
 				90A85D436D5BFCF9184FC8B7 /* Frameworks */,
@@ -176,6 +197,7 @@
 			children = (
 				E60B16482408AFCA002193AD /* KidsFly.app */,
 				9282E620240A058900FCC978 /* KidsFlyUnitTest.xctest */,
+				E6B1A9092410E16B00EC3BDD /* KidsFlyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -228,6 +250,7 @@
 				E60B167D2408C1B0002193AD /* SignInViewController.swift */,
 				E678B7F3240E072300C43394 /* PrivateKidsFlyViewController.swift */,
 				E6B1A9032410528700EC3BDD /* QuickCheckInViewController.swift */,
+				E62E7D4B2411CF53002F0F56 /* AccountViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -282,6 +305,15 @@
 			path = Extentions;
 			sourceTree = "<group>";
 		};
+		E6B1A90A2410E16B00EC3BDD /* KidsFlyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E6B1A90B2410E16B00EC3BDD /* KidsFlyUITests.swift */,
+				E6B1A90D2410E16B00EC3BDD /* Info.plist */,
+			);
+			path = KidsFlyUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -322,6 +354,24 @@
 			productReference = E60B16482408AFCA002193AD /* KidsFly.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E6B1A9082410E16B00EC3BDD /* KidsFlyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6B1A9122410E16B00EC3BDD /* Build configuration list for PBXNativeTarget "KidsFlyUITests" */;
+			buildPhases = (
+				E6B1A9052410E16B00EC3BDD /* Sources */,
+				E6B1A9062410E16B00EC3BDD /* Frameworks */,
+				E6B1A9072410E16B00EC3BDD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E6B1A90F2410E16B00EC3BDD /* PBXTargetDependency */,
+			);
+			name = KidsFlyUITests;
+			productName = KidsFlyUITests;
+			productReference = E6B1A9092410E16B00EC3BDD /* KidsFlyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -338,6 +388,10 @@
 					};
 					E60B16472408AFCA002193AD = {
 						CreatedOnToolsVersion = 11.3.1;
+					};
+					E6B1A9082410E16B00EC3BDD = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = E60B16472408AFCA002193AD;
 					};
 				};
 			};
@@ -356,6 +410,7 @@
 			targets = (
 				E60B16472408AFCA002193AD /* KidsFly */,
 				9282E61F240A058900FCC978 /* KidsFlyUnitTest */,
+				E6B1A9082410E16B00EC3BDD /* KidsFlyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -376,6 +431,13 @@
 				E60B16552408AFCB002193AD /* Assets.xcassets in Resources */,
 				E678B7F2240E023000C43394 /* giphy.gif in Resources */,
 				E60B16532408AFCA002193AD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6B1A9072410E16B00EC3BDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +500,7 @@
 			files = (
 				9282E62D240B127C00FCC978 /* NetworkError.swift in Sources */,
 				E60B167E2408C1B0002193AD /* SignInViewController.swift in Sources */,
+				E62E7D4C2411CF53002F0F56 /* AccountViewController.swift in Sources */,
 				B78BC014240F21E70080E765 /* ParentRepresentation.swift in Sources */,
 				B78BC00E240F17A80080E765 /* KidsFly.xcdatamodeld in Sources */,
 				9243C17F240CACE400EC3D10 /* FlightController.swift in Sources */,
@@ -470,6 +533,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E6B1A9052410E16B00EC3BDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6B1A90C2410E16B00EC3BDD /* KidsFlyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -477,6 +548,11 @@
 			isa = PBXTargetDependency;
 			target = E60B16472408AFCA002193AD /* KidsFly */;
 			targetProxy = 9282E625240A058900FCC978 /* PBXContainerItemProxy */;
+		};
+		E6B1A90F2410E16B00EC3BDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E60B16472408AFCA002193AD /* KidsFly */;
+			targetProxy = E6B1A90E2410E16B00EC3BDD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -690,6 +766,42 @@
 			};
 			name = Release;
 		};
+		E6B1A9102410E16B00EC3BDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = KidsFlyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = enayatullah.KidsFlyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KidsFly;
+			};
+			name = Debug;
+		};
+		E6B1A9112410E16B00EC3BDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = KidsFlyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = enayatullah.KidsFlyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KidsFly;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -716,6 +828,15 @@
 			buildConfigurations = (
 				E60B165D2408AFCB002193AD /* Debug */,
 				E60B165E2408AFCB002193AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6B1A9122410E16B00EC3BDD /* Build configuration list for PBXNativeTarget "KidsFlyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6B1A9102410E16B00EC3BDD /* Debug */,
+				E6B1A9112410E16B00EC3BDD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
