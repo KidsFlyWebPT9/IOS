@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51FEA0852410A91400DDC0E4 /* User+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FEA0842410A91400DDC0E4 /* User+Convenience.swift */; };
+		51FEA0872410AA7800DDC0E4 /* Trip+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FEA0862410AA7800DDC0E4 /* Trip+Convenience.swift */; };
+		51FEA0892410ACDE00DDC0E4 /* UserRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FEA0882410ACDE00DDC0E4 /* UserRepresentation.swift */; };
+		51FEA08B2410B5A200DDC0E4 /* TripRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FEA08A2410B5A200DDC0E4 /* TripRepresentation.swift */; };
 		9243C17F240CACE400EC3D10 /* FlightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9243C17E240CACE400EC3D10 /* FlightController.swift */; };
 		9243C181240CBE5400EC3D10 /* AirportAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9243C180240CBE5400EC3D10 /* AirportAPIResponse.swift */; };
 		9282E61B2408C58100FCC978 /* TravelerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282E61A2408C58100FCC978 /* TravelerController.swift */; };
@@ -14,7 +18,6 @@
 		9282E62B240A1A0300FCC978 /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282E62A240A1A0300FCC978 /* Bearer.swift */; };
 		9282E62D240B127C00FCC978 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282E62C240B127C00FCC978 /* NetworkError.swift */; };
 		9282E62F240B129F00FCC978 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282E62E240B129F00FCC978 /* HTTPMethod.swift */; };
-		9282E633240C4D2200FCC978 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282E632240C4D2200FCC978 /* User.swift */; };
 		92D588FC240F5AFA003E69A9 /* TripController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D588FB240F5AFA003E69A9 /* TripController.swift */; };
 		B78BC00B240F178D0080E765 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78BC00A240F178D0080E765 /* CoreDataStack.swift */; };
 		B78BC00E240F17A80080E765 /* KidsFly.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B78BC00C240F17A80080E765 /* KidsFly.xcdatamodeld */; };
@@ -67,6 +70,10 @@
 
 /* Begin PBXFileReference section */
 		447F16C060742B2B03488C8B /* Pods_KidsFly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KidsFly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		51FEA0842410A91400DDC0E4 /* User+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Convenience.swift"; sourceTree = "<group>"; };
+		51FEA0862410AA7800DDC0E4 /* Trip+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+Convenience.swift"; sourceTree = "<group>"; };
+		51FEA0882410ACDE00DDC0E4 /* UserRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepresentation.swift; sourceTree = "<group>"; };
+		51FEA08A2410B5A200DDC0E4 /* TripRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRepresentation.swift; sourceTree = "<group>"; };
 		8A548DB826006A11BFA8B2AB /* Pods-KidsFly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KidsFly.release.xcconfig"; path = "Target Support Files/Pods-KidsFly/Pods-KidsFly.release.xcconfig"; sourceTree = "<group>"; };
 		9243C17E240CACE400EC3D10 /* FlightController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightController.swift; sourceTree = "<group>"; };
 		9243C180240CBE5400EC3D10 /* AirportAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AirportAPIResponse.swift; path = "KidsFly/Model Controllers/AirportAPIResponse.swift"; sourceTree = SOURCE_ROOT; };
@@ -77,7 +84,6 @@
 		9282E62A240A1A0300FCC978 /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Bearer.swift; path = "KidsFly/Model Controllers/Bearer.swift"; sourceTree = SOURCE_ROOT; };
 		9282E62C240B127C00FCC978 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkError.swift; path = "KidsFly/Model Controllers/NetworkError.swift"; sourceTree = SOURCE_ROOT; };
 		9282E62E240B129F00FCC978 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HTTPMethod.swift; path = "KidsFly/Model Controllers/HTTPMethod.swift"; sourceTree = SOURCE_ROOT; };
-		9282E632240C4D2200FCC978 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = "KidsFly/Model Controllers/User.swift"; sourceTree = SOURCE_ROOT; };
 		92D588FB240F5AFA003E69A9 /* TripController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripController.swift; sourceTree = "<group>"; };
 		A57DBEF0962E3C76FDCA991F /* Pods-KidsFly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KidsFly.debug.xcconfig"; path = "Target Support Files/Pods-KidsFly/Pods-KidsFly.debug.xcconfig"; sourceTree = "<group>"; };
 		B78BC00A240F178D0080E765 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -176,6 +182,10 @@
 				B78BC011240F1E2B0080E765 /* Connection+Convenience.swift */,
 				B78BC015240F23370080E765 /* ConnectionRepresentation.swift */,
 				B78BC00C240F17A80080E765 /* KidsFly.xcdatamodeld */,
+				51FEA0842410A91400DDC0E4 /* User+Convenience.swift */,
+				51FEA0862410AA7800DDC0E4 /* Trip+Convenience.swift */,
+				51FEA0882410ACDE00DDC0E4 /* UserRepresentation.swift */,
+				51FEA08A2410B5A200DDC0E4 /* TripRepresentation.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -225,7 +235,6 @@
 				9282E62A240A1A0300FCC978 /* Bearer.swift */,
 				9282E62C240B127C00FCC978 /* NetworkError.swift */,
 				9282E62E240B129F00FCC978 /* HTTPMethod.swift */,
-				9282E632240C4D2200FCC978 /* User.swift */,
 				9243C180240CBE5400EC3D10 /* AirportAPIResponse.swift */,
 			);
 			path = Model;
@@ -498,13 +507,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51FEA08B2410B5A200DDC0E4 /* TripRepresentation.swift in Sources */,
 				9282E62D240B127C00FCC978 /* NetworkError.swift in Sources */,
 				E60B167E2408C1B0002193AD /* SignInViewController.swift in Sources */,
 				E62E7D4C2411CF53002F0F56 /* AccountViewController.swift in Sources */,
 				B78BC014240F21E70080E765 /* ParentRepresentation.swift in Sources */,
 				B78BC00E240F17A80080E765 /* KidsFly.xcdatamodeld in Sources */,
 				9243C17F240CACE400EC3D10 /* FlightController.swift in Sources */,
+				51FEA0892410ACDE00DDC0E4 /* UserRepresentation.swift in Sources */,
 				E60B16752408B5EC002193AD /* APIController.swift in Sources */,
+				51FEA0872410AA7800DDC0E4 /* Trip+Convenience.swift in Sources */,
 				B78BC010240F1E070080E765 /* Parent+Convenience.swift in Sources */,
 				E60B16682408B1AA002193AD /* NetworkDataLoader.swift in Sources */,
 				E60B16502408AFCA002193AD /* HomeViewController.swift in Sources */,
@@ -513,6 +525,7 @@
 				E60B166F2408B4B9002193AD /* KFButton.swift in Sources */,
 				E60B16782408B6D1002193AD /* UIViewControllerExtention.swift in Sources */,
 				E60B164C2408AFCA002193AD /* AppDelegate.swift in Sources */,
+				51FEA0852410A91400DDC0E4 /* User+Convenience.swift in Sources */,
 				9282E62B240A1A0300FCC978 /* Bearer.swift in Sources */,
 				E60B166D2408B4AA002193AD /* KFAlertVC.swift in Sources */,
 				E60B16712408B4C9002193AD /* KFTitleLabel.swift in Sources */,
@@ -529,7 +542,6 @@
 				E60B164E2408AFCA002193AD /* SceneDelegate.swift in Sources */,
 				E678B7F4240E072300C43394 /* PrivateKidsFlyViewController.swift in Sources */,
 				E678B7F0240E009800C43394 /* UIImage+Gif.swift in Sources */,
-				9282E633240C4D2200FCC978 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

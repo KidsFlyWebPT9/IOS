@@ -2,50 +2,34 @@ import Foundation
 import CoreData
 
 class CoreDataStack {
-    
-    
-    // MARK: - Properties
-    
-    /// Shared instance of CoreDataStack
     static let shared = CoreDataStack()
     
-    /// Creates Persistent Store & Persistent Store Coordinator
     lazy var container: NSPersistentContainer = {
-        let newContainer = NSPersistentContainer(name: "KidsFly")
-        newContainer.loadPersistentStores { (_, error) in
+       let container = NSPersistentContainer(name: "KidsFly")
+        container.loadPersistentStores { _, error in
             if let error = error {
                 fatalError("Failed to load persistent stores: \(error)")
             }
         }
-        newContainer.viewContext.automaticallyMergesChangesFromParent = true
-        return newContainer
+        container.viewContext.automaticallyMergesChangesFromParent = true
+        return container
     }()
     
-    /// Creates Managed Object Context
-    // Retrive with "CoreDataStack.shared.mainContext"
     var mainContext: NSManagedObjectContext {
         return container.viewContext
     }
     
-    
-    // MARK: - Initializers
-    
-    private init() {}
-    
-    
-    // MARK: - Functions
-    
-    func save(context: NSManagedObjectContext) throws {
-        var saveError: Error?
+    func save(context: NSManagedObjectContext =
+        CoreDataStack.shared.mainContext) throws {
+        var error: Error?
         
         context.performAndWait {
             do {
                 try context.save()
-            } catch {
-                saveError = error
+            } catch let saveError {
+                error = saveError
             }
         }
-        
-        if let saveError = saveError { throw saveError }
+        if let error = error { throw error }
     }
 }

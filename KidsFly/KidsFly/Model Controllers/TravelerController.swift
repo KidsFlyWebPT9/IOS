@@ -14,11 +14,13 @@ class TravelerController {
     
     let keychain = Keychain(service: "com.kidsfly.app")
     
-    var welcomeMessage: [String: String]?
-    private let baseURL = URL(string: "https://kidsfly-lambda2.herokuapp.com")!
+    var welcomeMessage: String?
+    private let baseURL = URL(string: "https://kidsfly1.herokuapp.com/")!
     
+    
+    // CREATE User
     func registerNewUser(username: String, password: String, completion: @escaping (Error?) -> Void) {
-        let newUser = User(username: username, password: password)
+        let newUser = UserRepresentation(username: username, password: password)
         let registerNewUserURL = baseURL.appendingPathComponent("api/auth/register")
         
         var request = URLRequest(url: registerNewUserURL)
@@ -53,7 +55,7 @@ class TravelerController {
             }
             let decoder = JSONDecoder()
             do {
-                let user = try decoder.decode(User.self, from: data)
+                let user = try decoder.decode(UserRepresentation.self, from: data)
                 if let userID = user.id {
                     self.keychain["user_id"] = "\(userID)"
                     print("Successfully created user with ID: \(userID)")
@@ -67,8 +69,9 @@ class TravelerController {
     }
     
     
+    // READ User
     func signIn(username: String, password: String, completion: @escaping (Error?) -> Void) {
-        let user = User(username: username, password: password)
+        let user = UserRepresentation(username: username, password: password)
         let signInURL = baseURL.appendingPathComponent("api/auth/login")
         
         var request = URLRequest(url: signInURL)
@@ -117,7 +120,8 @@ class TravelerController {
     }
     
     
-    func getUserWelcomeNotification(completion: @escaping (Error?) -> Void) {
+    // READ User
+    func getUserInfo(completion: @escaping (Error?) -> Void) {
         guard let userID = keychain["user_id"], let token = keychain["user_token"] else { return }
         let welcomeMessageURL = self.baseURL.appendingPathComponent("api/users/\(userID)")
         
@@ -146,8 +150,10 @@ class TravelerController {
             let decoder = JSONDecoder()
             print(data)
             do {
-                let returnedMessage = try decoder.decode([String: String].self, from: data)
-                self.welcomeMessage = returnedMessage
+                let user = try decoder.decode(UserRepresentation.self, from: data)
+                self.keychain["userInformation"] = String(data: data, encoding: .iso2022JP)
+                self.welcomeMessage = "Welcome User: \(user.username)"
+                print(user)
                 print(self.welcomeMessage ?? "welcome user!")
             } catch {
                 print("Error decoding welcome message")
@@ -158,48 +164,101 @@ class TravelerController {
         }.resume()
     }
     
-    
-    func getListOfAllTravellers(completion: @escaping (Error?) -> Void) {
+    // UPDATE User
+    func updateUser(user: UserRepresentation, completion: @escaping (Error?) -> Void) {
         
-        guard let token = keychain["user_token"] else { return }
-        let usersURL = baseURL.appendingPathComponent("api/users")
+        guard let userID = self.keychain["user_id"] else { return }
+        let registerNewUserURL = baseURL.appendingPathComponent("api/users/\(userID)")
         
-        var request = URLRequest(url: usersURL)
+        var request = URLRequest(url: registerNewUserURL)
+        request.httpMethod = HTTPMethod.put
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("\(token)", forHTTPHeaderField: "Authorization")
-        request.httpMethod = HTTPMethod.get
         
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(user)
+            request.httpBody = data
+        } catch {
+            print("Error encoding data: \(error)")
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) {data, response, error in
             if let error = error {
-                print("Error getting user data: \(error)")
+                print("Error registering new user: \(error)")
                 completion(error)
                 return
             }
             if let response = response as? HTTPURLResponse,
-                response.statusCode != 200 {
-                print("HTTPResponse status code returned: \(response.statusCode) with error: \(NetworkError.otherError) ")
+            response.statusCode != 201 {
+                print("HTTP Response error when attempting to register new user: \(response.statusCode)")
                 completion(NetworkError.otherError)
                 return
             }
             guard let data = data else {
-                print("Error with returned data")
+                print("Error with returned data for user registration")
                 completion(NetworkError.badData)
                 return
             }
             let decoder = JSONDecoder()
-            
             do {
-                let users = try decoder.decode([User].self, from: data)
-                print(users)
+                let user = try decoder.decode(UserRepresentation.self, from: data)
+                if let userID = user.id {
+                    self.keychain["user_id"] = "\(userID)"
+                    print("Successfully updated user with ID: \(userID)")
+                }
             } catch {
-                print("Error decoding all users data: \(NetworkError.noDecode)")
-                completion(error)
-                return
+                completion(NetworkError.noDecode)
+                print("Error decoding user information")
             }
             completion(nil)
         }.resume()
     }
     
+    
+    
+    // This method only worked ont he original API that was abonded due to BackEnd not coming through
+//    func getListOfAllTravellers(completion: @escaping (Error?) -> Void) {
+//
+//        guard let token = keychain["user_token"] else { return }
+//        let usersURL = baseURL.appendingPathComponent("api/users")
+//
+//        var request = URLRequest(url: usersURL)
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.setValue("\(token)", forHTTPHeaderField: "Authorization")
+//        request.httpMethod = HTTPMethod.get
+//
+//        URLSession.shared.dataTask(with: request) { (data, response, error) in
+//            if let error = error {
+//                print("Error getting user data: \(error)")
+//                completion(error)
+//                return
+//            }
+//            if let response = response as? HTTPURLResponse,
+//                response.statusCode != 200 {
+//                print("HTTPResponse status code returned: \(response.statusCode) with error: \(NetworkError.otherError) ")
+//                completion(NetworkError.otherError)
+//                return
+//            }
+//            guard let data = data else {
+//                print("Error with returned data")
+//                completion(NetworkError.badData)
+//                return
+//            }
+//            let decoder = JSONDecoder()
+//
+//            do {
+//                let users = try decoder.decode([UserRepresentation].self, from: data)
+//                print(users)
+//            } catch {
+//                print("Error decoding all users data: \(NetworkError.noDecode)")
+//                completion(error)
+//                return
+//            }
+//            completion(nil)
+//        }.resume()
+//    }
+//
     
 }
 
