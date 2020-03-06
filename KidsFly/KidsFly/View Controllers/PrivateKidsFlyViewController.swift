@@ -16,6 +16,7 @@ class PrivateKidsFlyViewController: UIViewController {
     @IBOutlet weak var newTripButton: UIButton!
     @IBOutlet weak var kidsButton: UIButton!
     @IBOutlet weak var quickCheckInButton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
     
     // 🚙 Suv
     // 🚗 Sedan
@@ -41,7 +42,7 @@ class PrivateKidsFlyViewController: UIViewController {
         Utilities.styleFilledButton(upcomingTripButton)
         Utilities.styleFilledButton(newTripButton)
         Utilities.styleFilledButton(kidsButton)
-        Utilities.styleFilledButton(quickCheckInButton)
+        Utilities.styleHollowButton(quickCheckInButton)
     }
     
 // Sign out button 
