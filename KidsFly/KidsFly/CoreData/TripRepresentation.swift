@@ -11,12 +11,14 @@ import CoreData
 
 struct TripRepresentation: Equatable, Codable {
     var id: Int16?
-    var userId: Int16
-    var airportId: String
-    var workerId: Int16?
+    var user_id: Int16
+    var airport_id: Int16
+    var worker_id: Int16?
     var airline: String?
-    var departureTime: Date
+    var flight_number: String?
+    var departure_time: String
     var luggage: Int16?
     var children: Int16?
-    var specialNeeds: String?
+    var special_needs: String?
+//    var approved: Int16?
 }
