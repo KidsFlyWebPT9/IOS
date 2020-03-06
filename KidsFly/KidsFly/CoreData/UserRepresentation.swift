@@ -15,6 +15,6 @@ struct UserRepresentation: Equatable, Codable {
     var image: String?
     var name: String?
     var address: String?
-    var airportId: String?
+    var airport_id: Int16?
     var phone: String?
 }

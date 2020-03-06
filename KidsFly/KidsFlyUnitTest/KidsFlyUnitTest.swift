@@ -18,7 +18,7 @@ class KidsFlyUnitTest: XCTestCase {
     func testCreateNewUser() {
         let expectation = self.expectation(description: "Waiting to create user")
         
-        travelerController.registerNewUser(username: "testemail27@gmail.com", password: "PASSWORD123") { (error) in
+        travelerController.registerNewUser(username: "testemail28@gmail.com", password: "PASSWORD123") { (error) in
             XCTAssertNil(error)
             expectation.fulfill()
         }
@@ -29,7 +29,7 @@ class KidsFlyUnitTest: XCTestCase {
     func testLogIn() {
         let expectation = self.expectation(description: "Attempting to Sign In With User")
         
-        travelerController.signIn(username: "testemail27@gmail.com", password: "PASSWORD123") { (error) in
+        travelerController.signIn(username: "testemail28@gmail.com", password: "PASSWORD123") { (error) in
             XCTAssertNil(error)
             expectation.fulfill()
         }
@@ -87,7 +87,7 @@ class KidsFlyUnitTest: XCTestCase {
     func testCreateNewTrip() {
         let expectation = self.expectation(description: "Attempting to create a trip")
         
-        let trip = TripRepresentation(userId: 3, airportId: "SFO", departureTime: Date())
+        let trip = TripRepresentation(user_id: 6, airport_id: 16, departure_time: "11:27AM")
 
         tripController.createNewTrip(trip) { (error) in
             XCTAssertNil(error)

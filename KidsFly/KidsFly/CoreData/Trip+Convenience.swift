@@ -11,45 +11,55 @@ import CoreData
 
 extension Trip {
     
-    @discardableResult convenience init(id: Int16,
-                                        userId: Int16,
-                                        airportId: String,
-                                        workerId: Int16,
+//    enum CodingKeys: String, CodingKey {
+//        case userId = "user_id"
+//        case airportId = "airport_id"
+//        case workerId = "worker_id"
+//        case flightNumber = "flight_number"
+//        case departureTime = "departure_time"
+//        case special_needs = "special_needs"
+//    }
+    
+    @discardableResult convenience init(user_id: Int16,
+                                        airport_id: Int16,
+                                        worker_id: Int16,
                                         airline: String,
-                                        departureTime: Date,
+                                        flight_number: String,
+                                        departure_time: String,
                                         luggage: Int16,
                                         children: Int16,
-                                        specialNeeds: String,
+                                        special_needs: String,
+//                                        approved: Int16,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         self.init(context: context)
-        self.id = id
-        self.userId = userId
-        self.airportId = airportId
-        self.workerId = workerId
+        self.user_id = user_id
+        self.airport_id = airport_id
+        self.worker_id = worker_id
         self.airline = airline
-        self.departureTime = departureTime
+        self.flight_number = flight_number
+        self.departure_time = departure_time
         self.luggage = luggage
         self.children = children
-        self.specialNeeds = specialNeeds
+        self.special_needs = special_needs
+//        self.approved = approved
     }
     
     @discardableResult convenience init?(tripRepresentation: TripRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
-        guard let id = tripRepresentation.id,
-            let workerId = tripRepresentation.workerId,
+        guard let worker_id = tripRepresentation.worker_id,
             let airline = tripRepresentation.airline,
+            let flight_number = tripRepresentation.flight_number,
             let luggage = tripRepresentation.luggage,
             let children = tripRepresentation.children,
-            let specialNeeds = tripRepresentation.specialNeeds else { return nil }
+            let special_needs = tripRepresentation.special_needs else { return nil }
         
-        self.init(id: id, userId: tripRepresentation.userId, airportId: tripRepresentation.airportId, workerId: workerId,  airline: airline, departureTime: tripRepresentation.departureTime, luggage: luggage, children: children, specialNeeds: specialNeeds)
+        self.init(user_id: tripRepresentation.user_id, airport_id: tripRepresentation.airport_id, worker_id: worker_id,  airline: airline, flight_number: flight_number, departure_time: tripRepresentation.departure_time, luggage: luggage, children: children, special_needs: special_needs)
     }
     
     var tripRepresentation: TripRepresentation? {
-        guard let airportId = airportId,
-        let departureTime = departureTime else { return nil }
-        return TripRepresentation(id: id, userId: userId, airportId: airportId, workerId: workerId, airline: airline, departureTime: departureTime, luggage: luggage, children: children, specialNeeds: specialNeeds)
+        guard let departure_time = departure_time else { return nil }
+        return TripRepresentation(user_id: user_id, airport_id: airport_id, worker_id: worker_id, airline: airline, departure_time: departure_time, luggage: luggage, children: children, special_needs: special_needs)
     }
     
     

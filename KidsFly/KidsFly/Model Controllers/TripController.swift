@@ -23,7 +23,7 @@ class TripController {
         // "POST"
         let keychain = travelerController.keychain
         guard let id = keychain["user_id"], let token = keychain["user_token"] else { return }
-        let requestURL = baseURL.appendingPathComponent("/api/\(id)/newtrip")
+        let requestURL = baseURL.appendingPathComponent("api/users/\(id)/newtrip")
         var request = URLRequest(url: requestURL)
         request.setValue("\(token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -38,26 +38,37 @@ class TripController {
             return
         }
         
-        URLSession.shared.dataTask(with: request) { (_, _, error) in
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
                 print(error)
+                completion(error)
+                return
+            }
+            guard let data = data else {
+                print("Error with data returned")
+                completion(NetworkError.badData)
+                return
+            }
+            let decoder = JSONDecoder()
+            do {
+                let trip = try decoder.decode(TripRepresentation.self, from: data)
+                print(trip)
+            } catch {
+                print("Error decoding trip data: \(error)")
                 completion(error)
                 return
             }
             
             completion(nil)
         }.resume()
-        
-        
     }
     
     func getAllTrips(completion: @escaping (Error?) -> Void) {
         // GET /api/:id/trips to get trips created by the user
-        
         let keychain = travelerController.keychain
-        guard let id = keychain["user_id"], let token = keychain["user_token"] else { return }
+        guard let token = keychain["user_token"] else { return }
         
-        let requestURL = baseURL.appendingPathComponent("api/\(id)/trips")
+        let requestURL = baseURL.appendingPathComponent("api/trips")
         var request = URLRequest(url: requestURL)
         request.setValue("\(token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -76,20 +87,21 @@ class TripController {
                 return
             }
             
-            print(data)
             let decoder = JSONDecoder()
             
-            do {
+           do {
                 let trips = try decoder.decode([TripRepresentation].self, from: data)
-                print(trips.count)
-                
+                print(trips)
             } catch {
-                print("Error getting trips for user: \(NetworkError.noDecode)")
+                print("Error decoding trip data: \(error)")
+                completion(error)
+                return
             }
             
             completion(nil)
         }.resume()
     }
+    
     //
 //    
 //    func getSingleTrip(trip: TripRepresentation, forUser: User, completion: @escaping (Error?) -> Void) {
