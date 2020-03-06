@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 struct TripRepresentation: Equatable, Codable {
-//    var id: Int16?
+    var id: Int16?
     var user_id: Int16
     var airport_id: Int16
     var worker_id: Int16?

@@ -14,6 +14,7 @@ import KeychainAccess
 
 class TripController {
     
+    private var trips: [TripRepresentation] = []
     let travelerController = TravelerController()
     
     private let baseURL = URL(string: "https://kidsfly1.herokuapp.com/")!
@@ -52,6 +53,8 @@ class TripController {
             let decoder = JSONDecoder()
             do {
                 let trip = try decoder.decode(TripRepresentation.self, from: data)
+                self.trips.append(trip)
+                //TO-DO: save to core data
                 print(trip)
             } catch {
                 print("Error decoding trip data: \(error)")
@@ -89,9 +92,18 @@ class TripController {
             
             let decoder = JSONDecoder()
             
-           do {
+            do {
                 let trips = try decoder.decode([TripRepresentation].self, from: data)
-                print(trips)
+                guard let idString = keychain["user_id"] else { return }
+                if let id = Int16(idString) {
+                    for trip in trips {
+                        if trip.user_id == id {
+                            self.trips.append(trip)
+                            // Save to core data?
+                            print(trip)
+                        }
+                    }
+                }
             } catch {
                 print("Error decoding trip data: \(error)")
                 completion(error)
@@ -105,18 +117,59 @@ class TripController {
     //
 //    
 //    func getSingleTrip(trip: TripRepresentation, forUser: User, completion: @escaping (Error?) -> Void) {
-//
+//      // Currently not working due to BackEnd not functioning properly
 //    }
 //
 //
-//    func updateTrip(withTrip: TripRepresentation, forUser: User, completion: @escaping (Error?) -> Void) {
+    func updateTrip(_ trip: TripRepresentation, completion: @escaping (Error?) -> Void) {
+        let keychain = travelerController.keychain
+        guard let token = keychain["user_token"], let id = trip.id else { return }
+        let requestURL = baseURL.appendingPathComponent("api/trips/\(id)")
+        var request = URLRequest(url: requestURL)
+        request.setValue("\(token)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = HTTPMethod.put
+        let encoder = JSONEncoder()
+        
+        do {
+            let data = try encoder.encode(trip)
+            request.httpBody = data
+        } catch {
+            print(error)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                print(error)
+                completion(error)
+                return
+            }
+            guard let data = data else {
+                print("Error with data returned")
+                completion(NetworkError.badData)
+                return
+            }
+            let decoder = JSONDecoder()
+            do {
+                let trip = try decoder.decode(TripRepresentation.self, from: data)
+                self.trips.append(trip)
+                //TO-DO: save to core data
+                print(trip)
+            } catch {
+                print("Error decoding trip data: \(error)")
+                completion(error)
+                return
+            }
+            
+            completion(nil)
+        }.resume()
+    }
 //
-//    }
 //
-//
-//    func deleteTrip(trip: TripRepresentation, forUser: User, completion: @escaping (Error?) -> Void) {
-//
-//    }
+    func deleteTrip(trip: TripRepresentation, completion: @escaping (Error?) -> Void) {
+
+    }
 //
 //
 //    func userIsArriving(forTrip: TripRepresentation, completion: @escaping (Error?) -> Void) {

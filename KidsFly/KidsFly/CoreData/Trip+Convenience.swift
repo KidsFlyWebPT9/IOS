@@ -20,7 +20,8 @@ extension Trip {
 //        case special_needs = "special_needs"
 //    }
     
-    @discardableResult convenience init(user_id: Int16,
+    @discardableResult convenience init(id: Int16,
+                                        user_id: Int16,
                                         airport_id: Int16,
                                         worker_id: Int16,
                                         airline: String,
@@ -33,6 +34,7 @@ extension Trip {
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         self.init(context: context)
+        self.id = id
         self.user_id = user_id
         self.airport_id = airport_id
         self.worker_id = worker_id
@@ -47,19 +49,20 @@ extension Trip {
     
     @discardableResult convenience init?(tripRepresentation: TripRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
-        guard let worker_id = tripRepresentation.worker_id,
+        guard let id = tripRepresentation.id,
+            let worker_id = tripRepresentation.worker_id,
             let airline = tripRepresentation.airline,
             let flight_number = tripRepresentation.flight_number,
             let luggage = tripRepresentation.luggage,
             let children = tripRepresentation.children,
             let special_needs = tripRepresentation.special_needs else { return nil }
         
-        self.init(user_id: tripRepresentation.user_id, airport_id: tripRepresentation.airport_id, worker_id: worker_id,  airline: airline, flight_number: flight_number, departure_time: tripRepresentation.departure_time, luggage: luggage, children: children, special_needs: special_needs)
+        self.init(id: id, user_id: tripRepresentation.user_id, airport_id: tripRepresentation.airport_id, worker_id: worker_id,  airline: airline, flight_number: flight_number, departure_time: tripRepresentation.departure_time, luggage: luggage, children: children, special_needs: special_needs)
     }
     
     var tripRepresentation: TripRepresentation? {
         guard let departure_time = departure_time else { return nil }
-        return TripRepresentation(user_id: user_id, airport_id: airport_id, worker_id: worker_id, airline: airline, departure_time: departure_time, luggage: luggage, children: children, special_needs: special_needs)
+        return TripRepresentation(id: id, user_id: user_id, airport_id: airport_id, worker_id: worker_id, airline: airline, departure_time: departure_time, luggage: luggage, children: children, special_needs: special_needs)
     }
     
     

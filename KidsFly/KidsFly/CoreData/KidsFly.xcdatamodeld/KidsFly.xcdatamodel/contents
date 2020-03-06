@@ -29,6 +29,7 @@
         <attribute name="children" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="departure_time" optional="YES" attributeType="String"/>
         <attribute name="flight_number" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="luggage" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="special_needs" optional="YES" attributeType="String"/>
         <attribute name="user_id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -48,7 +49,7 @@
         <element name="Admin" positionX="-45" positionY="90" width="128" height="88"/>
         <element name="Connection" positionX="-54" positionY="27" width="128" height="148"/>
         <element name="Parent" positionX="-63" positionY="-18" width="128" height="148"/>
-        <element name="Trip" positionX="-36" positionY="99" width="128" height="178"/>
+        <element name="Trip" positionX="-36" positionY="99" width="128" height="193"/>
         <element name="User" positionX="-54" positionY="54" width="128" height="163"/>
     </elements>
 </model>

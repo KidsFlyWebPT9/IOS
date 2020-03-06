@@ -87,7 +87,7 @@ class KidsFlyUnitTest: XCTestCase {
     func testCreateNewTrip() {
         let expectation = self.expectation(description: "Attempting to create a trip")
         
-        let trip = TripRepresentation(user_id: 6, airport_id: 16, departure_time: "11:27AM")
+        let trip = TripRepresentation(user_id: 6, airport_id: 6, departure_time: "11:27AM")
 
         tripController.createNewTrip(trip) { (error) in
             XCTAssertNil(error)
@@ -100,6 +100,17 @@ class KidsFlyUnitTest: XCTestCase {
         let expectation = self.expectation(description: "Attempting to get all trips")
         
         tripController.getAllTrips { (error) in
+            XCTAssertNil(error)
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
+    func testUpdateTrip() {
+        let expectation = self.expectation(description: "Attempting to update trip")
+        let trip = TripRepresentation(id: 11, user_id: 6, airport_id: 8, departure_time: "12:04PM")
+        
+        tripController.updateTrip(trip) { (error) in
             XCTAssertNil(error)
             expectation.fulfill()
         }
