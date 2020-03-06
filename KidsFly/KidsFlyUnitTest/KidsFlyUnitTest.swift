@@ -117,5 +117,39 @@ class KidsFlyUnitTest: XCTestCase {
         waitForExpectations(timeout: 10, handler: nil)
     }
     
+    func testDeleteTrip() {
+        // since core data not yet in use, need to first create a trip to add to local array in tripController
+        let expectation = self.expectation(description: "Attempting to create trip")
+        let expectation2 = self.expectation(description: "Attempting to delete trip")
+        
+        let trip = TripRepresentation(user_id: 6, airport_id: 25, departure_time: "9:05AM")
+        
+        tripController.createNewTrip(trip) { (error) in
+            XCTAssertNil(error)
+            expectation.fulfill()
+            
+            let savedTrip = self.tripController.trips[0]
+            self.tripController.deleteTrip(savedTrip) { (error) in
+                XCTAssertNil(error)
+                expectation2.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 20, handler: nil)
+    }
+    
+    func testDeleteSingleTrip() {
+        let expectation = self.expectation(description: "Attempting to create trip")
+        
+        let trip = TripRepresentation(id: 1, user_id: 6, airport_id: 8, departure_time: "12:04PM")
+        
+        tripController.deleteTrip(trip) { (error) in
+            XCTAssertNil(error)
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
     
 }

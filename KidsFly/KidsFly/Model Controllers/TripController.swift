@@ -14,7 +14,7 @@ import KeychainAccess
 
 class TripController {
     
-    private var trips: [TripRepresentation] = []
+    var trips: [TripRepresentation] = []
     let travelerController = TravelerController()
     
     private let baseURL = URL(string: "https://kidsfly1.herokuapp.com/")!
@@ -114,13 +114,13 @@ class TripController {
         }.resume()
     }
     
-    //
-//    
-//    func getSingleTrip(trip: TripRepresentation, forUser: User, completion: @escaping (Error?) -> Void) {
-//      // Currently not working due to BackEnd not functioning properly
-//    }
-//
-//
+    
+    
+    func getSingleTrip(trip: TripRepresentation, forUser: User, completion: @escaping (Error?) -> Void) {
+      // Currently not working due to BackEnd not functioning properly
+    }
+
+
     func updateTrip(_ trip: TripRepresentation, completion: @escaping (Error?) -> Void) {
         let keychain = travelerController.keychain
         guard let token = keychain["user_token"], let id = trip.id else { return }
@@ -167,13 +167,32 @@ class TripController {
     }
 //
 //
-    func deleteTrip(trip: TripRepresentation, completion: @escaping (Error?) -> Void) {
-
+    func deleteTrip(_ trip: TripRepresentation, completion: @escaping (Error?) -> Void) {
+        let keychain = travelerController.keychain
+        guard let token = keychain["user_token"], let id = trip.id else { return }
+        let requestURL = baseURL.appendingPathComponent("api/trips/\(id)")
+        var request = URLRequest(url: requestURL)
+        request.setValue("\(token)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = HTTPMethod.delete
+        
+        URLSession.shared.dataTask(with: request) { (_, _, error) in
+            if let error = error {
+                print("Error deleting trip from server")
+                completion(error)
+                return
+            }
+            
+            print("Successfully deleted trip")
+            // TO-DO: If successful then delete from Core data
+            completion(nil)
+        }.resume()
     }
 //
 //
 //    func userIsArriving(forTrip: TripRepresentation, completion: @escaping (Error?) -> Void) {
 //        // A "PUT" method for a specific trip that only changes the "is_arriving" attribute from 0 -> 1
+//        // MEthod will not be 
 //    }
 //
 //
