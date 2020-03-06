@@ -52,6 +52,13 @@ class AccountViewController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         
+        self.presentKFAlertOnMainThread(title: "Thank you!", message: KFError.profileUpdated.rawValue, buttonTitle: "Ok")
+        
+        //temp navigate
+        guard let privateKidsFlyVC = self.storyboard?.instantiateViewController(withIdentifier: "PrivateKidsFlyVC") as? PrivateKidsFlyViewController else { return }
+        self.navigationController?.pushViewController(privateKidsFlyVC, animated: true)
+        self.view.window?.makeKeyAndVisible()
+        
     }
     
 

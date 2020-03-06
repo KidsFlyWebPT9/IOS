@@ -20,5 +20,6 @@ enum KFError: String, Error {
     case errorSigningOut = "There was an error signing out. Please try again."
     case signUpWasSuccessful = "You have signed up successfully"
     case doneTraveling = "We look forward to helping you soon! Safe Travels"
+    case profileUpdated = "Your profile has been updated."
     
 }
