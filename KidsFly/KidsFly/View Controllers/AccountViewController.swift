@@ -24,10 +24,19 @@ class AccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
 
-        // Do any additional setup after loading the view.
     }
     
+        func setupViews() {
+            Utilities.styleTextField(firstNameTextField)
+            Utilities.styleTextField(lastNameTextField)
+            Utilities.styleTextField(streetAdressTextField)
+            Utilities.styleTextField(cityTextField)
+            Utilities.styleTextField(stateTextField)
+            Utilities.styleTextField(zipcodeTextField)
+            
+        }
 
     /*
     // MARK: - Navigation
