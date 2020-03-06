@@ -116,8 +116,44 @@ class TripController {
     
     
     
-    func getSingleTrip(trip: TripRepresentation, forUser: User, completion: @escaping (Error?) -> Void) {
+    func getSingleTrip(trip: TripRepresentation, completion: @escaping (Error?) -> Void) {
       // Currently not working due to BackEnd not functioning properly
+        let keychain = travelerController.keychain
+        guard let token = keychain["user_token"], let id = trip.id else { return }
+        
+        let requestURL = baseURL.appendingPathComponent("api/trips\(id)")
+        var request = URLRequest(url: requestURL)
+        request.setValue("\(token)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = HTTPMethod.get
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                print(error)
+                completion(error)
+                return
+            }
+            
+            guard let data = data else {
+                print("Error getting data for all trips")
+                completion(NetworkError.badData)
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            
+            do {
+                let trip = try decoder.decode(TripRepresentation.self, from: data)
+                print(trip)
+            } catch {
+                print("Error decoding trip data: \(error)")
+                completion(error)
+                return
+            }
+            
+            completion(nil)
+        }.resume()
+        
     }
 
 

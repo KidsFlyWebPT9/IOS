@@ -152,4 +152,16 @@ class KidsFlyUnitTest: XCTestCase {
     }
     
     
+    func testGetSingleTripByID() {
+        let expectation = self.expectation(description: "Attempting to get trip")
+        
+        let trip = TripRepresentation(id: 28, user_id: 6, airport_id: 6, departure_time: "11:27AM")
+        
+        tripController.getSingleTrip(trip: trip) { (error) in
+            XCTAssertNil(error)
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
 }
