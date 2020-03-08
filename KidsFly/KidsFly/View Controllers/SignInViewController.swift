@@ -15,6 +15,7 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var paswordSItext: UITextField!
     @IBOutlet weak var signInButton: UIButton!
     
+    var travelerController: TravelerController?
     
     override func viewDidLoad() {
         super.viewDidLoad()

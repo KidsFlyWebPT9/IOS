@@ -31,7 +31,8 @@
                                         <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                         <state key="normal" title="Sign Up"/>
                                         <connections>
-                                            <segue destination="BWU-49-7r9" kind="show" id="9zd-qc-HwN"/>
+                                            <action selector="signUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6pT-sA-S8Y"/>
+                                            <segue destination="BWU-49-7r9" kind="show" identifier="SignUpSegue" id="9zd-qc-HwN"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgr-0b-c2d">
@@ -39,7 +40,8 @@
                                         <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                         <state key="normal" title="Sign In"/>
                                         <connections>
-                                            <segue destination="Kg5-mu-PQo" kind="show" id="y8K-dv-Nf2"/>
+                                            <action selector="signInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pBs-1A-Xnc"/>
+                                            <segue destination="Kg5-mu-PQo" kind="show" identifier="LogInSegue" id="y8K-dv-Nf2"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -623,6 +625,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="n8b-o1-alc"/>
+        <segue reference="kBD-XD-rcT"/>
     </inferredMetricsTieBreakers>
 </document>
