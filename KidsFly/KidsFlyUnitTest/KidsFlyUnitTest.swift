@@ -77,7 +77,7 @@ class KidsFlyUnitTest: XCTestCase {
     func testAirportAPISearch() {
         let expectation = self.expectation(description: "Searching API for Airport")
         
-        flightController.searchForAirport(airportName: "San Fran"){ (error) in
+        flightController.searchForAirport(airportName: "Midway International - Chicago, IL"){ (error) in
             XCTAssertNil(error)
             expectation.fulfill()
         }

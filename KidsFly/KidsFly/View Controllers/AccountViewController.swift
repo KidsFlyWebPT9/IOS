@@ -17,6 +17,7 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var streetAdressTextField: UITextField!
     @IBOutlet weak var homeAirportTextField: UITextField!
+    // Number of kids not provided in backend but can use number of kids in the "special_needs" variable
     @IBOutlet weak var numberOfKidsSeg: UISegmentedControl!
     
     var travelerController: TravelerController?
@@ -37,9 +38,9 @@ class AccountViewController: UIViewController {
         
         guard let currentUser = travelerController.currentUser else { return }
         
-        nameTextField.text = currentUser.name
-        usernameTextField.text = currentUser.username
-        streetAdressTextField.text = currentUser.address
+        nameTextField.text = currentUser.name?.capitalized
+        usernameTextField.text = currentUser.username.capitalized
+        streetAdressTextField.text = currentUser.address?.capitalized
         
         guard let airportId = currentUser.airport_id else { return }
         let airportInt = Int(airportId)
@@ -50,8 +51,11 @@ class AccountViewController: UIViewController {
                     return
                 }
                 
+                guard let airport = self.flightController.airport else { return }
+                let airportNameString = "\(airport.name.capitalized) - \(airport.address.cityName.capitalized), \(airport.address.stateCode)"
+                
                 DispatchQueue.main.async {
-                    self.homeAirportTextField.text = self.flightController.airport?.name
+                    self.homeAirportTextField.text = airportNameString
                 }
             }
         }

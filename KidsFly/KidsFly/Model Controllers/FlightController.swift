@@ -42,7 +42,7 @@ class FlightController {
         }
         
         let searchTerm = airportName.replacingOccurrences(of: " ", with: "%20")
-        let aiportURLString = self.baseSearchURLString + searchTerm + "&view=LIGHT&page[limit]=1"
+        let aiportURLString = self.baseSearchURLString + searchTerm + "&page[limit]=1"
         let requestURL = URL(string: aiportURLString)!
         var request = URLRequest(url: requestURL)
         //            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
