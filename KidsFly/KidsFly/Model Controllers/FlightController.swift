@@ -16,8 +16,10 @@ class FlightController {
     private let apiAuthURL = URL(string: "https://test.api.amadeus.com/v1/security/oauth2/token")!
     private let clientId = "09pengtH6hfWAafoF4nOsQCt05V0At3i"
     private let clientKey = "oYeCs1KpGFJ8YYFm"
+    private let airportURL = URL(string: "https://kidsfly1.herokuapp.com/api/airports")!
     let keychain = Keychain()
     
+    var airportDatabase = [String : Int]()
     var airport: AirportData?
     
     func searchForAirport(airportName: String, completion: @escaping (Error?) -> Void) {
@@ -99,7 +101,7 @@ class FlightController {
                 completion(NetworkError.badData)
                 return
             }
-
+            
             let decoder = JSONDecoder()
             do {
                 let authResponse = try decoder.decode(AirportAuthResponse.self, from: data)
@@ -114,6 +116,43 @@ class FlightController {
         }.resume()
     }
     
+    
+    func getFullAirportDatabase(completion: @escaping (Error?) -> Void) {
+        
+        var request = URLRequest(url: airportURL)
+        request.httpMethod = HTTPMethod.get
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                print("Error getting Airport Database: \(error)")
+                completion(error)
+                return
+            }
+            
+            guard let data = data else { return }
+            
+            let decoder = JSONDecoder()
+            
+            do {
+                let airports = try decoder.decode([Airport].self, from: data)
+                var counter = 0
+                for airport in airports {
+                    self.airportDatabase[airport.iata_code] = counter
+                    counter += 1
+                }
+            } catch {
+                print("Error decoding airport database: \(error)")
+                completion(error)
+                return
+            }
+            completion(nil)
+        }.resume()
+    }
+    
+    func getIndex(airport: String, completion: @escaping (Error?) -> Void) {
+        print(airportDatabase[airport])
+        completion(nil)
+    }
     
     
 }

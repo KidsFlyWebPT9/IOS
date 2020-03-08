@@ -164,4 +164,38 @@ class KidsFlyUnitTest: XCTestCase {
         waitForExpectations(timeout: 10, handler: nil)
     }
     
+    func testGetAirportDatabase() {
+        let expectation = self.expectation(description: "Attempting to get airport database")
+        
+        flightController.getFullAirportDatabase { (error) in
+            XCTAssertNil(error)
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
+    func testGetAirportIndex() {
+        let expectation = self.expectation(description: "Searching for airport")
+        flightController.searchForAirport(airportName: "San Jose") { (error) in
+            XCTAssertNil(error)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10)
+        
+        let expectation2 = self.expectation(description: "Attempting to get airport database")
+        flightController.getFullAirportDatabase { (error) in
+            XCTAssertNil(error)
+            expectation2.fulfill()
+        }
+        wait(for: [expectation2], timeout: 10)
+
+        let expectation3 = self.expectation(description: "Getting airport ID")
+        flightController.getIndex(airport: "SJC") { (error) in
+            XCTAssertNil(error)
+            expectation3.fulfill()
+        }
+        wait(for: [expectation3], timeout: 10)
+    }
+    
 }
