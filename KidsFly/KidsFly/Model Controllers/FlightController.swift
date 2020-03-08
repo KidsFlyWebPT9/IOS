@@ -17,7 +17,7 @@ class FlightController {
     private let clientId = "09pengtH6hfWAafoF4nOsQCt05V0At3i"
     private let clientKey = "oYeCs1KpGFJ8YYFm"
     private let airportURL = URL(string: "https://kidsfly3.herokuapp.com/api/airports")!
-    
+    var accessToken: String?
     let keychain = Keychain()
     
     var persistentAirportURL: URL? {
@@ -35,68 +35,61 @@ class FlightController {
     
     func searchForAirport(airportName: String, completion: @escaping (Error?) -> Void) {
         
-        getAccessToken { (error) in
+        guard let accessToken = self.keychain["airport_access_token"] else {
+            print("Error: No airport API access token")
+            completion(nil)
+            return
+        }
+        
+        let searchTerm = airportName.replacingOccurrences(of: " ", with: "%20")
+        let aiportURLString = self.baseSearchURLString + searchTerm + "&view=LIGHT&page[limit]=1"
+        let requestURL = URL(string: aiportURLString)!
+        var request = URLRequest(url: requestURL)
+        //            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+        request.httpMethod = HTTPMethod.get
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
-                print("Error getting access token: \(error)")
+                print("Error occured while fetching aiport info: \(error)")
+                completion(error)
+                return
+            }
+            guard let data = data else {
+                print("No data returned from request")
+                completion(NetworkError.badData)
+                return
+            }
+            // TO-DO: Intermediate codable with coding keys for the returned json data
+            print(data)
+            
+            let decoder = JSONDecoder()
+            
+            do {
+                let airports = try decoder.decode(AirportSearchResponse.self, from: data)
+                if airports.data.count == 0 {
+                    completion(nil)
+                    return
+                } else {
+                    let airport = airports.data[0]
+                    print(airport)
+                    self.airport = airport
+                    self.iataCode = airport.iataCode
+                    // Discovered that Amadeus API returns local Chicago airport before chicago midway
+                    self.airportID = self.getIndex(using: airport.iataCode)
+                    
+                    print(self.airportID ?? 1)
+                }
+            } catch {
+                print("Error decoding Airport data: \(error)")
                 completion(error)
                 return
             }
             
-            guard let accessToken = self.keychain["airport_access_token"] else {
-                print("Error: No airport API access token")
-                completion(NetworkError.noAuth)
-                return
-            }
-            
-            let searchTerm = airportName.replacingOccurrences(of: " ", with: "%20")
-            let aiportURLString = self.baseSearchURLString + searchTerm + "&view=LIGHT&page[limit]=1"
-            let requestURL = URL(string: aiportURLString)!
-            var request = URLRequest(url: requestURL)
-            //            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-            request.httpMethod = HTTPMethod.get
-            
-            URLSession.shared.dataTask(with: request) { (data, _, error) in
-                if let error = error {
-                    print("Error occured while fetching aiport info: \(error)")
-                    completion(error)
-                    return
-                }
-                guard let data = data else {
-                    print("No data returned from request")
-                    completion(NetworkError.badData)
-                    return
-                }
-                // TO-DO: Intermediate codable with coding keys for the returned json data
-                print(data)
-                
-                let decoder = JSONDecoder()
-                
-                do {
-                    let airports = try decoder.decode(AirportSearchResponse.self, from: data)
-                    if airports.data.count == 0 {
-                        completion(nil)
-                        return
-                    } else {
-                        let airport = airports.data[0]
-                        print(airport)
-                        self.airport = airport
-                        self.iataCode = airport.iataCode
-                        // Discovered that Amadeus API returns local Chicago airport before chicago midway
-                        self.airportID = self.getIndex(using: airport.iataCode)
-                        
-                        print(self.airportID ?? 1)
-                    }
-                } catch {
-                    print("Error decoding Airport data: \(error)")
-                    completion(error)
-                    return
-                }
-                
-                completion(nil)
-            }.resume()
-        }
+            completion(nil)
+        }.resume()
     }
+
     
     
     func getAccessToken(completion: @escaping (Error?) -> Void) {

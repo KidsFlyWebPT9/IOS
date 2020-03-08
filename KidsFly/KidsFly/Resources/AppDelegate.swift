@@ -18,10 +18,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let flightController = FlightController()
         flightController.getFullAirportDatabase { (error) in
             if let error = error {
-                print("Error: loading Airport Database: \(error)")
+                print("Error loading Airport Database: \(error)")
                 return
             } else {
                 print("Successfully loaded Airport Database")
+            }
+        }
+        flightController.getAccessToken { (error) in
+            if let error = error {
+                print("Error getting Airport access key: \(error)")
+                return
+            } else {
+                print("Successfully loaded airport access key")
             }
         }
         return true
