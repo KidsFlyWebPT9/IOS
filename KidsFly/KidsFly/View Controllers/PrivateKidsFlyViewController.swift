@@ -36,6 +36,12 @@ class PrivateKidsFlyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        // Do any additional setup after loading the view.
+    }
+    
+    // Added for testing purposes but will need to refactor this
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         guard let travelerController = travelerController else { return }
         travelerController.getUserInfo { (error) in
             if let error = error {
@@ -45,9 +51,7 @@ class PrivateKidsFlyViewController: UIViewController {
             print("Loaded current user data")
             return
         }
-        // Do any additional setup after loading the view.
     }
-    
     
     // MARK: - Navigation
 
