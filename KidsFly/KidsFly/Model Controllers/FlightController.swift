@@ -168,6 +168,12 @@ class FlightController {
         return airportIndex
     }
     
+    func getAirportCode(using airportID: Int) -> String? {
+        loadAirportsFromPersitentStore()
+        let airportCode = airportDatabase.keysForValue(value: airportID)[0]
+        return airportCode
+    }
+    
     func saveAirportsToPersistentStore() {
         guard let fileURL = persistentAirportURL else { return }
         
@@ -193,4 +199,12 @@ class FlightController {
         }
     }
     
+}
+
+extension Dictionary where Value: Equatable {
+    func keysForValue(value: Value) -> [Key] {
+        return compactMap { (key: Key, val: Value) -> Key? in
+            value == val ? key : nil
+        }
+    }
 }

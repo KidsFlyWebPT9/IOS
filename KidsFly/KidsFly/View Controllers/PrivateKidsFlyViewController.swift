@@ -19,6 +19,7 @@ class PrivateKidsFlyViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     
     var travelerController: TravelerController?
+    var tripController = TripController()
     
     // 🚙 Suv
     // 🚗 Sedan
@@ -34,9 +35,35 @@ class PrivateKidsFlyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupViews()
+        guard let travelerController = travelerController else { return }
+        travelerController.getUserInfo { (error) in
+            if let error = error {
+                print("Couldn't load current user data: \(error)")
+                return
+            }
+            print("Loaded current user data")
+            return
+        }
         // Do any additional setup after loading the view.
+    }
+    
+    
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "EditAccountInfo" {
+            if let editAccountVC = segue.destination as? AccountViewController, let travelerController = travelerController {
+                editAccountVC.travelerController = travelerController
+            }
+        } else {
+            // if segue identifier is something else do it here
+        }
+        
+        
     }
     
     func setupViews() {
@@ -51,5 +78,12 @@ class PrivateKidsFlyViewController: UIViewController {
     @IBAction func signOutButtonTapped(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
     }
+    
+    @IBAction func accountButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "EditAccountInfo", sender: self)
+    }
+    
+    
+    
     
 }

@@ -240,12 +240,12 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Ibz-Hs-30L">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="34"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R8R-Wi-K9y">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R8R-Wi-K9y">
                                                 <rect key="frame" x="0.0" y="0.0" width="162" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kkH-dc-15I">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kkH-dc-15I">
                                                 <rect key="frame" x="192" y="0.0" width="162" height="34"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="TextFieldLastName"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -260,19 +260,8 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AEB-tb-t3T">
-                                <rect key="frame" x="30" y="268" width="162" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="162" id="Rhm-jz-o6U"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zip Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tbM-WB-wev">
-                                <rect key="frame" x="286" y="268" width="98" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="98" id="5jB-Gl-NuJ"/>
-                                </constraints>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Home Airport" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AEB-tb-t3T">
+                                <rect key="frame" x="30" y="268" width="354" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -295,11 +284,6 @@
                                     <segment title="8"/>
                                 </segments>
                             </segmentedControl>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="State" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cjZ-fr-uoa">
-                                <rect key="frame" x="208" y="268" width="62" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -307,18 +291,14 @@
                             <constraint firstItem="Pjd-1c-lrb" firstAttribute="top" secondItem="QPb-d9-IoJ" secondAttribute="top" constant="80" id="19A-XN-dhR"/>
                             <constraint firstItem="AEB-tb-t3T" firstAttribute="top" secondItem="Pjd-1c-lrb" secondAttribute="bottom" constant="16" id="52J-CZ-j7a"/>
                             <constraint firstItem="0TB-qj-5i0" firstAttribute="top" secondItem="AEB-tb-t3T" secondAttribute="bottom" constant="60" id="5oP-Im-RTb"/>
-                            <constraint firstItem="cjZ-fr-uoa" firstAttribute="top" secondItem="Pjd-1c-lrb" secondAttribute="bottom" constant="16" id="AZQ-AD-EnI"/>
                             <constraint firstItem="QPb-d9-IoJ" firstAttribute="trailing" secondItem="uty-Z3-Aby" secondAttribute="trailing" constant="30" id="J2S-F0-GJk"/>
+                            <constraint firstItem="AEB-tb-t3T" firstAttribute="trailing" secondItem="ERr-4c-qDO" secondAttribute="trailing" id="JCZ-YI-BCH"/>
                             <constraint firstItem="uty-Z3-Aby" firstAttribute="leading" secondItem="QPb-d9-IoJ" secondAttribute="leading" constant="30" id="KmA-1k-xaW"/>
-                            <constraint firstItem="tbM-WB-wev" firstAttribute="top" secondItem="Pjd-1c-lrb" secondAttribute="bottom" constant="16" id="MUW-g3-Sdu"/>
                             <constraint firstItem="QPb-d9-IoJ" firstAttribute="trailing" secondItem="0TB-qj-5i0" secondAttribute="trailing" constant="30" id="QJc-ei-fFr"/>
-                            <constraint firstItem="cjZ-fr-uoa" firstAttribute="leading" secondItem="AEB-tb-t3T" secondAttribute="trailing" constant="16" id="QLr-CG-JU7"/>
-                            <constraint firstItem="QPb-d9-IoJ" firstAttribute="trailing" secondItem="tbM-WB-wev" secondAttribute="trailing" constant="30" id="SLp-FZ-HQJ"/>
                             <constraint firstItem="QPb-d9-IoJ" firstAttribute="trailing" secondItem="Pjd-1c-lrb" secondAttribute="trailing" constant="30" id="TWT-fZ-LFn"/>
                             <constraint firstItem="Pjd-1c-lrb" firstAttribute="leading" secondItem="QPb-d9-IoJ" secondAttribute="leading" constant="30" id="Zpf-rS-EHJ"/>
                             <constraint firstItem="AEB-tb-t3T" firstAttribute="leading" secondItem="QPb-d9-IoJ" secondAttribute="leading" constant="30" id="eGd-NK-Mge"/>
                             <constraint firstItem="0TB-qj-5i0" firstAttribute="leading" secondItem="QPb-d9-IoJ" secondAttribute="leading" constant="30" id="s0f-XO-q1r"/>
-                            <constraint firstItem="tbM-WB-wev" firstAttribute="leading" secondItem="cjZ-fr-uoa" secondAttribute="trailing" constant="16" id="zLL-Sr-AuH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QPb-d9-IoJ"/>
                     </view>
@@ -330,13 +310,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cityTextField" destination="AEB-tb-t3T" id="Mfl-B8-yeg"/>
-                        <outlet property="firstNameTextField" destination="R8R-Wi-K9y" id="zqY-dD-aSl"/>
-                        <outlet property="lastNameTextField" destination="kkH-dc-15I" id="o0b-0M-UaF"/>
+                        <outlet property="homeAirportTextField" destination="AEB-tb-t3T" id="hsY-BJ-sb8"/>
+                        <outlet property="nameTextField" destination="R8R-Wi-K9y" id="Ok4-bN-ZuR"/>
                         <outlet property="numberOfKidsSeg" destination="uty-Z3-Aby" id="WpK-xu-eBd"/>
-                        <outlet property="stateTextField" destination="cjZ-fr-uoa" id="Ovt-Mc-v1x"/>
                         <outlet property="streetAdressTextField" destination="ERr-4c-qDO" id="CJA-EE-7Qy"/>
-                        <outlet property="zipcodeTextField" destination="tbM-WB-wev" id="T4P-SX-zKJ"/>
+                        <outlet property="usernameTextField" destination="kkH-dc-15I" id="VDi-bu-FPF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SPI-A7-hfe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -373,7 +351,7 @@
                                         <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                         <state key="normal" title="Account"/>
                                         <connections>
-                                            <segue destination="ZqQ-qQ-nkB" kind="show" id="Nk4-gh-3xw"/>
+                                            <action selector="accountButtonTapped:" destination="DFv-L1-Wy3" eventType="touchUpInside" id="UYm-mI-sP4"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8h3-nK-s6p">
@@ -446,6 +424,7 @@
                         <outlet property="newTripButton" destination="78m-kr-PcA" id="HXf-oO-Q7x"/>
                         <outlet property="quickCheckInButton" destination="eqm-6S-8zz" id="Eof-Ck-Qte"/>
                         <outlet property="upcomingTripButton" destination="8h3-nK-s6p" id="VHY-7X-wzR"/>
+                        <segue destination="ZqQ-qQ-nkB" kind="show" identifier="EditAccountInfo" id="dPQ-k3-q4o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3v1-Q5-jdu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

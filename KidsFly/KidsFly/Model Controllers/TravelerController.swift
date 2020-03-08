@@ -16,6 +16,7 @@ class TravelerController {
     var welcomeMessage: String?
     private let baseURL = URL(string: "https://kidsfly3.herokuapp.com/")!
     
+    var currentUser: UserRepresentation?
     
     // CREATE User
     func registerNewUser(user: UserRepresentation, completion: @escaping (Error?) -> Void) {
@@ -121,7 +122,6 @@ class TravelerController {
     func getUserInfo(completion: @escaping (Error?) -> Void) {
         guard let userID = keychain["user_id"], let token = keychain["user_token"] else { return }
         let welcomeMessageURL = self.baseURL.appendingPathComponent("api/users/\(userID)")
-        
         var request = URLRequest(url: welcomeMessageURL)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("\(token)", forHTTPHeaderField: "Authorization")
@@ -149,9 +149,7 @@ class TravelerController {
             do {
                 let user = try decoder.decode(UserRepresentation.self, from: data)
                 self.keychain["userInformation"] = String(data: data, encoding: .iso2022JP)
-                self.welcomeMessage = "Welcome User: \(user.username)"
-                print(user)
-                print(self.welcomeMessage ?? "welcome user!")
+                self.currentUser = user
             } catch {
                 print("Error decoding welcome message")
                 completion(NetworkError.noDecode)
