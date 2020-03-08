@@ -16,13 +16,28 @@ class FlightController {
     private let apiAuthURL = URL(string: "https://test.api.amadeus.com/v1/security/oauth2/token")!
     private let clientId = "09pengtH6hfWAafoF4nOsQCt05V0At3i"
     private let clientKey = "oYeCs1KpGFJ8YYFm"
-    private let airportURL = URL(string: "https://kidsfly1.herokuapp.com/api/airports")!
+    private let airportURL = URL(string: "https://kidsfly3.herokuapp.com/api/airports")!
     let keychain = Keychain()
+    
+    var persistentFileURL: URL? {
+        let fileManager = FileManager.default
+        // Find documents directory of the app
+        guard let docuemntsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+        let airportDBUrl = docuemntsDir.appendingPathComponent("airports.plist")
+        return airportDBUrl
+    }
     
     var airportDatabase = [String : Int]()
     var airport: AirportData?
     
     func searchForAirport(airportName: String, completion: @escaping (Error?) -> Void) {
+        
+        getFullAirportDatabase { (error) in
+            if let error = error {
+                print("Error getting airport database: \(error)")
+                return
+            }
+        }
         
         getAccessToken { (error) in
             if let error = error {
@@ -140,6 +155,7 @@ class FlightController {
                     self.airportDatabase[airport.iata_code] = counter
                     counter += 1
                 }
+                self.saveAirportsToPersistentStore()
             } catch {
                 print("Error decoding airport database: \(error)")
                 completion(error)
@@ -149,10 +165,37 @@ class FlightController {
         }.resume()
     }
     
-    func getIndex(airport: String, completion: @escaping (Error?) -> Void) {
-        print(airportDatabase[airport])
-        completion(nil)
+    func getIndex(airport: String) {
+        loadAirportsFromPersitentStore()
+        
+        if let airportIndex = airportDatabase[airport] {
+            print(airportIndex)
+        }
     }
     
+    func saveAirportsToPersistentStore() {
+        guard let fileURL = persistentFileURL else { return }
+        
+        do {
+            let encoder = PropertyListEncoder()
+            let airportData = try encoder.encode(airportDatabase)
+            try airportData.write(to: fileURL)
+        } catch {
+            print("Error encoding Airport Database: \(error)")
+        }
+    }
+    
+    func loadAirportsFromPersitentStore() {
+        guard let fileURL = persistentFileURL else { return }
+        
+        do {
+            let airportData = try Data(contentsOf: fileURL)
+            let decoder = PropertyListDecoder()
+            let airportDB = try decoder.decode([String : Int].self, from: airportData)
+            self.airportDatabase = airportDB
+        } catch {
+            print("Error decoding Airport Database; \(error)")
+        }
+    }
     
 }

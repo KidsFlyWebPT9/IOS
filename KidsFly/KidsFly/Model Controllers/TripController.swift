@@ -16,8 +16,9 @@ class TripController {
     
     var trips: [TripRepresentation] = []
     let travelerController = TravelerController()
+    let flightController = FlightController()
     
-    private let baseURL = URL(string: "https://kidsfly1.herokuapp.com/")!
+    private let baseURL = URL(string: "https://kidsfly3.herokuapp.com/")!
     
     
     func createNewTrip(_ trip: TripRepresentation, completion: @escaping (Error?) -> Void) {

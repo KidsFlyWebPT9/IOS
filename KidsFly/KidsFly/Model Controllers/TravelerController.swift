@@ -15,7 +15,7 @@ class TravelerController {
     let keychain = Keychain(service: "com.kidsfly.app")
     
     var welcomeMessage: String?
-    private let baseURL = URL(string: "https://kidsfly1.herokuapp.com/")!
+    private let baseURL = URL(string: "https://kidsfly3.herokuapp.com/")!
     
     
     // CREATE User

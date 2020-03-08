@@ -18,7 +18,7 @@ class KidsFlyUnitTest: XCTestCase {
     func testCreateNewUser() {
         let expectation = self.expectation(description: "Waiting to create user")
         
-        travelerController.registerNewUser(username: "testemail28@gmail.com", password: "PASSWORD123") { (error) in
+        travelerController.registerNewUser(username: "testemail29", password: "PASSWORD123") { (error) in
             XCTAssertNil(error)
             expectation.fulfill()
         }
@@ -29,7 +29,7 @@ class KidsFlyUnitTest: XCTestCase {
     func testLogIn() {
         let expectation = self.expectation(description: "Attempting to Sign In With User")
         
-        travelerController.signIn(username: "testemail28@gmail.com", password: "PASSWORD123") { (error) in
+        travelerController.signIn(username: "testemail28", password: "PASSWORD123") { (error) in
             XCTAssertNil(error)
             expectation.fulfill()
         }
@@ -175,27 +175,10 @@ class KidsFlyUnitTest: XCTestCase {
         waitForExpectations(timeout: 10, handler: nil)
     }
     
-    func testGetAirportIndex() {
-        let expectation = self.expectation(description: "Searching for airport")
-        flightController.searchForAirport(airportName: "San Jose") { (error) in
-            XCTAssertNil(error)
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 10)
-        
-        let expectation2 = self.expectation(description: "Attempting to get airport database")
-        flightController.getFullAirportDatabase { (error) in
-            XCTAssertNil(error)
-            expectation2.fulfill()
-        }
-        wait(for: [expectation2], timeout: 10)
-
-        let expectation3 = self.expectation(description: "Getting airport ID")
-        flightController.getIndex(airport: "SJC") { (error) in
-            XCTAssertNil(error)
-            expectation3.fulfill()
-        }
-        wait(for: [expectation3], timeout: 10)
+    func testGetAirportDatabaseIndex() {
+        flightController.getIndex(airport: "JFK")
     }
+    
+//   
     
 }
