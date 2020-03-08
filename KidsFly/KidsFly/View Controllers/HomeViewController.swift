@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var gifView: UIImageView!
     
-    var travelerController = TravelerController()
+    var travelerController: TravelerController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +27,7 @@ class HomeViewController: UIViewController {
 //        self.viewWillAppear(animated)
         gifView.loadGif(name: "giphy")
         setupViews() // load custom design
+        travelerController = TravelerController()
     }
     
     
