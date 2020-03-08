@@ -32,7 +32,6 @@
                                         <state key="normal" title="Sign Up"/>
                                         <connections>
                                             <action selector="signUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6pT-sA-S8Y"/>
-                                            <segue destination="BWU-49-7r9" kind="show" identifier="SignUpSegue" id="9zd-qc-HwN"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgr-0b-c2d">
@@ -41,7 +40,6 @@
                                         <state key="normal" title="Sign In"/>
                                         <connections>
                                             <action selector="signInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pBs-1A-Xnc"/>
-                                            <segue destination="Kg5-mu-PQo" kind="show" identifier="LogInSegue" id="y8K-dv-Nf2"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -73,6 +71,8 @@
                         <outlet property="gifView" destination="8Ik-cu-y7C" id="JDL-cF-wnb"/>
                         <outlet property="signInButton" destination="vgr-0b-c2d" id="RFZ-qt-SSa"/>
                         <outlet property="signUpButton" destination="74y-me-bIh" id="FdW-Yo-n0t"/>
+                        <segue destination="BWU-49-7r9" kind="show" identifier="SignUpSegue" id="epm-H6-0cR"/>
+                        <segue destination="Kg5-mu-PQo" kind="show" identifier="LogInSegue" id="HyE-bs-8Lw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -217,7 +217,7 @@
                     <navigationItem key="navigationItem" id="bUU-lK-n5I"/>
                     <connections>
                         <outlet property="emailText" destination="eEA-Uv-rt8" id="R4Q-yf-TBg"/>
-                        <outlet property="firstNameText" destination="UdC-1m-6s2" id="fZg-Ez-fOj"/>
+                        <outlet property="fullNameTextField" destination="UdC-1m-6s2" id="4DK-KU-v2W"/>
                         <outlet property="passwordText" destination="7OG-Re-IWk" id="fj3-RJ-nJw"/>
                         <outlet property="signUpButton" destination="5le-Xj-Kok" id="Myw-5P-kC7"/>
                     </connections>
@@ -625,6 +625,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kBD-XD-rcT"/>
+        <segue reference="n8b-o1-alc"/>
     </inferredMetricsTieBreakers>
 </document>

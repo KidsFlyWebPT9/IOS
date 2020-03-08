@@ -19,8 +19,7 @@ class TravelerController {
     
     
     // CREATE User
-    func registerNewUser(username: String, password: String, completion: @escaping (Error?) -> Void) {
-        let newUser = UserRepresentation(username: username, password: password)
+    func registerNewUser(user: UserRepresentation, completion: @escaping (Error?) -> Void) {
         let registerNewUserURL = baseURL.appendingPathComponent("api/auth/register")
         
         var request = URLRequest(url: registerNewUserURL)
@@ -29,7 +28,7 @@ class TravelerController {
         
         let encoder = JSONEncoder()
         do {
-            let data = try encoder.encode(newUser)
+            let data = try encoder.encode(user)
             request.httpBody = data
         } catch {
             print("Error encoding data: \(error)")
@@ -70,8 +69,7 @@ class TravelerController {
     
     
     // READ User
-    func signIn(username: String, password: String, completion: @escaping (Error?) -> Void) {
-        let user = UserRepresentation(username: username, password: password)
+    func signIn(user: UserRepresentation, completion: @escaping (Error?) -> Void) {
         let signInURL = baseURL.appendingPathComponent("api/auth/login")
         
         var request = URLRequest(url: signInURL)
