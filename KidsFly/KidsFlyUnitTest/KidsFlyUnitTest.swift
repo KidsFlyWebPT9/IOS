@@ -87,6 +87,8 @@ class KidsFlyUnitTest: XCTestCase {
     func testCreateNewTrip() {
         let expectation = self.expectation(description: "Attempting to create a trip")
         
+        
+        
         let trip = TripRepresentation(user_id: 6, airport_id: 6, departure_time: "11:27AM")
 
         tripController.createNewTrip(trip) { (error) in
@@ -176,7 +178,18 @@ class KidsFlyUnitTest: XCTestCase {
     }
     
     func testGetAirportDatabaseIndex() {
-        flightController.getIndex(airport: "JFK")
+        flightController.getIndex(using: "CHI")
+    }
+    
+    func testSearchAndFindAirportIndex() {
+        let expectation = self.expectation(description: "Searching for airport and ID")
+        
+        flightController.searchForAirport(airportName: "Chicago Mid") { (error) in
+            XCTAssertNil(error)
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
     }
     
 //   

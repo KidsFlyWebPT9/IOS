@@ -15,6 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let flightController = FlightController()
+        flightController.getFullAirportDatabase { (error) in
+            if let error = error {
+                print("Error: loading Airport Database: \(error)")
+                return
+            } else {
+                print("Successfully loaded Airport Database")
+            }
+        }
         return true
     }
 

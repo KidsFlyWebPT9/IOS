@@ -17,9 +17,10 @@ class FlightController {
     private let clientId = "09pengtH6hfWAafoF4nOsQCt05V0At3i"
     private let clientKey = "oYeCs1KpGFJ8YYFm"
     private let airportURL = URL(string: "https://kidsfly3.herokuapp.com/api/airports")!
+    
     let keychain = Keychain()
     
-    var persistentFileURL: URL? {
+    var persistentAirportURL: URL? {
         let fileManager = FileManager.default
         // Find documents directory of the app
         guard let docuemntsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
@@ -27,17 +28,12 @@ class FlightController {
         return airportDBUrl
     }
     
+    var iataCode: String?
+    var airportID: Int?
     var airportDatabase = [String : Int]()
     var airport: AirportData?
     
     func searchForAirport(airportName: String, completion: @escaping (Error?) -> Void) {
-        
-        getFullAirportDatabase { (error) in
-            if let error = error {
-                print("Error getting airport database: \(error)")
-                return
-            }
-        }
         
         getAccessToken { (error) in
             if let error = error {
@@ -85,6 +81,11 @@ class FlightController {
                         let airport = airports.data[0]
                         print(airport)
                         self.airport = airport
+                        self.iataCode = airport.iataCode
+                        // Discovered that Amadeus API returns local Chicago airport before chicago midway
+                        self.airportID = self.getIndex(using: airport.iataCode)
+                        
+                        print(self.airportID ?? 1)
                     }
                 } catch {
                     print("Error decoding Airport data: \(error)")
@@ -165,16 +166,17 @@ class FlightController {
         }.resume()
     }
     
-    func getIndex(airport: String) {
+    func getIndex(using airportCode: String) -> Int? {
         loadAirportsFromPersitentStore()
-        
-        if let airportIndex = airportDatabase[airport] {
-            print(airportIndex)
+        guard let airportIndex = airportDatabase[airportCode] else {
+            return nil
         }
+        self.airportID = airportIndex
+        return airportIndex
     }
     
     func saveAirportsToPersistentStore() {
-        guard let fileURL = persistentFileURL else { return }
+        guard let fileURL = persistentAirportURL else { return }
         
         do {
             let encoder = PropertyListEncoder()
@@ -186,7 +188,7 @@ class FlightController {
     }
     
     func loadAirportsFromPersitentStore() {
-        guard let fileURL = persistentFileURL else { return }
+        guard let fileURL = persistentAirportURL else { return }
         
         do {
             let airportData = try Data(contentsOf: fileURL)
