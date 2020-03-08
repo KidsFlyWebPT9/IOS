@@ -18,6 +18,8 @@ class PrivateKidsFlyViewController: UIViewController {
     @IBOutlet weak var quickCheckInButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     
+    var travelerController: TravelerController?
+    
     // 🚙 Suv
     // 🚗 Sedan
     // 🚐 Van

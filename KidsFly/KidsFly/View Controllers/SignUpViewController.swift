@@ -63,6 +63,7 @@ class SignUpViewController: UIViewController {
                         //temp navigate
                         DispatchQueue.main.async {
                             guard let privateKidsFlyVC = self.storyboard?.instantiateViewController(withIdentifier: "PrivateKidsFlyVC") as? PrivateKidsFlyViewController else { return }
+                            privateKidsFlyVC.travelerController = travelerController
                             self.navigationController?.pushViewController(privateKidsFlyVC, animated: true)
                             self.view.window?.makeKeyAndVisible()
                         }
