@@ -20,3 +20,7 @@ struct AirportData: Codable {
     var name: String
     var iataCode: String
 }
+
+struct Airport: Codable, Equatable {
+    var iata_code: String
+}

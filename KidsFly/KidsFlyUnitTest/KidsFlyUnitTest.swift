@@ -18,7 +18,7 @@ class KidsFlyUnitTest: XCTestCase {
     func testCreateNewUser() {
         let expectation = self.expectation(description: "Waiting to create user")
         
-        travelerController.registerNewUser(username: "testemail28@gmail.com", password: "PASSWORD123") { (error) in
+        travelerController.registerNewUser(username: "testemail29", password: "PASSWORD123") { (error) in
             XCTAssertNil(error)
             expectation.fulfill()
         }
@@ -29,7 +29,7 @@ class KidsFlyUnitTest: XCTestCase {
     func testLogIn() {
         let expectation = self.expectation(description: "Attempting to Sign In With User")
         
-        travelerController.signIn(username: "testemail28@gmail.com", password: "PASSWORD123") { (error) in
+        travelerController.signIn(username: "testemail28", password: "PASSWORD123") { (error) in
             XCTAssertNil(error)
             expectation.fulfill()
         }
@@ -86,6 +86,8 @@ class KidsFlyUnitTest: XCTestCase {
     
     func testCreateNewTrip() {
         let expectation = self.expectation(description: "Attempting to create a trip")
+        
+        
         
         let trip = TripRepresentation(user_id: 6, airport_id: 6, departure_time: "11:27AM")
 
@@ -163,5 +165,33 @@ class KidsFlyUnitTest: XCTestCase {
         }
         waitForExpectations(timeout: 10, handler: nil)
     }
+    
+    func testGetAirportDatabase() {
+        let expectation = self.expectation(description: "Attempting to get airport database")
+        
+        flightController.getFullAirportDatabase { (error) in
+            XCTAssertNil(error)
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
+    func testGetAirportDatabaseIndex() {
+        flightController.getIndex(using: "CHI")
+    }
+    
+    func testSearchAndFindAirportIndex() {
+        let expectation = self.expectation(description: "Searching for airport and ID")
+        
+        flightController.searchForAirport(airportName: "Chicago Mid") { (error) in
+            XCTAssertNil(error)
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
+//   
     
 }
