@@ -15,6 +15,7 @@ class QuickCheckInViewController: UIViewController {
     @IBOutlet weak var colorSegment: UISegmentedControl!
     @IBOutlet weak var doneButton: UIButton!
     
+    var delegate: PresentNotificationDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +39,8 @@ class QuickCheckInViewController: UIViewController {
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {
-        
-        self.presentKFAlertOnMainThread(title: "Thank you!", message: KFError.doneTraveling.rawValue, buttonTitle: "Ok")
-        
-        //temp navigate
         navigationController?.popViewController(animated: true)
+        delegate?.presentNotification(message: KFError.doneTraveling)
     }
     
 

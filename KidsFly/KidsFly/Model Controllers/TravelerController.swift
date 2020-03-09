@@ -8,6 +8,7 @@
 
 import Foundation
 import KeychainAccess
+import CoreData
 
 
 class TravelerController {
@@ -148,10 +149,10 @@ class TravelerController {
             print(data)
             do {
                 let user = try decoder.decode(UserRepresentation.self, from: data)
-                self.keychain["userInformation"] = String(data: data, encoding: .iso2022JP)
+//                self.keychain["userInformation"] = String(data: data, encoding: .iso2022JP)
                 self.currentUser = user
             } catch {
-                print("Error decoding welcome message")
+                print("Error decoding user data")
                 completion(NetworkError.noDecode)
                 return
             }

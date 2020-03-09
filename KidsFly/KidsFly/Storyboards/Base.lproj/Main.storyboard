@@ -434,7 +434,7 @@
                                 <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                 <state key="normal" title="Quick Check In"/>
                                 <connections>
-                                    <segue destination="3Vr-11-0eV" kind="show" id="LGJ-bW-H7Y"/>
+                                    <action selector="checkInButtonTapped:" destination="DFv-L1-Wy3" eventType="touchUpInside" id="L5m-aK-7xO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -471,6 +471,7 @@
                         <outlet property="quickCheckInButton" destination="eqm-6S-8zz" id="Eof-Ck-Qte"/>
                         <outlet property="upcomingTripButton" destination="8h3-nK-s6p" id="VHY-7X-wzR"/>
                         <segue destination="ZqQ-qQ-nkB" kind="show" identifier="EditAccountInfo" id="dPQ-k3-q4o"/>
+                        <segue destination="3Vr-11-0eV" kind="show" identifier="CheckInSegue" id="j77-wX-kkT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3v1-Q5-jdu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

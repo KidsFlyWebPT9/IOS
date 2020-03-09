@@ -23,7 +23,8 @@ class AccountViewController: UIViewController {
     var airportID: Int?
     var travelerController: TravelerController?
     var flightController = FlightController()
-    var delegate: LoadUserDataDelegate?
+    var loadUserDelegate: LoadUserDataDelegate?
+    var presentNotificationDelegate: PresentNotificationDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,9 +103,9 @@ class AccountViewController: UIViewController {
             }
             
             DispatchQueue.main.async {
-                self.presentKFAlertOnMainThread(title: "Thank you!", message: KFError.profileUpdated.rawValue, buttonTitle: "Ok")
                 self.navigationController?.popViewController(animated: true)
-                self.delegate?.loadUserData()
+                self.presentNotificationDelegate?.presentNotification(message: KFError.profileUpdated)
+                self.loadUserDelegate?.loadUserData()
             }
         }
 //        //temp navigate
