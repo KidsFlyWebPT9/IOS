@@ -42,9 +42,7 @@ class QuickCheckInViewController: UIViewController {
         self.presentKFAlertOnMainThread(title: "Thank you!", message: KFError.doneTraveling.rawValue, buttonTitle: "Ok")
         
         //temp navigate
-        guard let privateKidsFlyVC = self.storyboard?.instantiateViewController(withIdentifier: "PrivateKidsFlyVC") as? PrivateKidsFlyViewController else { return }
-        self.navigationController?.pushViewController(privateKidsFlyVC, animated: true)
-        self.view.window?.makeKeyAndVisible()
+        navigationController?.popViewController(animated: true)
     }
     
 

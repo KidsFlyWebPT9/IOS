@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PrivateKidsFlyViewController: UIViewController {
+class PrivateKidsFlyViewController: UIViewController, LoadUserDataDelegate {
 
     // Outlets
     @IBOutlet weak var accountButton: UIButton!
@@ -35,6 +35,7 @@ class PrivateKidsFlyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadUserData()
         setupViews()
         // Do any additional setup after loading the view.
     }
@@ -42,15 +43,6 @@ class PrivateKidsFlyViewController: UIViewController {
     // 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        guard let travelerController = travelerController else { return }
-        travelerController.getUserInfo { (error) in
-            if let error = error {
-                print("Couldn't load current user data: \(error)")
-                return
-            }
-            print("Loaded current user data")
-            return
-        }
     }
     
     // MARK: - Navigation
@@ -62,9 +54,11 @@ class PrivateKidsFlyViewController: UIViewController {
         if segue.identifier == "EditAccountInfo" {
             if let editAccountVC = segue.destination as? AccountViewController, let travelerController = travelerController {
                 editAccountVC.travelerController = travelerController
+                editAccountVC.delegate = self
             }
         } else {
             // if segue identifier is something else do it here
+            
         }
         
         
@@ -76,6 +70,20 @@ class PrivateKidsFlyViewController: UIViewController {
         Utilities.styleFilledButton(newTripButton)
         Utilities.styleFilledButton(kidsButton)
         Utilities.styleHollowButton(quickCheckInButton)
+        
+        nameLabel.isHidden = true
+    }
+    
+    func loadUserData() {
+        guard let travelerController = travelerController else { return }
+        travelerController.getUserInfo { (error) in
+            if let error = error {
+                print("Couldn't load current user data: \(error)")
+                return
+            }
+            print("Loaded current user data")
+            return
+        }
     }
     
 // Sign out button 
@@ -90,4 +98,8 @@ class PrivateKidsFlyViewController: UIViewController {
     
     
     
+}
+
+protocol LoadUserDataDelegate {
+    func loadUserData()
 }
