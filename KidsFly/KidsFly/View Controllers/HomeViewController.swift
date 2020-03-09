@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var gifView: UIImageView!
     
+    var travelerController: TravelerController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +27,28 @@ class HomeViewController: UIViewController {
 //        self.viewWillAppear(animated)
         gifView.loadGif(name: "giphy")
         setupViews() // load custom design
+        travelerController = TravelerController()
     }
     
+    
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "SignUpSegue" {
+            if let signUpVC = segue.destination as? SignUpViewController {
+                signUpVC.travelerController = travelerController
+            }
+        } else if segue.identifier == "LogInSegue" {
+            if let signInVC = segue.destination as? SignInViewController {
+                signInVC.travelerController = travelerController
+            }
+        }
+    }
+    
+    //MARK: - UI Set-Up
     // custom design - sign in and sign up
     func setupViews() {
         Utilities.styleFilledButton(signUpButton)
@@ -35,6 +56,17 @@ class HomeViewController: UIViewController {
         
     }
 
+    //MARK: - Button Actions
+    
+    
+    @IBAction func signUpButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "SignUpSegue", sender: self)
+    }
+    
+    @IBAction func signInButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "LogInSegue", sender: self)
+    }
+    
 
 }
 

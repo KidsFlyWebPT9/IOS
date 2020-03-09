@@ -13,8 +13,7 @@ class SignUpViewController: UIViewController {
 
     // Outlets
     @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var firstNameText: UITextField!
-//    @IBOutlet weak var lastNameText: UITextField!
+    @IBOutlet weak var fullNameTextField: UITextField!
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     
@@ -39,24 +38,40 @@ class SignUpViewController: UIViewController {
     
     func setupViews() {
         Utilities.styleFilledButton(signUpButton)
-        Utilities.styleTextField(firstNameText)
-//        Utilities.styleTextField(lastNameText)
+        Utilities.styleTextField(fullNameTextField)
         Utilities.styleTextField(emailText)
         Utilities.styleTextField(passwordText)
-        
     }
     
     
     @IBAction func signUpButtonTapped(_ sender: Any) {
         
-        //temp navigate
-        guard let privateKidsFlyVC = self.storyboard?.instantiateViewController(withIdentifier: "PrivateKidsFlyVC") as? PrivateKidsFlyViewController else { return }
-        self.navigationController?.pushViewController(privateKidsFlyVC, animated: true)
-        self.view.window?.makeKeyAndVisible()
+        guard let fullName = fullNameTextField.text, let username = emailText.text, let password = passwordText.text, let travelerController = travelerController else { return }
+        
+        let newUser = UserRepresentation(username: username, password: password, name: fullName)
+        
+        travelerController.registerNewUser(user: newUser, completion: { (error) in
+            if let error = error {
+                print("Error registering new user: \(error)")
+                return
+            } else {
+                print("Successfully created user")
+                travelerController.signIn(user: newUser) { (error) in
+                    if let error = error {
+                        print("Error signing newly created user in: \(error)")
+                    } else {
+                        //temp navigate
+                        DispatchQueue.main.async {
+                            guard let privateKidsFlyVC = self.storyboard?.instantiateViewController(withIdentifier: "PrivateKidsFlyVC") as? PrivateKidsFlyViewController else { return }
+                            privateKidsFlyVC.travelerController = travelerController
+                            self.navigationController?.pushViewController(privateKidsFlyVC, animated: true)
+                            self.view.window?.makeKeyAndVisible()
+                        }
+                    }
+                }
+            }
+        })
     }
-        
-        
-        // temp
         
         
     

@@ -19,8 +19,14 @@ struct AirportSearchResponse: Codable {
 struct AirportData: Codable {
     var name: String
     var iataCode: String
+    var address: Address
 }
 
 struct Airport: Codable, Equatable {
     var iata_code: String
+}
+
+struct Address: Codable {
+    var cityName: String
+    var stateCode: String
 }

@@ -15,26 +15,26 @@ class KidsFlyUnitTest: XCTestCase {
     let flightController = FlightController()
     let tripController = TripController()
 
-    func testCreateNewUser() {
-        let expectation = self.expectation(description: "Waiting to create user")
-        
-        travelerController.registerNewUser(username: "testemail29", password: "PASSWORD123") { (error) in
-            XCTAssertNil(error)
-            expectation.fulfill()
-        }
-        waitForExpectations(timeout: 10, handler: nil)
-    }
-    
-    
-    func testLogIn() {
-        let expectation = self.expectation(description: "Attempting to Sign In With User")
-        
-        travelerController.signIn(username: "testemail28", password: "PASSWORD123") { (error) in
-            XCTAssertNil(error)
-            expectation.fulfill()
-        }
-        self.waitForExpectations(timeout: 10, handler: nil)
-    }
+//    func testCreateNewUser() {
+//        let expectation = self.expectation(description: "Waiting to create user")
+//
+//        travelerController.registerNewUser(username: "testemail29", password: "PASSWORD123") { (error) in
+//            XCTAssertNil(error)
+//            expectation.fulfill()
+//        }
+//        waitForExpectations(timeout: 10, handler: nil)
+//    }
+//
+//
+//    func testLogIn() {
+//        let expectation = self.expectation(description: "Attempting to Sign In With User")
+//
+//        travelerController.signIn(username: "testemail28", password: "PASSWORD123") { (error) in
+//            XCTAssertNil(error)
+//            expectation.fulfill()
+//        }
+//        self.waitForExpectations(timeout: 10, handler: nil)
+//    }
 
     func testGetUser() {
         let expectation = self.expectation(description: "Getting welcome message")
@@ -77,7 +77,7 @@ class KidsFlyUnitTest: XCTestCase {
     func testAirportAPISearch() {
         let expectation = self.expectation(description: "Searching API for Airport")
         
-        flightController.searchForAirport(airportName: "San Fran"){ (error) in
+        flightController.searchForAirport(airportName: "Midway International - Chicago, IL"){ (error) in
             XCTAssertNil(error)
             expectation.fulfill()
         }
@@ -178,7 +178,7 @@ class KidsFlyUnitTest: XCTestCase {
     }
     
     func testGetAirportDatabaseIndex() {
-        flightController.getIndex(using: "CHI")
+        flightController.getIndex(using: "SFO")
     }
     
     func testSearchAndFindAirportIndex() {

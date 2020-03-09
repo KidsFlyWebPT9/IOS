@@ -13,14 +13,13 @@ import KeychainAccess
 class TravelerController {
     
     let keychain = Keychain(service: "com.kidsfly.app")
-    
     var welcomeMessage: String?
     private let baseURL = URL(string: "https://kidsfly3.herokuapp.com/")!
     
+    var currentUser: UserRepresentation?
     
     // CREATE User
-    func registerNewUser(username: String, password: String, completion: @escaping (Error?) -> Void) {
-        let newUser = UserRepresentation(username: username, password: password)
+    func registerNewUser(user: UserRepresentation, completion: @escaping (Error?) -> Void) {
         let registerNewUserURL = baseURL.appendingPathComponent("api/auth/register")
         
         var request = URLRequest(url: registerNewUserURL)
@@ -29,7 +28,7 @@ class TravelerController {
         
         let encoder = JSONEncoder()
         do {
-            let data = try encoder.encode(newUser)
+            let data = try encoder.encode(user)
             request.httpBody = data
         } catch {
             print("Error encoding data: \(error)")
@@ -70,8 +69,7 @@ class TravelerController {
     
     
     // READ User
-    func signIn(username: String, password: String, completion: @escaping (Error?) -> Void) {
-        let user = UserRepresentation(username: username, password: password)
+    func signIn(user: UserRepresentation, completion: @escaping (Error?) -> Void) {
         let signInURL = baseURL.appendingPathComponent("api/auth/login")
         
         var request = URLRequest(url: signInURL)
@@ -124,7 +122,6 @@ class TravelerController {
     func getUserInfo(completion: @escaping (Error?) -> Void) {
         guard let userID = keychain["user_id"], let token = keychain["user_token"] else { return }
         let welcomeMessageURL = self.baseURL.appendingPathComponent("api/users/\(userID)")
-        
         var request = URLRequest(url: welcomeMessageURL)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("\(token)", forHTTPHeaderField: "Authorization")
@@ -152,9 +149,7 @@ class TravelerController {
             do {
                 let user = try decoder.decode(UserRepresentation.self, from: data)
                 self.keychain["userInformation"] = String(data: data, encoding: .iso2022JP)
-                self.welcomeMessage = "Welcome User: \(user.username)"
-                print(user)
-                print(self.welcomeMessage ?? "welcome user!")
+                self.currentUser = user
             } catch {
                 print("Error decoding welcome message")
                 completion(NetworkError.noDecode)
@@ -167,12 +162,13 @@ class TravelerController {
     // UPDATE User
     func updateUser(user: UserRepresentation, completion: @escaping (Error?) -> Void) {
         
-        guard let userID = self.keychain["user_id"] else { return }
-        let registerNewUserURL = baseURL.appendingPathComponent("api/users/\(userID)")
+        guard let userID = self.keychain["user_id"], let userToken = self.keychain["user_token"] else { return }
+        let updateUserURL = baseURL.appendingPathComponent("api/users/\(userID)")
         
-        var request = URLRequest(url: registerNewUserURL)
+        var request = URLRequest(url: updateUserURL)
         request.httpMethod = HTTPMethod.put
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(userToken, forHTTPHeaderField: "Authorization")
         
         let encoder = JSONEncoder()
         do {
@@ -190,8 +186,8 @@ class TravelerController {
                 return
             }
             if let response = response as? HTTPURLResponse,
-            response.statusCode != 201 {
-                print("HTTP Response error when attempting to register new user: \(response.statusCode)")
+            response.statusCode != 200 {
+                print("HTTP Response error when attempting to edit new user: \(response.statusCode)")
                 completion(NetworkError.otherError)
                 return
             }

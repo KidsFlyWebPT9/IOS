@@ -42,7 +42,7 @@ class FlightController {
         }
         
         let searchTerm = airportName.replacingOccurrences(of: " ", with: "%20")
-        let aiportURLString = self.baseSearchURLString + searchTerm + "&view=LIGHT&page[limit]=1"
+        let aiportURLString = self.baseSearchURLString + searchTerm + "&page[limit]=1"
         let requestURL = URL(string: aiportURLString)!
         var request = URLRequest(url: requestURL)
         //            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -168,6 +168,12 @@ class FlightController {
         return airportIndex
     }
     
+    func getAirportCode(using airportID: Int) -> String? {
+        loadAirportsFromPersitentStore()
+        let airportCode = airportDatabase.keysForValue(value: airportID)[0]
+        return airportCode
+    }
+    
     func saveAirportsToPersistentStore() {
         guard let fileURL = persistentAirportURL else { return }
         
@@ -193,4 +199,12 @@ class FlightController {
         }
     }
     
+}
+
+extension Dictionary where Value: Equatable {
+    func keysForValue(value: Value) -> [Key] {
+        return compactMap { (key: Key, val: Value) -> Key? in
+            value == val ? key : nil
+        }
+    }
 }
