@@ -35,8 +35,9 @@ class AccountViewController: UIViewController {
         Utilities.styleTextField(streetAdressTextField)
         Utilities.styleTextField(homeAirportTextField)
         
-        guard let travelerController = travelerController else { return }
         
+        
+        guard let travelerController = travelerController else { return }
         guard let currentUser = travelerController.currentUser else { return }
         
         nameTextField.text = currentUser.name?.capitalized
@@ -45,6 +46,7 @@ class AccountViewController: UIViewController {
         
         guard let airportId = currentUser.airport_id else { return }
         let airportInt = Int(airportId)
+        self.airportID = airportInt
         if let airportCode = flightController.getAirportCode(using: airportInt) {
             flightController.searchForAirport(airportName: airportCode) { (error) in
                 if let error = error {
@@ -75,9 +77,34 @@ class AccountViewController: UIViewController {
     // Save
     
     @IBAction func saveButtonTapped(_ sender: Any) {
+        guard let travelerController = travelerController,
+            let airportID = airportID,
+            let name = nameTextField.text,
+            let address = streetAdressTextField.text,
+            var userToEdit = travelerController.currentUser else { return }
         
-        self.presentKFAlertOnMainThread(title: "Thank you!", message: KFError.profileUpdated.rawValue, buttonTitle: "Ok")
-        self.navigationController?.popViewController(animated: true)
+
+        if name.count != 0 {
+            userToEdit.name = name
+        }
+        if address.count != 0 {
+            userToEdit.address = address
+        }
+        
+        let airportInt = Int16(airportID)
+        userToEdit.airport_id = airportInt
+        
+        travelerController.updateUser(user: userToEdit) { (error) in
+            if let error = error {
+                print("Error updating user: \(error)")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.presentKFAlertOnMainThread(title: "Thank you!", message: KFError.profileUpdated.rawValue, buttonTitle: "Ok")
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
 //        //temp navigate
 //        guard let privateKidsFlyVC = self.storyboard?.instantiateViewController(withIdentifier: "PrivateKidsFlyVC") as? PrivateKidsFlyViewController else { return }
 //        self.navigationController?.pushViewController(privateKidsFlyVC, animated: true)

@@ -162,12 +162,13 @@ class TravelerController {
     // UPDATE User
     func updateUser(user: UserRepresentation, completion: @escaping (Error?) -> Void) {
         
-        guard let userID = self.keychain["user_id"] else { return }
-        let registerNewUserURL = baseURL.appendingPathComponent("api/users/\(userID)")
+        guard let userID = self.keychain["user_id"], let userToken = self.keychain["user_token"] else { return }
+        let updateUserURL = baseURL.appendingPathComponent("api/users/\(userID)")
         
-        var request = URLRequest(url: registerNewUserURL)
+        var request = URLRequest(url: updateUserURL)
         request.httpMethod = HTTPMethod.put
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(userToken, forHTTPHeaderField: "Authorization")
         
         let encoder = JSONEncoder()
         do {
@@ -185,8 +186,8 @@ class TravelerController {
                 return
             }
             if let response = response as? HTTPURLResponse,
-            response.statusCode != 201 {
-                print("HTTP Response error when attempting to register new user: \(response.statusCode)")
+            response.statusCode != 200 {
+                print("HTTP Response error when attempting to edit new user: \(response.statusCode)")
                 completion(NetworkError.otherError)
                 return
             }

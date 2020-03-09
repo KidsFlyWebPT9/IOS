@@ -39,7 +39,7 @@ class PrivateKidsFlyViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    // Added for testing purposes but will need to refactor this
+    // 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         guard let travelerController = travelerController else { return }
