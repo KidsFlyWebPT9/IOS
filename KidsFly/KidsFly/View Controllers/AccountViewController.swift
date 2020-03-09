@@ -20,6 +20,7 @@ class AccountViewController: UIViewController {
     // Number of kids not provided in backend but can use number of kids in the "special_needs" variable
     @IBOutlet weak var numberOfKidsSeg: UISegmentedControl!
     
+    var airportID: Int?
     var travelerController: TravelerController?
     var flightController = FlightController()
     
@@ -83,5 +84,20 @@ class AccountViewController: UIViewController {
 //        self.view.window?.makeKeyAndVisible()
     }
     
-
+    
+    @IBAction func searchForAirportTapped(_ sender: Any) {
+        guard let searchTerm = homeAirportTextField.text, !searchTerm.isEmpty else { return }
+        
+        flightController.searchForAirport(airportName: searchTerm) { (error) in
+            self.airportID = self.flightController.airportID
+            guard let airport = self.flightController.airport else { return }
+            let airportNameString = "\(airport.name.capitalized) - \(airport.address.cityName.capitalized), \(airport.address.stateCode)"
+            
+            DispatchQueue.main.async {
+                self.homeAirportTextField.text = airportNameString
+            }
+        }
+        
+    }
+    
 }
