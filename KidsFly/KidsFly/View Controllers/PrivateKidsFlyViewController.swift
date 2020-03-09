@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PrivateKidsFlyViewController: UIViewController, LoadUserDataDelegate {
+class PrivateKidsFlyViewController: UIViewController, LoadUserDataDelegate, PresentNotificationDelegate {
 
     // Outlets
     @IBOutlet weak var accountButton: UIButton!
@@ -54,11 +54,13 @@ class PrivateKidsFlyViewController: UIViewController, LoadUserDataDelegate {
         if segue.identifier == "EditAccountInfo" {
             if let editAccountVC = segue.destination as? AccountViewController, let travelerController = travelerController {
                 editAccountVC.travelerController = travelerController
-                editAccountVC.delegate = self
+                editAccountVC.loadUserDelegate = self
+                editAccountVC.presentNotificationDelegate = self
             }
-        } else {
-            // if segue identifier is something else do it here
-            
+        } else if segue.identifier == "CheckInSegue" {
+            if let checkInVC = segue.destination as? QuickCheckInViewController {
+                checkInVC.delegate = self
+            }
         }
         
         
@@ -74,6 +76,9 @@ class PrivateKidsFlyViewController: UIViewController, LoadUserDataDelegate {
         nameLabel.isHidden = true
     }
     
+    
+    // MARK: - Protocol Methods
+    
     func loadUserData() {
         guard let travelerController = travelerController else { return }
         travelerController.getUserInfo { (error) in
@@ -86,7 +91,14 @@ class PrivateKidsFlyViewController: UIViewController, LoadUserDataDelegate {
         }
     }
     
-// Sign out button 
+    func presentNotification(message: KFError) {
+        self.presentKFAlertOnMainThread(title: "Thank you!", message: message.rawValue, buttonTitle: "Ok")
+        // 
+    }
+    
+    
+    // MARK: - Button Actions
+    
     @IBAction func signOutButtonTapped(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
     }
@@ -95,11 +107,18 @@ class PrivateKidsFlyViewController: UIViewController, LoadUserDataDelegate {
         self.performSegue(withIdentifier: "EditAccountInfo", sender: self)
     }
     
-    
+    @IBAction func checkInButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "CheckInSegue", sender: self)
+    }
     
     
 }
 
+
 protocol LoadUserDataDelegate {
     func loadUserData()
+}
+
+protocol PresentNotificationDelegate {
+    func presentNotification(message: KFError)
 }

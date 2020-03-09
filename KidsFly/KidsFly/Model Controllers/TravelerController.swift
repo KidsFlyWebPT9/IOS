@@ -8,6 +8,7 @@
 
 import Foundation
 import KeychainAccess
+import CoreData
 
 
 class TravelerController {
@@ -16,7 +17,8 @@ class TravelerController {
     var welcomeMessage: String?
     private let baseURL = URL(string: "https://kidsfly3.herokuapp.com/")!
     
-    var currentUser: UserRepresentation?
+    var currentUser: User?
+    var currentUserRep: UserRepresentation?
     
     // CREATE User
     func registerNewUser(user: UserRepresentation, completion: @escaping (Error?) -> Void) {
@@ -54,8 +56,8 @@ class TravelerController {
             }
             let decoder = JSONDecoder()
             do {
-                let user = try decoder.decode(UserRepresentation.self, from: data)
-                if let userID = user.id {
+                let userRep = try decoder.decode(UserRepresentation.self, from: data)
+                if let userID = userRep.id {
                     self.keychain["user_id"] = "\(userID)"
                     print("Successfully created user with ID: \(userID)")
                 }
@@ -147,11 +149,11 @@ class TravelerController {
             let decoder = JSONDecoder()
             print(data)
             do {
-                let user = try decoder.decode(UserRepresentation.self, from: data)
-                self.keychain["userInformation"] = String(data: data, encoding: .iso2022JP)
-                self.currentUser = user
+                let userRep = try decoder.decode(UserRepresentation.self, from: data)
+//                self.keychain["userInformation"] = String(data: data, encoding: .iso2022JP)
+                self.currentUserRep = userRep
             } catch {
-                print("Error decoding welcome message")
+                print("Error decoding user data")
                 completion(NetworkError.noDecode)
                 return
             }
@@ -198,11 +200,15 @@ class TravelerController {
             }
             let decoder = JSONDecoder()
             do {
-                let user = try decoder.decode(UserRepresentation.self, from: data)
-                if let userID = user.id {
+                let userRep = try decoder.decode(UserRepresentation.self, from: data)
+                if let userID = userRep.id {
                     self.keychain["user_id"] = "\(userID)"
                     print("Successfully updated user with ID: \(userID)")
                 }
+                self.currentUserRep = userRep
+//                if let _ = self.convertToUser(userRep: userRep) {
+//                    self.saveToPersistentStore()
+//                }
             } catch {
                 completion(NetworkError.noDecode)
                 print("Error decoding user information")
@@ -255,6 +261,40 @@ class TravelerController {
 //        }.resume()
 //    }
 //
+    
+    
+    // MARK: - Core Data Methods
+    
+    func saveToPersistentStore() {
+        let moc = CoreDataStack.shared.mainContext
+        do {
+            try moc.save()
+        } catch {
+            print("Error saving data to persistent store: \(error)")
+        }
+    }
+    
+    func fetchUserInfo(completion: (Error?) -> Void) {
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        let moc = CoreDataStack.shared.mainContext
+        do {
+            let user = try moc.fetch(fetchRequest)
+            self.currentUser = user.last
+            completion(nil)
+        } catch {
+            print("Error fetching user from persistent store: \(error)")
+            completion(error)
+        }
+    }
+    
+    func convertToUser(userRep: UserRepresentation) -> User? {
+        if let user = User(userRepresentation: userRep) {
+            return user
+        } else {
+            return nil
+        }
+    }
+    
     
 }
 

@@ -23,7 +23,8 @@ class AccountViewController: UIViewController {
     var airportID: Int?
     var travelerController: TravelerController?
     var flightController = FlightController()
-    var delegate: LoadUserDataDelegate?
+    var loadUserDelegate: LoadUserDataDelegate?
+    var presentNotificationDelegate: PresentNotificationDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,7 @@ class AccountViewController: UIViewController {
         
         
         guard let travelerController = travelerController else { return }
-        guard let currentUser = travelerController.currentUser else { return }
+        guard let currentUser = travelerController.currentUserRep else { return }
         
         nameTextField.text = currentUser.name?.capitalized
         usernameTextField.text = currentUser.username.capitalized
@@ -82,9 +83,8 @@ class AccountViewController: UIViewController {
             let airportID = airportID,
             let name = nameTextField.text,
             let address = streetAdressTextField.text,
-            var userToEdit = travelerController.currentUser else { return }
+            var userToEdit = travelerController.currentUserRep else { return }
         
-
         if name.count != 0 {
             userToEdit.name = name
         }
@@ -102,9 +102,9 @@ class AccountViewController: UIViewController {
             }
             
             DispatchQueue.main.async {
-                self.presentKFAlertOnMainThread(title: "Thank you!", message: KFError.profileUpdated.rawValue, buttonTitle: "Ok")
                 self.navigationController?.popViewController(animated: true)
-                self.delegate?.loadUserData()
+                self.presentNotificationDelegate?.presentNotification(message: KFError.profileUpdated)
+                self.loadUserDelegate?.loadUserData()
             }
         }
 //        //temp navigate

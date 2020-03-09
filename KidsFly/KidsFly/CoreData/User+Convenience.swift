@@ -32,7 +32,7 @@ extension User {
         self.phone = phone
     }
 
-    @discardableResult convenience init?(userRepresentation: UserRepresentation, context: NSManagedObjectContext) {
+    @discardableResult convenience init?(userRepresentation: UserRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         guard let id = userRepresentation.id,
             let image = userRepresentation.image,
