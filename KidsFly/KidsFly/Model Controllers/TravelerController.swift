@@ -61,6 +61,7 @@ class TravelerController {
                     self.keychain["user_id"] = "\(userID)"
                     print("Successfully created user with ID: \(userID)")
                 }
+                self.saveToPersistentStore()
             } catch {
                 completion(NetworkError.noDecode)
                 print("Error decoding user information")
@@ -110,6 +111,7 @@ class TravelerController {
                 let token = bearer.token
                 self.keychain["user_token"] = "\(token)"
                 print(token)
+                self.saveToPersistentStore()
             } catch {
                 print("Error decoding bearer object: \(error)")
                 completion(error)
@@ -269,6 +271,7 @@ class TravelerController {
         let moc = CoreDataStack.shared.mainContext
         do {
             try moc.save()
+            print("Saved data to persistent store")
         } catch {
             print("Error saving data to persistent store: \(error)")
         }
@@ -278,20 +281,12 @@ class TravelerController {
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
         let moc = CoreDataStack.shared.mainContext
         do {
-            let user = try moc.fetch(fetchRequest)
-            self.currentUser = user.last
+            let users = try moc.fetch(fetchRequest)
+            self.currentUser = users.last
             completion(nil)
         } catch {
             print("Error fetching user from persistent store: \(error)")
             completion(error)
-        }
-    }
-    
-    func convertToUser(userRep: UserRepresentation) -> User? {
-        if let user = User(userRepresentation: userRep) {
-            return user
-        } else {
-            return nil
         }
     }
     

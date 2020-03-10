@@ -85,6 +85,16 @@ class AccountViewController: UIViewController {
             let address = streetAdressTextField.text,
             var userToEdit = travelerController.currentUserRep else { return }
         
+        //        travelerController.fetchUserInfo { (error) in
+        //            if let error = error {
+        //                print("Error fetching user info: \(error)")
+        //                return
+        //            }
+        //        }
+        
+        let airportInt = Int16(airportID)
+        userToEdit.airport_id = airportInt
+        
         if name.count != 0 {
             userToEdit.name = name
         }
@@ -92,8 +102,7 @@ class AccountViewController: UIViewController {
             userToEdit.address = address
         }
         
-        let airportInt = Int16(airportID)
-        userToEdit.airport_id = airportInt
+        
         
         travelerController.updateUser(user: userToEdit) { (error) in
             if let error = error {
@@ -107,11 +116,14 @@ class AccountViewController: UIViewController {
                 self.loadUserDelegate?.loadUserData()
             }
         }
+        
+    }
+        
+        
 //        //temp navigate
 //        guard let privateKidsFlyVC = self.storyboard?.instantiateViewController(withIdentifier: "PrivateKidsFlyVC") as? PrivateKidsFlyViewController else { return }
 //        self.navigationController?.pushViewController(privateKidsFlyVC, animated: true)
 //        self.view.window?.makeKeyAndVisible()
-    }
     
     
     @IBAction func searchForAirportTapped(_ sender: Any) {
