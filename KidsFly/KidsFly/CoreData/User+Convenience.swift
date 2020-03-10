@@ -11,24 +11,28 @@ import CoreData
 
 extension User {
     
-    @discardableResult convenience init(id: Int16,
+    @discardableResult convenience init(
+                                        id: Int16? = nil,
                                         username: String,
                                         password: String,
-                                        image: String,
-                                        name: String,
-                                        address: String,
-                                        airport_id: Int16,
-                                        phone: String,
+                                        image: String? = nil,
+                                        name: String? = nil,
+                                        address: String? = nil,
+                                        airport_id: Int16? = nil,
+                                        phone: String? = nil,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
-        
         self.init(context: context)
-        self.id = id
+        if let id = id {
+            self.id = id
+        }
         self.username = username
         self.password = password
         self.image = image
         self.name = name
         self.address = address
-        self.airport_id = airport_id
+        if let airport_id = airport_id {
+            self.airport_id = airport_id
+        }
         self.phone = phone
     }
 
