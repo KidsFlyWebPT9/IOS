@@ -9,12 +9,12 @@
 import Foundation
 
 struct UserRepresentation: Equatable, Codable {
-    var id: Int16?
+    var id: Int16? = nil
     var username: String
     var password: String
-    var image: String?
-    var name: String?
-    var address: String?
-    var airport_id: Int16?
-    var phone: String?
+    var image: String? = nil
+    var name: String? = nil
+    var address: String? = nil
+    var airport_id: Int16? = nil
+    var phone: String? = nil
 }

@@ -35,7 +35,7 @@ class SignInViewController: UIViewController {
     @IBAction func signInButtonTapped(_ sender: Any) {
         guard let username = emailSItext.text, let password = paswordSItext.text, let travelerController = travelerController else { return }
         
-        let user = User(username: username, password: password)
+        let user = UserRepresentation(username: username, password: password)
         
         travelerController.signIn(user: user) { (error) in
             if let error = error {

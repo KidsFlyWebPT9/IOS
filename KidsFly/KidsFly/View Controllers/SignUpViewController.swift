@@ -48,7 +48,7 @@ class SignUpViewController: UIViewController {
         
         guard let fullName = fullNameTextField.text, let username = emailText.text, let password = passwordText.text, let travelerController = travelerController else { return }
         
-        let newUser = User(username: username, password: password, name: fullName)
+        let newUser = UserRepresentation(username: username, password: password, name: fullName)
         
         travelerController.registerNewUser(user: newUser, completion: { (error) in
             if let error = error {
