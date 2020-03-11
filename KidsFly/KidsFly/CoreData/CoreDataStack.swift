@@ -6,7 +6,7 @@ class CoreDataStack {
     
     lazy var container: NSPersistentContainer = {
        let container = NSPersistentContainer(name: "KidsFly")
-        container.loadPersistentStores { _, error in
+        container.loadPersistentStores { (_, error) in
             if let error = error {
                 fatalError("Failed to load persistent stores: \(error)")
             }
@@ -19,17 +19,15 @@ class CoreDataStack {
         return container.viewContext
     }
     
-    func save(context: NSManagedObjectContext =
-        CoreDataStack.shared.mainContext) throws {
-        var error: Error?
+    func save(context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         context.performAndWait {
             do {
                 try context.save()
-            } catch let saveError {
-                error = saveError
+            } catch {
+                NSLog("Unable to save context: \(error)")
+                context.reset()
             }
         }
-        if let error = error { throw error }
     }
 }
