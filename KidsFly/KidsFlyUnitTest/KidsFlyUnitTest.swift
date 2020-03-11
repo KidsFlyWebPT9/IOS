@@ -15,26 +15,30 @@ class KidsFlyUnitTest: XCTestCase {
     let flightController = FlightController()
     let tripController = TripController()
 
-//    func testCreateNewUser() {
-//        let expectation = self.expectation(description: "Waiting to create user")
-//
-//        travelerController.registerNewUser(username: "testemail29", password: "PASSWORD123") { (error) in
-//            XCTAssertNil(error)
-//            expectation.fulfill()
-//        }
-//        waitForExpectations(timeout: 10, handler: nil)
-//    }
-//
-//
-//    func testLogIn() {
-//        let expectation = self.expectation(description: "Attempting to Sign In With User")
-//
-//        travelerController.signIn(username: "testemail28", password: "PASSWORD123") { (error) in
-//            XCTAssertNil(error)
-//            expectation.fulfill()
-//        }
-//        self.waitForExpectations(timeout: 10, handler: nil)
-//    }
+    func testCreateNewUser() {
+        let expectation = self.expectation(description: "Waiting to create user")
+        
+        let user = UserRepresentation(username: "testemail31", password: "PASSWORD123")
+
+        travelerController.registerNewUser(user: user) { (error) in
+            XCTAssertNil(error)
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+
+
+    func testLogIn() {
+        let expectation = self.expectation(description: "Attempting to Sign In With User")
+        
+         let user = UserRepresentation(username: "testemail30", password: "PASSWORD123")
+
+        travelerController.signIn(user: user) { (error) in
+            XCTAssertNil(error)
+            expectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 10, handler: nil)
+    }
 
     func testGetUser() {
         let expectation = self.expectation(description: "Getting welcome message")
@@ -77,7 +81,7 @@ class KidsFlyUnitTest: XCTestCase {
     func testAirportAPISearch() {
         let expectation = self.expectation(description: "Searching API for Airport")
         
-        flightController.searchForAirport(airportName: "Midway International - Chicago, IL"){ (error) in
+        flightController.searchForAirport(airportName: "Midway International"){ (error) in
             XCTAssertNil(error)
             expectation.fulfill()
         }
@@ -89,7 +93,7 @@ class KidsFlyUnitTest: XCTestCase {
         
         
         
-        let trip = TripRepresentation(user_id: 6, airport_id: 6, departure_time: "11:27AM")
+         let trip = TripRepresentation(id: 11, user_id: 6, airport_id: 8, departure_time: "12:04PM")
 
         tripController.createNewTrip(trip) { (error) in
             XCTAssertNil(error)
@@ -110,7 +114,7 @@ class KidsFlyUnitTest: XCTestCase {
     
     func testUpdateTrip() {
         let expectation = self.expectation(description: "Attempting to update trip")
-        let trip = TripRepresentation(id: 11, user_id: 6, airport_id: 8, departure_time: "12:04PM")
+        let trip = TripRepresentation(id: 11, user_id: 62, airport_id: 8, departure_time: "12:04PM")
         
         tripController.updateTrip(trip) { (error) in
             XCTAssertNil(error)
@@ -154,17 +158,17 @@ class KidsFlyUnitTest: XCTestCase {
     }
     
     
-    func testGetSingleTripByID() {
-        let expectation = self.expectation(description: "Attempting to get trip")
-        
-        let trip = TripRepresentation(id: 28, user_id: 6, airport_id: 6, departure_time: "11:27AM")
-        
-        tripController.getSingleTrip(trip: trip) { (error) in
-            XCTAssertNil(error)
-            expectation.fulfill()
-        }
-        waitForExpectations(timeout: 10, handler: nil)
-    }
+//    func testGetSingleTripByID() {
+//        let expectation = self.expectation(description: "Attempting to get trip")
+//
+//        let trip = TripRepresentation(id: 11, user_id: 62, airport_id: 8, departure_time: "12:04PM")
+//
+//        tripController.getSingleTrip(trip: trip) { (error) in
+//            XCTAssertNil(error)
+//            expectation.fulfill()
+//        }
+//        waitForExpectations(timeout: 10, handler: nil)
+//    }
     
     func testGetAirportDatabase() {
         let expectation = self.expectation(description: "Attempting to get airport database")
